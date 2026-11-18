@@ -1,0 +1,2502 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Petualangan Seru 6 Perubahan Wujud Zat | Kelas 4 SD</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
+
+:root {
+  --ink: #1e293b;
+  --sky-blue: #38bdf8;
+  --dark-blue: #0284c7;
+  --sun-orange: #f97316;
+  --leaf-green: #10b981;
+  --star-yellow: #facc15;
+  --ice-bg: #e0f2fe;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Fredoka', sans-serif;
+  color: var(--ink);
+  background: linear-gradient(135deg, #fef08a 0%, #e0f2fe 50%, #dcfce7 100%);
+  min-height: 100vh;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+/* DECORATIVE FLOATING BUBBLES */
+.bg-bubble {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  animation: floatUp 15s infinite linear;
+}
+@keyframes floatUp {
+  0% { transform: translateY(105vh) scale(0.8); opacity: 0; }
+  20% { opacity: 0.5; }
+  80% { opacity: 0.5; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+.wrap {
+  width: min(1000px, calc(100% - 24px));
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 30px;
+}
+
+/* HEADER CUTE */
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 4px solid #bae6fd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.15);
+}
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-avatar {
+  width: 46px;
+  height: 46px;
+  background: #fef08a;
+  border: 3px solid #ca8a04;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  box-shadow: 0 4px 0 #ca8a04;
+}
+.brand-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0369a1;
+  margin: 0;
+}
+.brand-sub {
+  font-size: 12px;
+  color: #ea580c;
+  background: #ffedd5;
+  padding: 1px 8px;
+  border-radius: 99px;
+  font-weight: 600;
+}
+
+.sound-btn {
+  background: #f0fdf4;
+  border: 3px solid #86efac;
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  color: #15803d;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #86efac;
+}
+.sound-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #86efac;
+}
+
+/* MASCOT BANNER (SUPER COMPACT) */
+.mascot-strip {
+  background: white;
+  border: 3.5px solid #fed7aa;
+  border-radius: 20px;
+  padding: 12px 18px;
+  margin: 16px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 5px 0 #fed7aa;
+}
+.mascot-face {
+  font-size: 40px;
+  flex-shrink: 0;
+  animation: wiggle 3s infinite ease-in-out;
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+.mascot-text {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.4;
+}
+.mascot-text strong { color: #ea580c; }
+
+/* NAV BUTTONS */
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.nav-tab {
+  background: white;
+  border: 3.5px solid #cbd5e1;
+  border-radius: 18px;
+  padding: 10px 6px;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #cbd5e1;
+  transition: all 0.15s;
+}
+.nav-tab:hover {
+  border-color: #38bdf8;
+  color: #0284c7;
+  transform: translateY(-2px);
+}
+.nav-tab.active {
+  background: #38bdf8;
+  border-color: #0284c7;
+  color: white;
+  box-shadow: 0 5px 0 #0284c7;
+  transform: translateY(-2px);
+}
+
+/* PANELS */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.main-card {
+  background: white;
+  border: 4px solid #bae6fd;
+  border-radius: 28px;
+  padding: clamp(16px, 3vw, 26px);
+  box-shadow: 0 8px 0 #bae6fd, 0 16px 28px rgba(2, 132, 199, 0.08);
+  margin-bottom: 20px;
+}
+
+/* ========================================================
+   PANEL 1: BUTIRAN AJAIB (MINIMAL TEXT, MAXIMUM FUN)
+   ======================================================== */
+.lens-box {
+  background: #f0f9ff;
+  border: 4px solid #0284c7;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 6px 0 #0284c7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: auto;
+}
+.lens-badge {
+  background: white;
+  border: 2px solid #38bdf8;
+  border-radius: 99px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0369a1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+canvas#particleCanvas {
+  width: 100%;
+  height: 240px;
+  border-radius: 20px;
+  background: radial-gradient(circle, #ffffff 0%, #e0f2fe 100%);
+  border: 3px solid #7dd3fc;
+}
+.slider-container {
+  width: 100%;
+  margin-top: 14px;
+  background: white;
+  border: 3px solid #cbd5e1;
+  border-radius: 18px;
+  padding: 10px 16px;
+}
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.slider-labels span:first-child { color: #0284c7; }
+.slider-labels span:last-child { color: #ea580c; }
+.heat-range {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 16px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #38bdf8 0%, #facc15 50%, #f97316 100%);
+  border: 2px solid #cbd5e1;
+  outline: none;
+  cursor: pointer;
+}
+.heat-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  border: 4px solid #f97316;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+  cursor: grab;
+}
+
+/* ========================================================
+   PANEL 2: LAB 6 PERUBAHAN WUJUD (VISUAL-FIRST & ACCURATE)
+   ======================================================== */
+.wujud-nav {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.wujud-btn {
+  background: white;
+  border: 3px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 8px 4px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 0 #cbd5e1;
+  transition: all 0.15s;
+}
+.wujud-btn:hover {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
+}
+.wujud-btn.active {
+  background: #fef08a;
+  border-color: #eab308;
+  color: #854d0e;
+  box-shadow: 0 4px 0 #ca8a04;
+  transform: translateY(-2px);
+}
+.wujud-btn .w-icon { font-size: 24px; }
+
+/* THE BIG PLAYGROUND THEATER */
+.stage-card {
+  background: #f0fdf4;
+  border: 4px solid #bbf7d0;
+  border-radius: 26px;
+  padding: 18px;
+  box-shadow: 0 6px 0 #bbf7d0;
+}
+
+/* TOP MINI BADGES (SUPER CLEAN) */
+.stage-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 99px;
+}
+.badge-flow {
+  background: white;
+  border: 2px solid #cbd5e1;
+  color: #334155;
+}
+.badge-heat-hot {
+  background: #ffedd5;
+  border: 2px solid #fed7aa;
+  color: #c2410c;
+}
+.badge-heat-cold {
+  background: #e0f2fe;
+  border: 2px solid #bae6fd;
+  color: #0369a1;
+}
+.badge-example {
+  background: #fef9c3;
+  border: 2px solid #fde047;
+  color: #854d0e;
+}
+
+/* CARTOON VIEWPORT */
+.viewport-screen {
+  background: white;
+  border: 4px solid #bae6fd;
+  border-radius: 22px;
+  padding: 16px;
+  min-height: 250px;
+  box-shadow: 0 5px 0 #bae6fd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* COMIC SPEECH BUBBLE OVER OBJECT */
+.speech-bubble {
+  position: absolute;
+  top: 12px;
+  background: #fff;
+  border: 2.5px solid #0284c7;
+  border-radius: 18px;
+  padding: 6px 14px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0369a1;
+  box-shadow: 0 3px 0 #e0f2fe;
+  z-index: 5;
+  text-align: center;
+  max-width: 90%;
+  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes popIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* DRAG DROP BENCH & ACTION BUTTONS */
+.interactive-controls {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tools-shelf {
+  background: white;
+  border: 3px dashed #cbd5e1;
+  border-radius: 18px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.tool-drag-chip {
+  background: #f8fafc;
+  border: 3px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 8px 18px;
+  font-size: 14.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: grab;
+  box-shadow: 0 4px 0 #cbd5e1;
+  transition: all 0.15s;
+}
+.tool-drag-chip.chip-heat {
+  border-color: #fb923c;
+  color: #c2410c;
+  box-shadow: 0 4px 0 #fdba74;
+}
+.tool-drag-chip.chip-cold {
+  border-color: #38bdf8;
+  color: #0369a1;
+  box-shadow: 0 4px 0 #7dd3fc;
+}
+.tool-drag-chip:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+.tool-drag-chip.dragging {
+  opacity: 0.35;
+  transform: scale(0.92);
+}
+
+.btn-action-heat {
+  background: #f97316;
+  border: none;
+  border-radius: 16px;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #c2410c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.btn-action-heat:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #c2410c;
+}
+.btn-action-cold {
+  background: #0284c7;
+  border: none;
+  border-radius: 16px;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #0369a1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.btn-action-cold:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #0369a1;
+}
+.btn-reset-stage {
+  background: white;
+  border: 3px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 10px 24px;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
+}
+.btn-reset-stage:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+.btn-reset-stage:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #cbd5e1;
+}
+
+/* ========================================================
+   PANEL 3: GAME KERANJANG KALOR (DRAG / CLICK)
+   ======================================================== */
+.game-top-bar {
+  background: #e0f2fe;
+  border: 3px solid #7dd3fc;
+  border-radius: 18px;
+  padding: 12px 18px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.score-pill {
+  background: #facc15;
+  border: 2.5px solid #ca8a04;
+  border-radius: 99px;
+  padding: 6px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #713f12;
+  box-shadow: 0 3px 0 #ca8a04;
+  white-space: nowrap;
+}
+
+.baskets-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.basket-card {
+  min-height: 220px;
+  border-radius: 22px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s;
+}
+.basket-hot {
+  background: #fff7ed;
+  border: 3.5px dashed #fb923c;
+  box-shadow: 0 5px 0 #fed7aa;
+}
+.basket-hot.over {
+  background: #fed7aa;
+  border-color: #ea580c;
+  transform: scale(1.02);
+}
+.basket-cold {
+  background: #f0f9ff;
+  border: 3.5px dashed #38bdf8;
+  box-shadow: 0 5px 0 #bae6fd;
+}
+.basket-cold.over {
+  background: #bae6fd;
+  border-color: #0284c7;
+  transform: scale(1.02);
+}
+.basket-header {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.basket-hot .basket-header { color: #ea580c; }
+.basket-cold .basket-header { color: #0284c7; }
+.basket-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cards-container {
+  background: white;
+  border: 3px solid #cbd5e1;
+  border-radius: 20px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 10px;
+}
+.game-card-item {
+  background: white;
+  border: 3px solid #94a3b8;
+  border-radius: 16px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: grab;
+  box-shadow: 0 4px 0 #cbd5e1;
+  transition: all 0.15s;
+}
+.game-card-item:hover {
+  border-color: #0284c7;
+  transform: translateY(-2px);
+}
+.game-card-item.correct {
+  background: #f0fdf4;
+  border-color: #10b981;
+  color: #166534;
+  box-shadow: 0 3px 0 #86efac;
+  cursor: default;
+}
+.game-card-item.shake {
+  animation: shakeMe 0.4s ease;
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+@keyframes shakeMe {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* ========================================================
+   PANEL 4: GAME TARIK GARIS (MATCHING CHALLENGE)
+   ======================================================== */
+.match-arena-box {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(250px, 310px) minmax(250px, 310px);
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 820px;
+  margin: 14px auto;
+  padding: 16px 8px;
+}
+svg#matchSvgOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  overflow: visible;
+}
+#activeDragLine {
+  stroke: #f97316;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 8 5;
+}
+.match-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 2;
+}
+.match-card {
+  background: white;
+  border: 3px solid #cbd5e1;
+  border-radius: 20px;
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 4px 0 #cbd5e1;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+  min-height: 58px;
+}
+.match-col#colLeftEvents .match-card {
+  padding-right: 24px;
+}
+.match-col#colRightTargets .match-card {
+  padding-left: 24px;
+}
+.match-card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+}
+.match-card.selected {
+  border-color: #f97316;
+  background: #fff7ed;
+  box-shadow: 0 4px 0 #f97316, 0 0 0 3px rgba(249, 115, 22, 0.25);
+}
+.match-card.matched {
+  border-color: #10b981;
+  background: #f0fdf4;
+  color: #166534;
+  box-shadow: 0 3px 0 #86efac;
+  cursor: default;
+}
+.pin-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 4px solid #94a3b8;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+.pin-dot.left-pin {
+  right: -11px;
+  border-color: #f97316;
+}
+.pin-dot.right-pin {
+  left: -11px;
+  border-color: #0284c7;
+}
+.match-card.selected .pin-dot {
+  background: #f97316;
+  transform: translateY(-50%) scale(1.3);
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.8);
+}
+.match-card.matched .pin-dot {
+  background: #10b981;
+  border-color: #10b981;
+}
+.match-card.shake {
+  animation: shakeLine 0.4s ease;
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+@keyframes shakeLine {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+@media(max-width: 768px) {
+  .match-arena-box {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 100%;
+  }
+  .match-col {
+    gap: 12px;
+  }
+  .match-card {
+    padding: 10px 14px;
+    font-size: 12.5px;
+    min-height: 52px;
+  }
+}
+@media(max-width: 520px) {
+  .match-arena-box {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .pin-dot.left-pin { right: 8px; }
+  .pin-dot.right-pin { left: 8px; }
+}
+
+/* HOMESCREEN / HALAMAN DEPAN */
+.screen-view {
+  animation: fadeInScreen 0.35s ease forwards;
+}
+@keyframes fadeInScreen {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.homescreen-card {
+  background: white;
+  border: 4px solid #bae6fd;
+  border-radius: 32px;
+  padding: clamp(24px, 4vw, 44px);
+  box-shadow: 0 10px 0 #bae6fd, 0 20px 40px rgba(2, 132, 199, 0.12);
+  text-align: center;
+  max-width: 820px;
+  margin: 18px auto 24px;
+  position: relative;
+  overflow: hidden;
+}
+.homescreen-mascot {
+  font-size: 76px;
+  margin-bottom: 6px;
+  animation: cuteBounce 2.5s infinite ease-in-out;
+  display: inline-block;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
+}
+.homescreen-title {
+  font-size: clamp(26px, 4.5vw, 38px);
+  font-weight: 700;
+  color: #0369a1;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+}
+.homescreen-badge {
+  display: inline-block;
+  background: #ffedd5;
+  color: #ea580c;
+  border: 2px solid #fed7aa;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 99px;
+  margin-bottom: 16px;
+}
+.homescreen-desc {
+  font-size: 16px;
+  color: #475569;
+  max-width: 620px;
+  margin: 0 auto 22px;
+  line-height: 1.5;
+}
+.homescreen-name-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.input-student-name {
+  background: #f8fafc;
+  border: 3px solid #cbd5e1;
+  border-radius: 18px;
+  padding: 12px 18px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+  width: min(100%, 280px);
+  text-align: center;
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+.input-student-name:focus {
+  border-color: #38bdf8;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+}
+.btn-start-game {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: white;
+  border: none;
+  border-radius: 22px;
+  padding: 16px 42px;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #c2410c, 0 12px 24px rgba(234, 88, 12, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.15s;
+  animation: pulseBig 2s infinite alternate ease-in-out;
+}
+@keyframes pulseBig {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.04); }
+}
+.btn-start-game:active {
+  transform: translateY(3px) scale(0.98);
+  box-shadow: 0 2px 0 #c2410c;
+}
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+  text-align: left;
+}
+.preview-item {
+  background: #f0fdf4;
+  border: 2px solid #bbf7d0;
+  border-radius: 18px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 3px 0 #bbf7d0;
+}
+.preview-item-icon { font-size: 24px; }
+.preview-item-title { font-size: 13.5px; font-weight: 700; color: #15803d; }
+.preview-item-desc { font-size: 11.5px; color: #475569; line-height: 1.35; }
+
+@media(max-width: 768px) {
+  .preview-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width: 480px) {
+  .preview-grid { grid-template-columns: 1fr; }
+}
+
+/* CELEBRATION MODAL */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  display: none;
+  place-items: center;
+  padding: 16px;
+}
+.modal-mask.show { display: grid; }
+.modal-popup {
+  background: white;
+  border-radius: 30px;
+  border: 5px solid #facc15;
+  padding: 26px 20px;
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.modal-stars { font-size: 48px; margin-bottom: 6px; }
+.modal-heading { font-size: 24px; font-weight: 700; margin: 0 0 4px; }
+.modal-score-num { font-size: 38px; font-weight: 700; color: #10b981; margin: 4px 0 10px; }
+.modal-message { font-size: 14.5px; color: #475569; margin-bottom: 18px; line-height: 1.4; }
+
+#confettiCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+@media(max-width: 768px) {
+  .wujud-nav { grid-template-columns: repeat(3, 1fr); }
+  .nav-grid { grid-template-columns: repeat(2, 1fr); }
+  .baskets-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="confettiCanvas"></canvas>
+
+<!-- FLOATING BUBBLES -->
+<div class="bg-bubble" style="width:70px;height:70px;background:#38bdf8;left:6%;animation-delay:0s;"></div>
+<div class="bg-bubble" style="width:90px;height:90px;background:#facc15;left:35%;animation-delay:4s;"></div>
+<div class="bg-bubble" style="width:80px;height:80px;background:#4ade80;left:68%;animation-delay:7s;"></div>
+
+<header>
+  <div class="wrap header-row">
+    <div class="brand-group" id="brandGroupBtn" style="cursor:pointer;" title="Kembali ke Beranda">
+      <div class="brand-avatar">🧪</div>
+      <div>
+        <h1 class="brand-title">Lab Wujud Cilik</h1>
+        <span class="brand-sub">IPAS Kelas 4 SD</span>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="sound-btn" id="btnGoHome" style="display:none;background:#fef08a;border-color:#ca8a04;color:#713f12;box-shadow:0 3px 0 #ca8a04;">
+        <span style="font-size:15px;">🏠</span> <span>Beranda</span>
+      </button>
+      <button class="sound-btn" id="soundBtn">
+        <span id="soundIcon">🔊</span> <span id="soundText">Suara Nyala</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- SCREEN 1: HOMESCREEN / HALAMAN DEPAN -->
+  <div id="screen-home" class="screen-view">
+    <div class="homescreen-card">
+      <div class="homescreen-mascot">🦊</div>
+      <div class="homescreen-badge">IPAS Kelas 4 SD · Kurikulum Merdeka</div>
+      <h1 class="homescreen-title">Petualangan Lab Wujud Zat</h1>
+      <p class="homescreen-desc">
+        Halo Sahabat Peneliti Cilik! Pernahkah kamu melihat es krim yang meleleh, atau air yang menjadi es batu? Ayo bereksperimen dan bermain game seru untuk menemukan rahasia <strong>6 Perubahan Wujud Benda</strong>!
+      </p>
+
+      <div class="homescreen-name-box">
+        <label for="inputName" style="font-weight:700;font-size:14px;color:#475569;">Namamu (Opsional):</label>
+        <input type="text" id="inputName" class="input-student-name" maxlength="25" placeholder="Tulis namamu di sini...">
+      </div>
+
+      <div>
+        <button class="btn-start-game" id="btnStartAdventure">
+          🚀 MULAI PETUALANGAN!
+        </button>
+      </div>
+
+      <!-- 4 Zona Belajar Preview -->
+      <div class="preview-grid">
+        <div class="preview-item">
+          <span class="preview-item-icon">🧪</span>
+          <span class="preview-item-title">1. Lab 6 Wujud</span>
+          <span class="preview-item-desc">Tarik Api 🔥 & Es ❄️ ke benda nyata untuk melihat perubahannya!</span>
+        </div>
+        <div class="preview-item">
+          <span class="preview-item-icon">🔍</span>
+          <span class="preview-item-title">2. Butiran Ajaib</span>
+          <span class="preview-item-desc">Geser suhu dan amati butiran partikel bergetar dan melompat!</span>
+        </div>
+        <div class="preview-item">
+          <span class="preview-item-icon">🧺</span>
+          <span class="preview-item-title">3. Game Keranjang</span>
+          <span class="preview-item-desc">Pilah kartu peristiwa ke Keranjang Panas atau Dingin!</span>
+        </div>
+        <div class="preview-item">
+          <span class="preview-item-icon">✏️</span>
+          <span class="preview-item-title">4. Tarik Garis</span>
+          <span class="preview-item-desc">Hubungkan peristiwa nyata dengan nama wujud yang tepat!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: AREA PERMAINAN / LAB -->
+  <div id="screen-game" class="screen-view" style="display:none;">
+    <!-- MASCOT BANNER (PENDEK & RAMAH) -->
+    <div class="mascot-strip">
+      <div class="mascot-face">🦊</div>
+      <div class="mascot-text" id="mascotGreeting">
+        <strong>Halo Peneliti Cilik!</strong> Benda bisa berubah wujud jika <strong>diberi panas 🔥</strong> atau <strong>didinginkan ❄️</strong>. Ayo coba tarik api atau es ke benda di bawah!
+      </div>
+    </div>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="nav-grid">
+    <button class="nav-tab active" data-tab="tab-lab">
+      <span>🧪</span> 1. Lab 6 Wujud
+    </button>
+    <button class="nav-tab" data-tab="tab-lens">
+      <span>🔍</span> 2. Butiran Ajaib
+    </button>
+    <button class="nav-tab" data-tab="tab-game">
+      <span>🧺</span> 3. Game Keranjang
+    </button>
+    <button class="nav-tab" data-tab="tab-quiz">
+      <span>✏️</span> 4. Tarik Garis Wujud
+    </button>
+  </nav>
+
+  <!-- ========================================================
+       TAB 1: LAB 6 PERUBAHAN WUJUD (UTAMA - LOGIKA AKURAT!)
+       ======================================================== -->
+  <section id="tab-lab" class="tab-content active">
+    <div class="main-card">
+      <!-- 6 TOMBOL WUJUD KARTUN -->
+      <div class="wujud-nav">
+        <button class="wujud-btn active" data-key="mencair">
+          <span class="w-icon">🍦</span>
+          <span>1. Mencair</span>
+        </button>
+        <button class="wujud-btn" data-key="membeku">
+          <span class="w-icon">🧊</span>
+          <span>2. Membeku</span>
+        </button>
+        <button class="wujud-btn" data-key="menguap">
+          <span class="w-icon">💨</span>
+          <span>3. Menguap</span>
+        </button>
+        <button class="wujud-btn" data-key="mengembun">
+          <span class="w-icon">💧</span>
+          <span>4. Mengembun</span>
+        </button>
+        <button class="wujud-btn" data-key="menyublim">
+          <span class="w-icon">🌸</span>
+          <span>5. Menyublim</span>
+        </button>
+        <button class="wujud-btn" data-key="mengkristal">
+          <span class="w-icon">❄️</span>
+          <span>6. Mengkristal</span>
+        </button>
+      </div>
+
+      <!-- STAGE CONTAINER -->
+      <div class="stage-card">
+        <!-- TOP SHORT BADGES -->
+        <div class="stage-top-bar">
+          <span class="badge-tag badge-flow" id="stageFlow">Padat ➔ Cair</span>
+          <span class="badge-tag badge-heat-hot" id="stageHeatReq">🔥 Butuh Panas (Menyerap Kalor)</span>
+          <span class="badge-tag badge-example" id="stageExample">Contoh: Es krim meleleh</span>
+        </div>
+
+        <!-- CARTOON VIEWPORT -->
+        <div class="viewport-screen" id="viewportScreen">
+          <!-- SPEECH BUBBLE DYNAMIC -->
+          <div class="speech-bubble" id="speechBubble">
+            Es batu padat dan dingin! Coba beri 🔥 Panas agar mencair!
+          </div>
+          <div id="svgHolder"></div>
+        </div>
+
+        <!-- CONTROLS: DRAG TOOLS + CLICK BUTTONS -->
+        <div class="interactive-controls">
+          <div class="tools-shelf" id="toolsShelf">
+            <span style="font-size:13px;font-weight:700;color:#64748b;">TARIK KE GAMBAR:</span>
+            <div class="tool-drag-chip chip-heat" id="dragHeat" draggable="true">
+              <span style="font-size:20px;">🔥</span> Beri Panas
+            </div>
+            <div class="tool-drag-chip chip-cold" id="dragCold" draggable="true">
+              <span style="font-size:20px;">❄️</span> Beri Dingin
+            </div>
+          </div>
+
+          <!-- RESET BUTTON -->
+          <div style="display:flex;justify-content:center;margin-top:4px;">
+            <button class="btn-reset-stage" id="btnResetStage" title="Kembali ke awal">
+              🔄 Ulangi Percobaan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       TAB 2: BUTIRAN AJAIB (KACA PEMBESAR)
+       ======================================================== -->
+  <section id="tab-lens" class="tab-content">
+    <div class="main-card">
+      <div class="lens-box">
+        <div class="lens-badge">
+          <span id="lensIcon">🧊</span>
+          <span id="lensTitle">Benda Padat (Butiran Pelukan Rapat)</span>
+        </div>
+
+        <canvas id="particleCanvas" width="480" height="240"></canvas>
+
+        <div class="slider-container">
+          <div class="slider-labels">
+            <span>❄️ Dingin (Padat)</span>
+            <span>💧 Sedang (Cair)</span>
+            <span>🔥 Panas (Gas)</span>
+          </div>
+          <input type="range" id="tempRange" class="heat-range" min="0" max="100" value="15">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       TAB 3: GAME KERANJANG KALOR
+       ======================================================== -->
+  <section id="tab-game" class="tab-content">
+    <div class="main-card">
+      <div class="game-top-bar">
+        <div style="font-size:14px;color:#0369a1;">
+          🎯 <strong>Tarik kartu</strong> ke keranjang yang pas: <strong>Butuh Panas 🔥</strong> atau <strong>Butuh Dingin ❄️</strong>!
+        </div>
+        <div class="score-pill">
+          ⭐ Skor: <span id="gameScoreText">0</span>
+        </div>
+      </div>
+
+      <!-- 2 BASKETS -->
+      <div class="baskets-grid">
+        <div class="basket-card basket-hot" id="dropBasketHot" data-box="hot">
+          <div class="basket-header">
+            <span>🔥 BUTUH PANAS</span>
+            <span style="font-size:12px;">(Menyerap Kalor)</span>
+          </div>
+          <div class="basket-content" id="slotHot"></div>
+        </div>
+
+        <div class="basket-card basket-cold" id="dropBasketCold" data-box="cold">
+          <div class="basket-header">
+            <span>❄️ BUTUH DINGIN</span>
+            <span style="font-size:12px;">(Melepas Kalor)</span>
+          </div>
+          <div class="basket-content" id="slotCold"></div>
+        </div>
+      </div>
+
+      <!-- CARDS TO DRAG -->
+      <div class="cards-container">
+        <div class="cards-row" id="gameCardsRow"></div>
+      </div>
+
+      <div style="text-align:center;">
+        <button class="btn-action-heat" id="btnRestartGame" style="display:inline-flex;padding:10px 24px;">
+          🔄 Acak Ulang Kartu
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       TAB 4: TANTANGAN TARIK GARIS (INTERAKTIF & SERU)
+       ======================================================== -->
+  <section id="tab-quiz" class="tab-content">
+    <div class="main-card">
+      <!-- Game Top Info -->
+      <div class="game-top-bar" style="background:#fef9c3;border-color:#fde047;">
+        <div style="font-size:14.5px;color:#854d0e;line-height:1.4;">
+          ✏️ <strong>Tantangan Tarik Garis:</strong> Hubungkan peristiwa di sebelah <strong>Kiri</strong> dengan nama wujud yang pas di sebelah <strong>Kanan</strong>! <em>(Tarik garis atau klik 2 kotak)</em>
+        </div>
+        <div class="score-pill" id="matchCounter">
+          ⭐ Terhubung: 0 / 6
+        </div>
+      </div>
+
+      <!-- Arena Garis -->
+      <div class="match-arena-box" id="matchArena">
+        <!-- SVG Canvas for Connecting Lines -->
+        <svg id="matchSvgOverlay">
+          <line id="activeDragLine" x1="0" y1="0" x2="0" y2="0" style="display:none;"></line>
+          <g id="connectedLinesGroup"></g>
+        </svg>
+
+        <!-- Kolom Kiri: Peristiwa -->
+        <div class="match-col" id="colLeftEvents"></div>
+
+        <!-- Kolom Kanan: Nama Wujud -->
+        <div class="match-col" id="colRightTargets"></div>
+      </div>
+
+      <!-- Tombol Acak / Reset -->
+      <div style="margin-top:16px;display:flex;justify-content:center;gap:12px;">
+        <button class="btn-reset-stage" id="btnRestartMatch">
+          🔄 Acak & Ulangi Garis
+        </button>
+      </div>
+    </div>
+  </section>
+  </div> <!-- END SCREEN 2 -->
+</main>
+
+<!-- MODAL CELEBRATION -->
+<div class="modal-mask" id="modalMask">
+  <div class="modal-popup">
+    <div class="modal-stars" id="modalStars">⭐⭐⭐</div>
+    <h3 class="modal-heading" id="modalTitle">Luar Biasa Hebat!</h3>
+    <div class="modal-score-num" id="modalScoreNum">100 / 100</div>
+    <p class="modal-message" id="modalMsg">Kamu telah menguasai 6 perubahan wujud zat dengan sangat baik!</p>
+    <button class="btn-action-heat" id="btnCloseModal" style="width:100%;padding:12px;font-size:15px;">
+      🎉 Hore! Selesai
+    </button>
+  </div>
+</div>
+
+<script>
+/* ========================================================
+   SUARA CERIA (SYNTHETIC WEB AUDIO API - 100% OFFLINE)
+   ======================================================== */
+class SoundEngine {
+  constructor() {
+    this.enabled = true;
+    this.ctx = null;
+  }
+  boot() {
+    if (!this.ctx) {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (AC) this.ctx = new AC();
+    }
+    if (this.ctx && this.ctx.state === 'suspended') {
+      this.ctx.resume();
+    }
+  }
+  click() {
+    if (!this.enabled) return;
+    this.boot();
+    if (!this.ctx) return;
+    const osc = this.ctx.createOscillator();
+    const g = this.ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(400, this.ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.08);
+    g.gain.setValueAtTime(0.18, this.ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.08);
+    osc.connect(g);
+    g.connect(this.ctx.destination);
+    osc.start();
+    osc.stop(this.ctx.currentTime + 0.08);
+  }
+  success() {
+    if (!this.enabled) return;
+    this.boot();
+    if (!this.ctx) return;
+    [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
+      const osc = this.ctx.createOscillator();
+      const g = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, this.ctx.currentTime + idx * 0.08);
+      g.gain.setValueAtTime(0.2, this.ctx.currentTime + idx * 0.08);
+      g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + idx * 0.08 + 0.35);
+      osc.connect(g);
+      g.connect(this.ctx.destination);
+      osc.start(this.ctx.currentTime + idx * 0.08);
+      osc.stop(this.ctx.currentTime + idx * 0.08 + 0.35);
+    });
+  }
+  wrong() {
+    if (!this.enabled) return;
+    this.boot();
+    if (!this.ctx) return;
+    const osc = this.ctx.createOscillator();
+    const g = this.ctx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(220, this.ctx.currentTime);
+    osc.frequency.setValueAtTime(180, this.ctx.currentTime + 0.12);
+    g.gain.setValueAtTime(0.18, this.ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.25);
+    osc.connect(g);
+    g.connect(this.ctx.destination);
+    osc.start();
+    osc.stop(this.ctx.currentTime + 0.25);
+  }
+}
+const snd = new SoundEngine();
+
+document.getElementById('soundBtn').addEventListener('click', () => {
+  snd.enabled = !snd.enabled;
+  document.getElementById('soundIcon').textContent = snd.enabled ? '🔊' : '🔇';
+  document.getElementById('soundText').textContent = snd.enabled ? 'Suara Nyala' : 'Suara Mati';
+});
+
+/* ========================================================
+   HOMESCREEN / SCREEN TRANSITION
+   ======================================================== */
+const screenHome = document.getElementById('screen-home');
+const screenGame = document.getElementById('screen-game');
+const btnStartAdventure = document.getElementById('btnStartAdventure');
+const btnGoHome = document.getElementById('btnGoHome');
+const inputName = document.getElementById('inputName');
+const mascotGreeting = document.getElementById('mascotGreeting');
+
+btnStartAdventure.addEventListener('click', () => {
+  snd.success();
+  launchConfetti();
+
+  const studentName = inputName.value.trim();
+  if (studentName) {
+    mascotGreeting.innerHTML = `<strong>Halo Peneliti Cilik ${studentName}!</strong> Benda bisa berubah wujud jika <strong>diberi panas 🔥</strong> atau <strong>didinginkan ❄️</strong>. Ayo coba tarik api atau es ke benda di bawah!`;
+  }
+
+  screenHome.style.display = 'none';
+  screenGame.style.display = 'block';
+  btnGoHome.style.display = 'inline-flex';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+btnGoHome.addEventListener('click', () => {
+  snd.click();
+  screenGame.style.display = 'none';
+  screenHome.style.display = 'block';
+  btnGoHome.style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+document.getElementById('brandGroupBtn').addEventListener('click', () => {
+  if (screenGame.style.display !== 'none') {
+    btnGoHome.click();
+  }
+});
+
+/* ========================================================
+   NAVIGATION
+   ======================================================== */
+const navTabs = document.querySelectorAll('.nav-tab');
+const tabPanels = document.querySelectorAll('.tab-content');
+
+navTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    snd.click();
+    navTabs.forEach(t => t.classList.remove('active'));
+    tabPanels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+
+/* ========================================================
+   TAB 1: LOGIKA LAB 6 WUJUD ZAT (SEPENUHNYA BENAR!)
+   - Mencair: Butuh Panas 🔥. Jika dikasih Dingin ❄️ -> Es makin beku/menggigil!
+   - Membeku: Butuh Dingin ❄️. Jika dikasih Panas 🔥 -> Air mendidih/menguap!
+   - Menguap: Butuh Panas 🔥. Jika dikasih Dingin ❄️ -> Baju tetap basah kuyup!
+   - Mengembun: Butuh Dingin ❄️. Jika dikasih Panas 🔥 -> Gelas kering panas!
+   - Menyublim: Butuh Panas 🔥. Jika dikasih Dingin ❄️ -> Kamper tetap utuh!
+   - Mengkristal: Butuh Dingin ❄️. Jika dikasih Panas 🔥 -> Uap tetap gas!
+   ======================================================== */
+const stateDb = {
+  mencair: {
+    flow: 'Padat ➔ Cair',
+    needsHeat: true, // Butuh PANAS
+    heatLabel: '🔥 Butuh Panas (Menyerap Kalor)',
+    heatClass: 'badge-heat-hot',
+    example: 'Contoh: Es batu atau es krim meleleh di terik siang',
+    initialMsg: 'Es batu padat dan dingin! Coba beri 🔥 Panas agar mencair!',
+    successMsg: 'Yey! Es batu menyerap panas dan mencair jadi air!',
+    wrongMsg: 'Brrr! Dikasih dingin es malah makin beku! Tarik 🔥 Panas ya!',
+    // 1. Tampilan Awal: Es Batu Normal
+    initialSvg: `
+      <ellipse cx="140" cy="180" rx="90" ry="18" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="3"/>
+      <g>
+        <rect x="90" y="85" width="100" height="95" rx="18" fill="#bae6fd" stroke="#0284c7" stroke-width="4"/>
+        <path d="M98 100 Q140 92 182 100" stroke="#e0f2fe" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <circle cx="120" cy="125" r="5.5" fill="#0f172a"/><circle cx="160" cy="125" r="5.5" fill="#0f172a"/>
+        <circle cx="122" cy="123" r="1.8" fill="white"/><circle cx="162" cy="123" r="1.8" fill="white"/>
+        <path d="M130 145 Q140 155 150 145" stroke="#0f172a" stroke-width="3" fill="none"/>
+        <circle cx="110" cy="138" r="4.5" fill="#f472b6" opacity="0.6"/>
+        <circle cx="170" cy="138" r="4.5" fill="#f472b6" opacity="0.6"/>
+        <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Es Batu (Padat)</text>
+      </g>
+    `,
+    // 2. Berhasil Kena Panas: Mencair Jadi Air
+    successSvg: `
+      <ellipse cx="140" cy="180" rx="90" ry="18" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="3"/>
+      <g>
+        <ellipse cx="140" cy="170" rx="95" ry="25" fill="#38bdf8" stroke="#0284c7" stroke-width="4"/>
+        <circle cx="125" cy="168" r="5" fill="#0f172a"/><circle cx="155" cy="168" r="5" fill="#0f172a"/>
+        <path d="M135 178 Q140 184 145 178" stroke="#0f172a" stroke-width="2.5" fill="none"/>
+        <ellipse cx="75" cy="160" rx="6" ry="10" fill="#38bdf8" transform="rotate(-25 75 160)"/>
+        <ellipse cx="205" cy="160" rx="6" ry="10" fill="#38bdf8" transform="rotate(25 205 160)"/>
+        <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Mencair Jadi Air!</text>
+      </g>
+    `,
+    // 3. Salah Dikasih Dingin: Es Menggigil Kedinginan (Bukan Mencair!)
+    wrongSvg: `
+      <ellipse cx="140" cy="180" rx="90" ry="18" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="3"/>
+      <g>
+        <rect x="90" y="85" width="100" height="95" rx="18" fill="#7dd3fc" stroke="#0369a1" stroke-width="5"/>
+        <circle cx="120" cy="120" r="5" fill="#0f172a"/><circle cx="160" cy="120" r="5" fill="#0f172a"/>
+        <!-- Mulut Menggigil Brrr -->
+        <path d="M125 145 Q130 140 135 145 T145 145 T155 145" stroke="#0f172a" stroke-width="3" fill="none"/>
+        <text x="65" y="85" font-size="22">❄️</text>
+        <text x="200" y="90" font-size="22">🥶</text>
+        <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Makin Beku! (Butuh Panas 🔥)</text>
+      </g>
+    `
+  },
+
+  membeku: {
+    flow: 'Cair ➔ Padat',
+    needsHeat: false, // Butuh DINGIN
+    heatLabel: '❄️ Butuh Dingin (Melepas Kalor)',
+    heatClass: 'badge-heat-cold',
+    example: 'Contoh: Air di kulkas freezer mengeras jadi es',
+    initialMsg: 'Air minum di dalam wadah! Coba beri ❄️ Dingin agar membeku!',
+    successMsg: 'Hore! Air melepaskan panas ke udara dingin dan membeku jadi es!',
+    wrongMsg: 'Waduh panas! Dikasih api airnya malah mau mendidih! Beri ❄️ Dingin ya!',
+    // 1. Tampilan Awal: Air Cair di Wadah Bening
+    initialSvg: `
+      <!-- Bayangan Meja -->
+      <ellipse cx="140" cy="186" rx="82" ry="13" fill="#cbd5e1" opacity="0.6"/>
+      <ellipse cx="140" cy="185" rx="54" ry="8" fill="#94a3b8" opacity="0.4"/>
+
+      <!-- Dinding Belakang Wadah (Kaca Transparan) -->
+      <path d="M 72 82 Q 76 155 95 168 Q 140 178 185 168 Q 204 155 208 82" fill="rgba(224, 242, 254, 0.35)"/>
+      <ellipse cx="140" cy="82" rx="68" ry="15" fill="rgba(186, 230, 253, 0.3)"/>
+
+      <!-- Badan Air Cair di Dalam Wadah -->
+      <path d="M 76 112 Q 80 152 97 164 Q 140 174 183 164 Q 200 152 204 112 Z" fill="#0284c7" opacity="0.8"/>
+      <!-- Permukaan Air 3D (Riak Air Jernih) -->
+      <ellipse cx="140" cy="112" rx="64" ry="12" fill="#38bdf8"/>
+      <ellipse cx="140" cy="112" rx="56" ry="9" fill="#7dd3fc" opacity="0.9"/>
+      <!-- Riak Gelombang Halus & Kilau Air -->
+      <path d="M 88 112 Q 114 107 140 112 T 192 112" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8"/>
+
+      <!-- Wajah Lucu & Segar Air Cair -->
+      <g>
+        <!-- Mata Berbinar Hitam dengan Titik Putih -->
+        <circle cx="124" cy="140" r="4.5" fill="#0f172a"/>
+        <circle cx="122.5" cy="138.5" r="1.5" fill="white"/>
+        <circle cx="156" cy="140" r="4.5" fill="#0f172a"/>
+        <circle cx="154.5" cy="138.5" r="1.5" fill="white"/>
+        <!-- Senyum Ramah Ceria -->
+        <path d="M 134 146 Q 140 152 146 146" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <!-- Pipi Merona Segar -->
+        <ellipse cx="116" cy="144" rx="4.5" ry="2.5" fill="#38bdf8" opacity="0.7"/>
+        <ellipse cx="164" cy="144" rx="4.5" ry="2.5" fill="#38bdf8" opacity="0.7"/>
+      </g>
+
+      <!-- Gelembung Air Segar di Dalam Wadah -->
+      <circle cx="94" cy="148" r="3.5" fill="white" opacity="0.6"/>
+      <circle cx="102" cy="132" r="2.2" fill="white" opacity="0.5"/>
+      <circle cx="178" cy="146" r="3" fill="white" opacity="0.6"/>
+      <circle cx="186" cy="130" r="2" fill="white" opacity="0.5"/>
+
+      <!-- Dinding Depan Wadah Kaca Bening -->
+      <path d="M 72 82 Q 76 155 95 168 Q 140 178 185 168 Q 204 155 208 82" fill="rgba(240, 249, 255, 0.25)" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+      <!-- Dasar Wadah Kaca Tebal Bening -->
+      <path d="M 95 168 Q 140 178 185 168 L 183 175 Q 140 185 97 175 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="2.5"/>
+
+      <!-- Bibir Wadah Atas Oval 3D (Rim Wadah) -->
+      <ellipse cx="140" cy="82" rx="68" ry="15" fill="rgba(224, 242, 254, 0.4)" stroke="#0284c7" stroke-width="3.5"/>
+      <ellipse cx="140" cy="82" rx="62" ry="12" fill="none" stroke="#7dd3fc" stroke-width="1.5" opacity="0.8"/>
+      <!-- Bibir Pegangan Kiri & Kanan Wadah -->
+      <path d="M 70 82 Q 58 84 68 89" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <path d="M 210 82 Q 222 84 212 89" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+      <!-- Kilau Cahaya Kaca Wadah (Refleksi Bersih Bening) -->
+      <path d="M 82 92 Q 86 135 98 158" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.85"/>
+      <path d="M 90 98 Q 93 130 102 150" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+      <path d="M 194 92 Q 198 120 196 142" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.45"/>
+
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Air Cair di Wadah</text>
+    `,
+    // 2. Berhasil Didinginkan: Jadi Es Balok Beku
+    successSvg: `
+      <!-- Bayangan Meja -->
+      <ellipse cx="140" cy="186" rx="82" ry="13" fill="#cbd5e1" opacity="0.6"/>
+      <ellipse cx="140" cy="185" rx="54" ry="8" fill="#94a3b8" opacity="0.4"/>
+
+      <!-- Balok Es Beku Utuh di Dalam Wadah -->
+      <path d="M 74 105 Q 78 155 96 166 Q 140 176 184 166 Q 202 155 206 105 Z" fill="#bae6fd"/>
+      <!-- Permukaan Atas Es Beku Mengeras (Padat) -->
+      <ellipse cx="140" cy="105" rx="66" ry="13" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+      
+      <!-- Retakan Kristal Es Beku (Frost Fissures) -->
+      <path d="M 102 110 L 115 125 L 110 145" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.9"/>
+      <path d="M 175 110 L 165 128 L 172 148" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.9"/>
+      <path d="M 140 105 L 140 120 L 146 130" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.9"/>
+
+      <!-- Wajah Es Kedinginan Gemas (Brrr!) -->
+      <g>
+        <!-- Mata Merem Kedinginan Bahagia -->
+        <path d="M 120 135 L 128 140 L 120 145" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M 160 135 L 152 140 L 160 145" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Mulut Menggigil Brrr -->
+        <path d="M 132 148 Q 136 144 140 148 T 148 148" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <!-- Pipi Merah Kedinginan -->
+        <ellipse cx="114" cy="144" rx="4.5" ry="3" fill="#38bdf8" opacity="0.8"/>
+        <ellipse cx="166" cy="144" rx="4.5" ry="3" fill="#38bdf8" opacity="0.8"/>
+      </g>
+
+      <!-- Dinding Kaca Wadah Berselaput Beku (Frosty Cold) -->
+      <path d="M 72 82 Q 76 155 95 168 Q 140 178 185 168 Q 204 155 208 82" fill="rgba(186, 230, 253, 0.4)" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M 95 168 Q 140 178 185 168 L 183 175 Q 140 185 97 175 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="2.5"/>
+
+      <!-- Bibir Wadah Atas Rim -->
+      <ellipse cx="140" cy="82" rx="68" ry="15" fill="rgba(224, 242, 254, 0.4)" stroke="#0284c7" stroke-width="3.5"/>
+      <ellipse cx="140" cy="82" rx="62" ry="12" fill="none" stroke="#7dd3fc" stroke-width="1.5" opacity="0.8"/>
+      <path d="M 70 82 Q 58 84 68 89" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <path d="M 210 82 Q 222 84 212 89" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+      <!-- Kilau Refleksi Kaca & Kristal Salju -->
+      <path d="M 82 92 Q 86 135 98 158" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+      <text x="50" y="75" font-size="22">❄️</text>
+      <text x="210" y="80" font-size="22">❄️</text>
+      <text x="135" y="65" font-size="18">✨</text>
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Brrr! Air Membeku Jadi Es!</text>
+    `,
+    // 3. Salah Dikasih Panas: Air Bergelembung Mendidih
+    wrongSvg: `
+      <!-- Bayangan Meja -->
+      <ellipse cx="140" cy="186" rx="82" ry="13" fill="#cbd5e1" opacity="0.6"/>
+      <ellipse cx="140" cy="185" rx="54" ry="8" fill="#ea580c" opacity="0.3"/>
+
+      <!-- Dinding Belakang Wadah Panas -->
+      <path d="M 72 82 Q 76 155 95 168 Q 140 178 185 168 Q 204 155 208 82" fill="rgba(254, 215, 170, 0.4)"/>
+      <ellipse cx="140" cy="82" rx="68" ry="15" fill="rgba(253, 186, 116, 0.3)"/>
+
+      <!-- Badan Air Mendidih Oranye Kemerahan -->
+      <path d="M 76 112 Q 80 152 97 164 Q 140 174 183 164 Q 200 152 204 112 Z" fill="#ea580c" opacity="0.85"/>
+      <ellipse cx="140" cy="112" rx="64" ry="12" fill="#f97316"/>
+      <ellipse cx="140" cy="112" rx="56" ry="9" fill="#fdba74" opacity="0.9"/>
+
+      <!-- Gelembung Uap Mendidih Meletup (Blub Blub) -->
+      <circle cx="100" cy="112" r="6" fill="#fed7aa" stroke="#c2410c" stroke-width="1.5"/>
+      <circle cx="125" cy="106" r="8" fill="#fed7aa" stroke="#c2410c" stroke-width="1.5"/>
+      <circle cx="155" cy="108" r="7" fill="#fed7aa" stroke="#c2410c" stroke-width="1.5"/>
+      <circle cx="178" cy="114" r="5" fill="#fed7aa" stroke="#c2410c" stroke-width="1.5"/>
+      <circle cx="112" cy="140" r="5" fill="white" opacity="0.6"/>
+      <circle cx="168" cy="142" r="6" fill="white" opacity="0.6"/>
+
+      <!-- Wajah Air Kepanasan -->
+      <g>
+        <circle cx="130" cy="142" r="4.5" fill="#0f172a"/>
+        <circle cx="150" cy="142" r="4.5" fill="#0f172a"/>
+        <!-- Mulut Menganga Panas -->
+        <ellipse cx="140" cy="154" rx="7" ry="5" fill="#7c2d12"/>
+        <!-- Keringat Panas -->
+        <text x="160" y="136" font-size="14">💧</text>
+      </g>
+
+      <!-- Dinding Depan Wadah Kaca Panas Membara -->
+      <path d="M 72 82 Q 76 155 95 168 Q 140 178 185 168 Q 204 155 208 82" fill="rgba(255, 237, 213, 0.25)" stroke="#ea580c" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M 95 168 Q 140 178 185 168 L 183 175 Q 140 185 97 175 Z" fill="#fdba74" stroke="#ea580c" stroke-width="2.5"/>
+
+      <!-- Bibir Wadah -->
+      <ellipse cx="140" cy="82" rx="68" ry="15" fill="rgba(254, 215, 170, 0.4)" stroke="#ea580c" stroke-width="3.5"/>
+      <ellipse cx="140" cy="82" rx="62" ry="12" fill="none" stroke="#fdba74" stroke-width="1.5"/>
+      <path d="M 70 82 Q 58 84 68 89" stroke="#ea580c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <path d="M 210 82 Q 222 84 212 89" stroke="#ea580c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+      <!-- Kepulan Uap Panas Keluar -->
+      <text x="50" y="70" font-size="22">🔥</text>
+      <text x="210" y="70" font-size="22">♨️</text>
+      <path d="M 125 70 Q 120 50 130 35" stroke="#fdba74" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4" fill="none"/>
+      <path d="M 155 70 Q 160 50 150 35" stroke="#fdba74" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4" fill="none"/>
+
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">Mendidih! (Butuh Dingin ❄️)</text>
+    `
+  },
+
+  menguap: {
+    flow: 'Cair ➔ Gas',
+    needsHeat: true, // Butuh PANAS
+    heatLabel: '🔥 Butuh Panas (Menyerap Kalor)',
+    heatClass: 'badge-heat-hot',
+    example: 'Contoh: Kaos basah dijemur di bawah matahari jadi kering',
+    initialMsg: 'Baju masih basah oleh air! Coba beri 🔥 Panas agar menguap!',
+    successMsg: 'Hebat! Air menyerap panas matahari dan menguap ke udara!',
+    wrongMsg: 'Brrr! Baju basah didinginkan tetap basah! Jemur di bawah 🔥 Panas ya!',
+    // 1. Tampilan Awal: Baju Basah
+    initialSvg: `
+      <path d="M80 80 Q140 90 200 80" stroke="#64748b" stroke-width="3" fill="none"/>
+      <path d="M100 85 L125 75 L155 75 L180 85 L170 120 L155 110 L155 175 L125 175 L125 110 L110 120 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="3.5"/>
+      <circle cx="140" cy="190" r="4" fill="#0284c7"/><circle cx="130" cy="180" r="3" fill="#0284c7"/>
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Baju Basah Kena Air</text>
+    `,
+    // 2. Berhasil Dipanaskan: Air Menguap, Baju Kering
+    successSvg: `
+      <circle cx="65" cy="55" r="22" fill="#facc15" stroke="#eab308" stroke-width="3"/>
+      <text x="65" y="62" text-anchor="middle" font-size="16">☀️</text>
+      <path d="M100 85 L125 75 L155 75 L180 85 L170 120 L155 110 L155 175 L125 175 L125 110 L110 120 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="3.5"/>
+      <path d="M130 65 Q125 45 135 30 Q145 15 130 0" stroke="#94a3b8" stroke-width="4" stroke-dasharray="6 4" fill="none"/>
+      <path d="M150 70 Q160 50 150 35 Q140 20 155 5" stroke="#94a3b8" stroke-width="4" stroke-dasharray="6 4" fill="none"/>
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">Air Menguap, Baju Kering!</text>
+    `,
+    // 3. Salah Dikasih Dingin: Baju Membeku/Tetap Basah
+    wrongSvg: `
+      <path d="M80 80 Q140 90 200 80" stroke="#64748b" stroke-width="3" fill="none"/>
+      <path d="M100 85 L125 75 L155 75 L180 85 L170 120 L155 110 L155 175 L125 175 L125 110 L110 120 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="3.5"/>
+      <text x="60" y="70" font-size="24">❄️</text><text x="200" y="70" font-size="24">🥶</text>
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Tetap Basah! (Butuh Panas 🔥)</text>
+    `
+  },
+
+  mengembun: {
+    flow: 'Gas ➔ Cair',
+    needsHeat: false, // Butuh DINGIN
+    heatLabel: '❄️ Butuh Dingin (Melepas Kalor)',
+    heatClass: 'badge-heat-cold',
+    example: 'Contoh: Dinding luar gelas dingin jadi basah berembun',
+    initialMsg: 'Gelas masih kering di luar! Coba beri ❄️ Dingin agar mengembun!',
+    successMsg: 'Keren! Uap air di udara melepaskan panas dan jadi titik embun air!',
+    wrongMsg: 'Aduh panas! Dikasih api titik embunnya malah menguap hilang! Beri ❄️ Dingin ya!',
+    // 1. Tampilan Awal: Gelas Kering
+    initialSvg: `
+      <!-- Meja / Coaster -->
+      <ellipse cx="140" cy="192" rx="78" ry="16" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="3"/>
+      <ellipse cx="140" cy="189" rx="46" ry="8" fill="#94a3b8" opacity="0.3"/>
+      <!-- Sedotan Belang Cantik -->
+      <path d="M 170 20 L 152 65 L 128 165" stroke="#f43f5e" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+      <path d="M 170 20 L 152 65 L 128 165" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 7" fill="none"/>
+      <!-- Air Minum Segar Bening di Dalam -->
+      <path d="M 94 92 Q 140 100 186 92 L 175 170 Q 140 180 105 170 Z" fill="#67e8f9" opacity="0.7"/>
+      <ellipse cx="140" cy="92" rx="46" ry="8" fill="#a5f3fc" opacity="0.9"/>
+      <!-- Badan Gelas Kaca Elegan -->
+      <path d="M 88 55 L 103 172 Q 140 184 177 172 L 192 55" fill="rgba(240, 249, 255, 0.4)" stroke="#0284c7" stroke-width="4" stroke-linecap="round"/>
+      <!-- Dasar Kaca Tebal Bening -->
+      <path d="M 103 172 Q 140 184 177 172 L 175 183 Q 140 193 105 183 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="3"/>
+      <!-- Bibir Gelas Oval Atas -->
+      <ellipse cx="140" cy="55" rx="52" ry="10" fill="rgba(224, 242, 254, 0.3)" stroke="#0284c7" stroke-width="4"/>
+      <!-- Kilau Refleksi Cahaya Kaca -->
+      <path d="M 97 68 Q 102 110 108 160" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.85"/>
+      <path d="M 104 74 Q 107 105 111 145" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+      <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Gelas di Meja (Luar Kering Bersih)</text>
+    `,
+    // 2. Berhasil Diberi Dingin: Muncul Titik Embun
+    successSvg: `
+      <!-- Meja / Coaster dengan Genangan Rembesan Embun -->
+      <ellipse cx="140" cy="192" rx="78" ry="16" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="3"/>
+      <ellipse cx="140" cy="189" rx="52" ry="9" fill="#7dd3fc" opacity="0.5"/>
+      <ellipse cx="178" cy="188" rx="7" ry="3.5" fill="#0284c7" opacity="0.7"/>
+      <ellipse cx="102" cy="189" rx="5" ry="3" fill="#0284c7" opacity="0.7"/>
+      <!-- Sedotan Belang Cantik -->
+      <path d="M 170 20 L 152 65 L 128 165" stroke="#f43f5e" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+      <path d="M 170 20 L 152 65 L 128 165" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 7" fill="none"/>
+      <!-- Air Dingin Bersalju di Dalam -->
+      <path d="M 94 92 Q 140 100 186 92 L 175 170 Q 140 180 105 170 Z" fill="#38bdf8" opacity="0.85"/>
+      <ellipse cx="140" cy="92" rx="46" ry="8" fill="#bae6fd" opacity="0.9"/>
+      <!-- Es Batu Kubus Nyata di Dalam Air -->
+      <rect x="110" y="98" width="26" height="26" rx="5" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.5" transform="rotate(-10 123 111)"/>
+      <rect x="144" y="104" width="28" height="28" rx="5" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.5" transform="rotate(15 158 118)"/>
+      <rect x="124" y="128" width="25" height="25" rx="5" fill="#bae6fd" stroke="#0284c7" stroke-width="2.5" transform="rotate(5 136 140)"/>
+      <!-- Badan Kaca Dingin Berembun (Frosty) -->
+      <path d="M 88 55 L 103 172 Q 140 184 177 172 L 192 55" fill="rgba(186, 230, 253, 0.55)" stroke="#0284c7" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 103 172 Q 140 184 177 172 L 175 183 Q 140 193 105 183 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="3"/>
+      <ellipse cx="140" cy="55" rx="52" ry="10" fill="rgba(224, 242, 254, 0.4)" stroke="#0284c7" stroke-width="4"/>
+      <!-- Refleksi Kaca -->
+      <path d="M 97 68 Q 102 110 108 160" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.8"/>
+      <!-- BUTIRAN-BUTIRAN EMBUN AIR NYATA DI DINDING LUAR KACA -->
+      <g fill="#0284c7" stroke="#ffffff" stroke-width="1.2">
+        <circle cx="112" cy="78" r="4.5"/>
+        <circle cx="166" cy="82" r="5"/>
+        <circle cx="106" cy="108" r="5.5"/>
+        <circle cx="174" cy="112" r="6"/>
+        <circle cx="122" cy="125" r="4.5"/>
+        <circle cx="160" cy="132" r="5"/>
+        <circle cx="138" cy="142" r="5.5"/>
+        <circle cx="116" cy="154" r="5"/>
+        <circle cx="168" cy="158" r="5.5"/>
+        <circle cx="142" cy="166" r="4.5"/>
+        <!-- Alur Tetesan Air Menetes Turun -->
+        <path d="M 128 95 Q 130 115 128 135" stroke="#0284c7" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="128" cy="137" rx="3.5" ry="5.5" fill="#0284c7"/>
+        <path d="M 152 85 Q 150 110 152 125" stroke="#0284c7" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="152" cy="127" rx="3.5" ry="5" fill="#0284c7"/>
+      </g>
+      <text x="65" y="70" font-size="20">❄️</text>
+      <text x="202" y="75" font-size="20">✨</text>
+      <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Muncul Banyak Titik Embun Air!</text>
+    `,
+    // 3. Salah Dikasih Panas: Gelas Panas Tanpa Embun
+    wrongSvg: `
+      <!-- Meja / Coaster Kering -->
+      <ellipse cx="140" cy="192" rx="78" ry="16" fill="#fed7aa" stroke="#fdba74" stroke-width="3"/>
+      <!-- Sedotan Belang -->
+      <path d="M 170 20 L 152 65 L 128 165" stroke="#f43f5e" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+      <!-- Air Hangat Bergelembung di Dalam -->
+      <path d="M 94 92 Q 140 100 186 92 L 175 170 Q 140 180 105 170 Z" fill="#fb923c" opacity="0.75"/>
+      <ellipse cx="140" cy="92" rx="46" ry="8" fill="#fed7aa" opacity="0.9"/>
+      <circle cx="120" cy="140" r="4" fill="#ffffff" opacity="0.8"/>
+      <circle cx="155" cy="135" r="5" fill="#ffffff" opacity="0.8"/>
+      <circle cx="138" cy="115" r="6" fill="#ffffff" opacity="0.8"/>
+      <!-- Badan Kaca Panas Kemerahan -->
+      <path d="M 88 55 L 103 172 Q 140 184 177 172 L 192 55" fill="rgba(254, 215, 170, 0.45)" stroke="#ea580c" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 103 172 Q 140 184 177 172 L 175 183 Q 140 193 105 183 Z" fill="#fdba74" stroke="#ea580c" stroke-width="3"/>
+      <ellipse cx="140" cy="55" rx="52" ry="10" fill="rgba(254, 243, 199, 0.5)" stroke="#ea580c" stroke-width="4"/>
+      <!-- Asap Uap Panas Melayang ke Atas ♨️ -->
+      <path d="M 125 45 Q 115 25 125 8 Q 135 -8 120 -20" stroke="#f97316" stroke-width="3.5" stroke-dasharray="5 4" fill="none"/>
+      <path d="M 155 45 Q 165 25 155 8 Q 145 -8 160 -20" stroke="#f97316" stroke-width="3.5" stroke-dasharray="5 4" fill="none"/>
+      <text x="60" y="85" font-size="28">🔥</text>
+      <text x="200" y="85" font-size="28">♨️</text>
+      <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">Gelas Kering Panas! (Beri ❄️)</text>
+    `
+  },
+
+  menyublim: {
+    flow: 'Padat ➔ Gas',
+    needsHeat: true, // Butuh PANAS / HANGAT
+    heatLabel: '🔥 Butuh Panas (Menyerap Kalor)',
+    heatClass: 'badge-heat-hot',
+    example: 'Contoh: Kapur barus wangi di lemari lama-lama mengecil',
+    initialMsg: 'Kapur barus padat di lemari! Coba beri 🔥 Panas agar menyublim!',
+    successMsg: 'Wah harum! Kapur barus menyerap panas dan langsung jadi gas wangi!',
+    wrongMsg: 'Brrr! Di tempat sangat dingin kapur barus tetap utuh! Beri 🔥 Panas ya!',
+    // 1. Tampilan Awal: Kapur Barus Utuh
+    initialSvg: `
+      <ellipse cx="140" cy="180" rx="80" ry="18" fill="#e2e8f0"/>
+      <circle cx="120" cy="140" r="28" fill="#fbcfe8" stroke="#db2777" stroke-width="4"/>
+      <circle cx="165" cy="145" r="24" fill="#ddd6fe" stroke="#7c3aed" stroke-width="4"/>
+      <circle cx="115" cy="138" r="3.5" fill="#1e293b"/><circle cx="127" cy="138" r="3.5" fill="#1e293b"/>
+      <circle cx="160" cy="143" r="3" fill="#1e293b"/><circle cx="170" cy="143" r="3" fill="#1e293b"/>
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#9d174d">Kapur Barus Padat Utuh</text>
+    `,
+    // 2. Berhasil Dipanaskan: Mengecil Jadi Gas Wangi
+    successSvg: `
+      <ellipse cx="140" cy="180" rx="80" ry="18" fill="#e2e8f0"/>
+      <circle cx="120" cy="165" r="12" fill="#fbcfe8" stroke="#db2777" stroke-width="3"/>
+      <circle cx="165" cy="167" r="10" fill="#ddd6fe" stroke="#7c3aed" stroke-width="3"/>
+      <path d="M120 140 Q110 100 125 70 Q135 50 115 25" stroke="#db2777" stroke-width="3.5" stroke-dasharray="6 4" fill="none"/>
+      <path d="M165 145 Q180 110 160 75 Q150 55 170 30" stroke="#7c3aed" stroke-width="3.5" stroke-dasharray="6 4" fill="none"/>
+      <text x="125" y="45" font-size="18">🌸</text><text x="160" y="55" font-size="18">✨</text>
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c3aed">Mengecil & Jadi Gas Wangi!</text>
+    `,
+    // 3. Salah Dikasih Dingin: Kapur Barus Tetap Beku Utuh
+    wrongSvg: `
+      <ellipse cx="140" cy="180" rx="80" ry="18" fill="#e2e8f0"/>
+      <circle cx="120" cy="140" r="28" fill="#bae6fd" stroke="#0284c7" stroke-width="4"/>
+      <circle cx="165" cy="145" r="24" fill="#bae6fd" stroke="#0284c7" stroke-width="4"/>
+      <text x="60" y="90" font-size="24">❄️</text><text x="200" y="90" font-size="24">🥶</text>
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Tetap Utuh! (Butuh Panas 🔥)</text>
+    `
+  },
+
+  mengkristal: {
+    flow: 'Gas ➔ Padat',
+    needsHeat: false, // Butuh DINGIN SEKALI
+    heatLabel: '❄️ Butuh Dingin (Melepas Kalor)',
+    heatClass: 'badge-heat-cold',
+    example: 'Contoh: Uap air di awan membeku langsung jadi butiran salju',
+    initialMsg: 'Uap air di awan langit! Coba beri ❄️ Dingin agar mengkristal jadi salju!',
+    successMsg: 'Luar biasa! Uap air langsung membeku jadi kristal salju padat!',
+    wrongMsg: 'Aduh panas! Uap air dipanaskan tidak bisa jadi salju! Beri ❄️ Dingin ya!',
+    // 1. Tampilan Awal: Uap Air di Awan
+    initialSvg: `
+      <path d="M100 130 Q120 100 150 110 Q180 95 195 125 Q210 150 185 165 L100 165 Q80 150 100 130 Z" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="3.5"/>
+      <circle cx="135" cy="135" r="3.5" fill="#0284c7"/><circle cx="160" cy="135" r="3.5" fill="#0284c7"/>
+      <path d="M143 145 Q148 150 153 145" stroke="#0284c7" stroke-width="2" fill="none"/>
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748b">Uap Gas di Awan</text>
+    `,
+    // 2. Berhasil Diberi Dingin: Kristal Salju Padat
+    successSvg: `
+      <path d="M100 100 Q120 70 150 80 Q180 65 195 95 Q210 120 185 135 L100 135 Q80 120 100 100 Z" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="3.5"/>
+      <g transform="translate(115, 160)">
+        <line x1="-16" y1="0" x2="16" y2="0" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="0" y1="-16" x2="0" y2="16" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="-11" y1="-11" x2="11" y2="11" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="-11" y1="11" x2="11" y2="-11" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(170, 165) scale(0.85)">
+        <line x1="-16" y1="0" x2="16" y2="0" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="0" y1="-16" x2="0" y2="16" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="-11" y1="-11" x2="11" y2="11" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="-11" y1="11" x2="11" y2="-11" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+      </g>
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Jadi Kristal Salju Padat!</text>
+    `,
+    // 3. Salah Dikasih Panas: Awan Panas
+    wrongSvg: `
+      <path d="M100 120 Q120 90 150 100 Q180 85 195 115 Q210 140 185 155 L100 155 Q80 140 100 120 Z" fill="#fed7aa" stroke="#f97316" stroke-width="3.5"/>
+      <text x="60" y="80" font-size="24">🔥</text><text x="200" y="80" font-size="24">☁️</text>
+      <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">Makin Panas! (Beri ❄️ Salju)</text>
+    `
+  }
+};
+
+let activeKey = 'mencair';
+let currentStatus = 'initial'; // 'initial' | 'success' | 'wrong'
+
+function updateLabDisplay() {
+  const item = stateDb[activeKey];
+  document.getElementById('stageFlow').textContent = item.flow;
+  
+  const heatEl = document.getElementById('stageHeatReq');
+  heatEl.textContent = item.heatLabel;
+  heatEl.className = 'badge-tag ' + item.heatClass;
+
+  document.getElementById('stageExample').textContent = item.example;
+
+  const bubble = document.getElementById('speechBubble');
+  const holder = document.getElementById('svgHolder');
+
+  let svgCode = item.initialSvg;
+  let text = item.initialMsg;
+
+  if (currentStatus === 'success') {
+    svgCode = item.successSvg;
+    text = item.successMsg;
+  } else if (currentStatus === 'wrong') {
+    svgCode = item.wrongSvg;
+    text = item.wrongMsg;
+  }
+
+  bubble.innerHTML = text;
+  holder.innerHTML = `<svg viewBox="0 0 280 230" width="280" height="230">${svgCode}</svg>`;
+}
+
+// LOGIKA UTAMA: MEMERIKSA APAKAH ALAT YANG DIBERIKAN COCOK!
+function applyTool(toolType) { // toolType: 'heat' | 'cold'
+  const item = stateDb[activeKey];
+  const isCorrect = (toolType === 'heat' && item.needsHeat) || (toolType === 'cold' && !item.needsHeat);
+
+  if (isCorrect) {
+    snd.success();
+    currentStatus = 'success';
+  } else {
+    snd.wrong();
+    currentStatus = 'wrong';
+  }
+  updateLabDisplay();
+}
+
+// Tombol 6 Wujud
+document.querySelectorAll('.wujud-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    snd.click();
+    document.querySelectorAll('.wujud-btn').forEach(btn => btn.classList.remove('active'));
+    b.classList.add('active');
+    activeKey = b.dataset.key;
+    currentStatus = 'initial';
+    updateLabDisplay();
+  });
+});
+
+// Tombol Ulangi
+document.getElementById('btnResetStage').addEventListener('click', () => {
+  snd.click();
+  currentStatus = 'initial';
+  updateLabDisplay();
+});
+
+// Drag and drop tools
+const dragHeat = document.getElementById('dragHeat');
+const dragCold = document.getElementById('dragCold');
+const viewportScreen = document.getElementById('viewportScreen');
+
+[dragHeat, dragCold].forEach(chip => {
+  chip.addEventListener('dragstart', (e) => {
+    chip.classList.add('dragging');
+    e.dataTransfer.setData('text/plain', chip.id === 'dragHeat' ? 'heat' : 'cold');
+  });
+  chip.addEventListener('dragend', () => chip.classList.remove('dragging'));
+
+  // Tablet touch
+  chip.addEventListener('touchend', (e) => {
+    const touch = e.changedTouches[0];
+    const rect = viewportScreen.getBoundingClientRect();
+    if (touch.clientX >= rect.left && touch.clientX <= rect.right &&
+        touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
+      applyTool(chip.id === 'dragHeat' ? 'heat' : 'cold');
+    }
+  });
+});
+
+viewportScreen.addEventListener('dragover', (e) => e.preventDefault());
+viewportScreen.addEventListener('drop', (e) => {
+  e.preventDefault();
+  const tool = e.dataTransfer.getData('text/plain');
+  applyTool(tool);
+});
+
+updateLabDisplay();
+
+/* ========================================================
+   TAB 2: KACA PEMBESAR AJAIB (CANVAS BUTIRAN)
+   ======================================================== */
+const pCanvas = document.getElementById('particleCanvas');
+const pCtx = pCanvas.getContext('2d');
+const tempRange = document.getElementById('tempRange');
+
+class LittleDot {
+  constructor(x, y) {
+    this.origX = x;
+    this.origY = y;
+    this.x = x;
+    this.y = y;
+    this.vx = (Math.random() - 0.5) * 2;
+    this.vy = (Math.random() - 0.5) * 2;
+    this.radius = 13;
+  }
+  update(t, w, h) {
+    if (t < 35) {
+      // Padat: Rapat & bergetar
+      const j = (t / 35) * 1.5 + 0.5;
+      this.x = this.origX + (Math.random() - 0.5) * j;
+      this.y = this.origY + (Math.random() - 0.5) * j;
+    } else if (t < 70) {
+      // Cair: Mengalir santai
+      this.x += this.vx * 1.3;
+      this.y += this.vy * 1.3 + 0.3;
+      if (this.x - this.radius < 15 || this.x + this.radius > w - 15) this.vx *= -1;
+      if (this.y - this.radius < h * 0.35) this.vy = Math.abs(this.vy);
+      if (this.y + this.radius > h - 15) {
+        this.y = h - 15 - this.radius;
+        this.vy *= -0.7;
+      }
+    } else {
+      // Gas: Terbang bebas
+      this.x += this.vx * 3.5;
+      this.y += this.vy * 3.5;
+      if (this.x - this.radius < 15 || this.x + this.radius > w - 15) this.vx *= -1;
+      if (this.y - this.radius < 15 || this.y + this.radius > h - 15) this.vy *= -1;
+    }
+  }
+  draw(ctx, t) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = t < 35 ? '#bae6fd' : (t < 70 ? '#67e8f9' : '#fca5a5');
+    ctx.strokeStyle = t < 35 ? '#0284c7' : (t < 70 ? '#0891b2' : '#dc2626');
+    ctx.lineWidth = 2.5;
+    ctx.fill();
+    ctx.stroke();
+
+    // Wajah tersenyum
+    ctx.fillStyle = '#0f172a';
+    ctx.beginPath();
+    ctx.arc(this.x - 4, this.y - 2, 1.8, 0, Math.PI * 2);
+    ctx.arc(this.x + 4, this.y - 2, 1.8, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(this.x, this.y + 2, 3.5, 0, Math.PI);
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
+  }
+}
+
+const dots = [];
+for (let r = 0; r < 4; r++) {
+  for (let c = 0; c < 7; c++) {
+    dots.push(new LittleDot(150 + c * 28, 130 + r * 26));
+  }
+}
+
+function updateLensTitle(t) {
+  const icon = document.getElementById('lensIcon');
+  const title = document.getElementById('lensTitle');
+  if (t < 35) {
+    icon.textContent = '🧊';
+    title.textContent = 'Benda Padat (Butiran Pelukan Rapat)';
+  } else if (t < 70) {
+    icon.textContent = '💧';
+    title.textContent = 'Benda Cair (Butiran Berenang Mengalir)';
+  } else {
+    icon.textContent = '💨';
+    title.textContent = 'Benda Gas (Butiran Melompat Terbang Tinggi)';
+  }
+}
+
+function runParticleLoop() {
+  pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+  const temp = parseInt(tempRange.value, 10);
+  dots.forEach(d => {
+    d.update(temp, pCanvas.width, pCanvas.height);
+    d.draw(pCtx, temp);
+  });
+  requestAnimationFrame(runParticleLoop);
+}
+tempRange.addEventListener('input', () => updateLensTitle(parseInt(tempRange.value, 10)));
+runParticleLoop();
+
+/* ========================================================
+   TAB 3: GAME KERANJANG KALOR
+   ======================================================== */
+const cardsData = [
+  { id: 'cd1', text: '🍦 Es krim meleleh', target: 'hot', icon: '☀️' },
+  { id: 'cd2', text: '🧊 Air membeku jadi es batu', target: 'cold', icon: '❄️' },
+  { id: 'cd3', text: '👕 Seragam basah dijemur kering', target: 'hot', icon: '💨' },
+  { id: 'cd4', text: '💧 Rumput basah oleh embun pagi', target: 'cold', icon: '🍃' },
+  { id: 'cd5', text: '🌸 Kapur barus mengecil di lemari', target: 'hot', icon: '📦' },
+  { id: 'cd6', text: '❄️ Uap air jadi butiran salju', target: 'cold', icon: '☁️' }
+];
+
+let gamePoints = 0;
+const gameCardsRow = document.getElementById('gameCardsRow');
+const dropBasketHot = document.getElementById('dropBasketHot');
+const dropBasketCold = document.getElementById('dropBasketCold');
+const slotHot = document.getElementById('slotHot');
+const slotCold = document.getElementById('slotCold');
+const gameScoreText = document.getElementById('gameScoreText');
+
+function initBasketGame() {
+  gamePoints = 0;
+  gameScoreText.textContent = '0';
+  slotHot.innerHTML = '';
+  slotCold.innerHTML = '';
+  gameCardsRow.innerHTML = '';
+
+  const shuffled = [...cardsData].sort(() => Math.random() - 0.5);
+
+  shuffled.forEach(c => {
+    const cardEl = document.createElement('div');
+    cardEl.className = 'game-card-item';
+    cardEl.draggable = true;
+    cardEl.id = c.id;
+    cardEl.innerHTML = `
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="font-size:20px;">${c.icon}</span>
+        <span>${c.text}</span>
+      </div>
+      <div style="display:flex;gap:4px;">
+        <button title="Pilih Panas" style="background:#ffedd5;border:1.5px solid #fdba74;border-radius:8px;padding:3px 7px;cursor:pointer;font-weight:700;font-size:11px;color:#c2410c;">🔥</button>
+        <button title="Pilih Dingin" style="background:#e0f2fe;border:1.5px solid #7dd3fc;border-radius:8px;padding:3px 7px;cursor:pointer;font-weight:700;font-size:11px;color:#0369a1;">❄️</button>
+      </div>
+    `;
+
+    // Click buttons fallback
+    const [btnH, btnC] = cardEl.querySelectorAll('button');
+    btnH.addEventListener('click', (e) => { e.stopPropagation(); processDrop(c.id, 'hot', cardEl); });
+    btnC.addEventListener('click', (e) => { e.stopPropagation(); processDrop(c.id, 'cold', cardEl); });
+
+    // Drag handlers
+    cardEl.addEventListener('dragstart', (e) => {
+      cardEl.classList.add('dragging');
+      e.dataTransfer.setData('text/plain', c.id);
+    });
+    cardEl.addEventListener('dragend', () => cardEl.classList.remove('dragging'));
+
+    // Tablet touch drop
+    cardEl.addEventListener('touchend', (e) => {
+      const touch = e.changedTouches[0];
+      const rH = dropBasketHot.getBoundingClientRect();
+      const rC = dropBasketCold.getBoundingClientRect();
+
+      if (touch.clientX >= rH.left && touch.clientX <= rH.right &&
+          touch.clientY >= rH.top && touch.clientY <= rH.bottom) {
+        processDrop(c.id, 'hot', cardEl);
+      } else if (touch.clientX >= rC.left && touch.clientX <= rC.right &&
+                 touch.clientY >= rC.top && touch.clientY <= rC.bottom) {
+        processDrop(c.id, 'cold', cardEl);
+      }
+    });
+
+    gameCardsRow.appendChild(cardEl);
+  });
+}
+
+function processDrop(cardId, basketType, el) {
+  const c = cardsData.find(x => x.id === cardId);
+  if (!c) return;
+
+  if (c.target === basketType) {
+    snd.success();
+    gamePoints += 20;
+    gameScoreText.textContent = gamePoints;
+    el.classList.add('correct');
+    el.draggable = false;
+    el.querySelectorAll('button').forEach(b => b.remove());
+
+    if (basketType === 'hot') {
+      slotHot.appendChild(el);
+    } else {
+      slotCold.appendChild(el);
+    }
+
+    if (gamePoints >= 120) {
+      showWinnerModal('Pakar Kalor Cilik!', '120 / 120 ⭐', 'Hebat sekali! Semua kartu berhasil kamu kelompokkan dengan benar!');
+      launchConfetti();
+    }
+  } else {
+    snd.wrong();
+    el.classList.add('shake');
+    setTimeout(() => el.classList.remove('shake'), 450);
+  }
+}
+
+[dropBasketHot, dropBasketCold].forEach(b => {
+  b.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    b.classList.add('over');
+  });
+  b.addEventListener('dragleave', () => b.classList.remove('over'));
+  b.addEventListener('drop', (e) => {
+    e.preventDefault();
+    b.classList.remove('over');
+    const cId = e.dataTransfer.getData('text/plain');
+    const el = document.getElementById(cId);
+    if (el) processDrop(cId, b.dataset.box, el);
+  });
+});
+
+document.getElementById('btnRestartGame').addEventListener('click', () => {
+  snd.click();
+  initBasketGame();
+});
+
+initBasketGame();
+
+/* ========================================================
+   TAB 4: GAME TARIK GARIS (INTERAKTIF & AKURAT)
+   ======================================================== */
+const matchPairData = [
+  {
+    id: 'mencair',
+    event: '🍦 Es krim / es batu meleleh',
+    target: '1. Mencair',
+    sub: 'Padat ➔ Cair (Butuh Panas 🔥)',
+    color: '#f97316'
+  },
+  {
+    id: 'membeku',
+    event: '🧊 Air di kulkas membeku jadi es',
+    target: '2. Membeku',
+    sub: 'Cair ➔ Padat (Butuh Dingin ❄️)',
+    color: '#0284c7'
+  },
+  {
+    id: 'menguap',
+    event: '👕 Baju basah dijemur jadi kering',
+    target: '3. Menguap',
+    sub: 'Cair ➔ Gas (Butuh Panas 🔥)',
+    color: '#ca8a04'
+  },
+  {
+    id: 'mengembun',
+    event: '💧 Rumput basah oleh embun pagi',
+    target: '4. Mengembun',
+    sub: 'Gas ➔ Cair (Butuh Dingin ❄️)',
+    color: '#0891b2'
+  },
+  {
+    id: 'menyublim',
+    event: '🌸 Kapur barus di lemari mengecil',
+    target: '5. Menyublim',
+    sub: 'Padat ➔ Gas (Butuh Panas 🔥)',
+    color: '#c026d3'
+  },
+  {
+    id: 'mengkristal',
+    event: '❄️ Uap air di langit jadi butiran salju',
+    target: '6. Mengkristal',
+    sub: 'Gas ➔ Padat (Butuh Dingin ❄️)',
+    color: '#2563eb'
+  }
+];
+
+let connectedMatches = [];
+let selectedFromCard = null;
+let isDraggingLine = false;
+
+const matchArena = document.getElementById('matchArena');
+const matchSvgOverlay = document.getElementById('matchSvgOverlay');
+const activeDragLine = document.getElementById('activeDragLine');
+const connectedLinesGroup = document.getElementById('connectedLinesGroup');
+const colLeftEvents = document.getElementById('colLeftEvents');
+const colRightTargets = document.getElementById('colRightTargets');
+const matchCounter = document.getElementById('matchCounter');
+
+function getPinCenter(pinEl) {
+  const arenaRect = matchArena.getBoundingClientRect();
+  const pinRect = pinEl.getBoundingClientRect();
+  return {
+    x: pinRect.left + pinRect.width / 2 - arenaRect.left,
+    y: pinRect.top + pinRect.height / 2 - arenaRect.top
+  };
+}
+
+function redrawConnectedLines() {
+  connectedLinesGroup.innerHTML = '';
+  connectedMatches.forEach(item => {
+    const fromPin = item.fromEl.querySelector('.pin-dot');
+    const toPin = item.toEl.querySelector('.pin-dot');
+    if (!fromPin || !toPin) return;
+
+    const p1 = getPinCenter(fromPin);
+    const p2 = getPinCenter(toPin);
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    const dx = Math.abs(p2.x - p1.x) * 0.5;
+    const d = `M ${p1.x} ${p1.y} C ${p1.x + dx} ${p1.y}, ${p2.x - dx} ${p2.y}, ${p2.x} ${p2.y}`;
+    path.setAttribute('d', d);
+    path.setAttribute('stroke', item.color);
+    path.setAttribute('stroke-width', '5');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('filter', 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))');
+    connectedLinesGroup.appendChild(path);
+  });
+}
+
+function initMatchingGame() {
+  connectedMatches = [];
+  selectedFromCard = null;
+  isDraggingLine = false;
+  if (activeDragLine) activeDragLine.style.display = 'none';
+  if (connectedLinesGroup) connectedLinesGroup.innerHTML = '';
+  if (matchCounter) matchCounter.textContent = '⭐ Terhubung: 0 / 6';
+
+  if (!colLeftEvents || !colRightTargets) return;
+  colLeftEvents.innerHTML = '';
+  colRightTargets.innerHTML = '';
+
+  const leftItems = [...matchPairData];
+  const rightItems = [...matchPairData].sort(() => Math.random() - 0.5);
+
+  leftItems.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'match-card';
+    card.dataset.matchId = item.id;
+    card.dataset.side = 'left';
+    card.innerHTML = `
+      <span>${item.event}</span>
+      <div class="pin-dot left-pin" title="Tarik dari sini"></div>
+    `;
+    colLeftEvents.appendChild(card);
+  });
+
+  rightItems.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'match-card';
+    card.dataset.matchId = item.id;
+    card.dataset.side = 'right';
+    card.innerHTML = `
+      <div class="pin-dot right-pin"></div>
+      <div>
+        <div style="font-size:14.5px;color:#0f172a;">${item.target}</div>
+        <div style="font-size:11.5px;color:#64748b;font-weight:600;">${item.sub}</div>
+      </div>
+    `;
+    colRightTargets.appendChild(card);
+  });
+
+  attachMatchEvents();
+}
+
+function attachMatchEvents() {
+  colLeftEvents.querySelectorAll('.match-card').forEach(card => {
+    const pin = card.querySelector('.pin-dot');
+
+    const handleStart = (clientX, clientY) => {
+      if (card.classList.contains('matched')) return;
+      selectedFromCard = card;
+      isDraggingLine = true;
+
+      colLeftEvents.querySelectorAll('.match-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+
+      const p1 = getPinCenter(pin);
+      const arenaRect = matchArena.getBoundingClientRect();
+      activeDragLine.setAttribute('x1', p1.x);
+      activeDragLine.setAttribute('y1', p1.y);
+      activeDragLine.setAttribute('x2', clientX - arenaRect.left);
+      activeDragLine.setAttribute('y2', clientY - arenaRect.top);
+      activeDragLine.style.display = 'block';
+    };
+
+    pin.addEventListener('mousedown', (e) => {
+      e.stopPropagation();
+      handleStart(e.clientX, e.clientY);
+    });
+    card.addEventListener('mousedown', (e) => {
+      handleStart(e.clientX, e.clientY);
+    });
+
+    pin.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      handleStart(t.clientX, t.clientY);
+    }, { passive: true });
+    card.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      handleStart(t.clientX, t.clientY);
+    }, { passive: true });
+  });
+
+  const handleMove = (clientX, clientY) => {
+    if (!isDraggingLine || !selectedFromCard) return;
+    const arenaRect = matchArena.getBoundingClientRect();
+    const currX = clientX - arenaRect.left;
+    const currY = clientY - arenaRect.top;
+    activeDragLine.setAttribute('x2', currX);
+    activeDragLine.setAttribute('y2', currY);
+  };
+
+  window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+  window.addEventListener('touchmove', (e) => {
+    if (!isDraggingLine) return;
+    const t = e.touches[0];
+    handleMove(t.clientX, t.clientY);
+  }, { passive: true });
+
+  colRightTargets.querySelectorAll('.match-card').forEach(rightCard => {
+    const checkConnect = () => {
+      if (!selectedFromCard) return;
+      if (rightCard.classList.contains('matched')) return;
+
+      const leftId = selectedFromCard.dataset.matchId;
+      const rightId = rightCard.dataset.matchId;
+
+      if (leftId === rightId) {
+        snd.success();
+        const pairInfo = matchPairData.find(x => x.id === leftId);
+        selectedFromCard.classList.remove('selected');
+        selectedFromCard.classList.add('matched');
+        rightCard.classList.add('matched');
+
+        const chk1 = document.createElement('span');
+        chk1.style.cssText = 'color:#10b981;font-weight:900;margin-left:auto;padding-left:6px;';
+        chk1.textContent = '✓';
+        selectedFromCard.appendChild(chk1);
+
+        const chk2 = document.createElement('span');
+        chk2.style.cssText = 'color:#10b981;font-weight:900;margin-left:auto;padding-left:6px;';
+        chk2.textContent = '✓';
+        rightCard.appendChild(chk2);
+
+        connectedMatches.push({
+          id: leftId,
+          fromEl: selectedFromCard,
+          toEl: rightCard,
+          color: pairInfo ? pairInfo.color : '#10b981'
+        });
+
+        redrawConnectedLines();
+        matchCounter.textContent = `⭐ Terhubung: ${connectedMatches.length} / 6`;
+
+        if (connectedMatches.length >= 6) {
+          launchConfetti();
+          showWinnerModal(
+            'Luar Biasa Hebat! 🌟',
+            '100 / 100 ⭐⭐⭐',
+            'Hebat sekali! Semua 6 pasangan perubahan wujud zat berhasil kamu hubungkan dengan tepat!'
+          );
+        }
+      } else {
+        snd.wrong();
+        rightCard.classList.add('shake');
+        setTimeout(() => rightCard.classList.remove('shake'), 450);
+      }
+
+      activeDragLine.style.display = 'none';
+      isDraggingLine = false;
+      selectedFromCard = null;
+      colLeftEvents.querySelectorAll('.match-card').forEach(c => c.classList.remove('selected'));
+    };
+
+    rightCard.addEventListener('mouseup', checkConnect);
+    rightCard.addEventListener('click', checkConnect);
+    rightCard.addEventListener('touchend', () => checkConnect());
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isDraggingLine) {
+      activeDragLine.style.display = 'none';
+      isDraggingLine = false;
+    }
+  });
+  window.addEventListener('touchend', () => {
+    if (isDraggingLine) {
+      activeDragLine.style.display = 'none';
+      isDraggingLine = false;
+    }
+  });
+}
+
+window.addEventListener('resize', redrawConnectedLines);
+
+document.getElementById('btnRestartMatch').addEventListener('click', () => {
+  snd.click();
+  initMatchingGame();
+});
+
+initMatchingGame();
+
+/* ========================================================
+   CONFETTI KEMBANG API
+   ======================================================== */
+const cCanvas = document.getElementById('confettiCanvas');
+const cfCtx = cCanvas.getContext('2d');
+let particles = [];
+let animFrame = null;
+
+function fitCanvas() {
+  cCanvas.width = window.innerWidth;
+  cCanvas.height = window.innerHeight;
+}
+window.addEventListener('resize', fitCanvas);
+fitCanvas();
+
+function launchConfetti() {
+  particles = [];
+  const palette = ['#fbbf24', '#38bdf8', '#f472b6', '#34d399', '#a78bfa'];
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+      vx: (Math.random() - 0.5) * 15,
+      vy: (Math.random() - 0.7) * 16,
+      size: Math.random() * 8 + 5,
+      color: palette[Math.floor(Math.random() * palette.length)],
+      rot: Math.random() * 360,
+      vRot: (Math.random() - 0.5) * 8
+    });
+  }
+  if (animFrame) cancelAnimationFrame(animFrame);
+  loopConfetti();
+}
+
+function loopConfetti() {
+  cfCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += 0.38;
+    p.rot += p.vRot;
+
+    cfCtx.save();
+    cfCtx.translate(p.x, p.y);
+    cfCtx.rotate((p.rot * Math.PI) / 180);
+    cfCtx.fillStyle = p.color;
+    cfCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+    cfCtx.restore();
+  });
+
+  particles = particles.filter(p => p.y < window.innerHeight + 20);
+  if (particles.length > 0) {
+    animFrame = requestAnimationFrame(loopConfetti);
+  } else {
+    cfCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+  }
+}
+
+/* ========================================================
+   MODAL DIALOG
+   ======================================================== */
+function showWinnerModal(title, scoreText, msg) {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalScoreNum').textContent = scoreText;
+  document.getElementById('modalMsg').textContent = msg;
+  document.getElementById('modalMask').classList.add('show');
+}
+
+document.getElementById('btnCloseModal').addEventListener('click', () => {
+  snd.click();
+  document.getElementById('modalMask').classList.remove('show');
+});
+</script>
+</body>
+</html>
