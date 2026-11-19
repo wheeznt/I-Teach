@@ -1,1505 +1,1727 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>Sainsfera · Petualangan 6 Perubahan Wujud Zat | Kelas 4 SD</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Sainsfera · Petualangan 6 Perubahan Wujud Zat | Kelas 4 SD</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap');
 
-:root {
-  /* MIT Editorial Color System */
-  --primary: #FF1423;
-  --primary-contrast: #FFFFFF;
-  --secondary: #000000;
-  --tertiary: #FFFFFF;
-  --neutral: #F5F5F5;
-  --surface: #FFFFFF;
-  --on-surface: #000000;
-  --border: #FF1423;
-  --border-dark: #000000;
-  --border-subtle: #E5E5E5;
+    :root {
+      /* MIT Editorial Color System */
+      --primary: #FF1423;
+      --primary-contrast: #FFFFFF;
+      --secondary: #000000;
+      --tertiary: #FFFFFF;
+      --neutral: #F5F5F5;
+      --surface: #FFFFFF;
+      --on-surface: #000000;
+      --border: #FF1423;
+      --border-dark: #000000;
+      --border-subtle: #E5E5E5;
 
-  /* Thematic Science Accents (Child-friendly Science Lab) */
-  --heat-color: #FF1423;
-  --cold-color: #0284C7;
-  --success-color: #10B981;
+      /* Thematic Science Accents (Child-friendly Science Lab) */
+      --heat-color: #FF1423;
+      --cold-color: #0284C7;
+      --success-color: #10B981;
 
-  /* Typography */
-  --font-display: 'Space Grotesk', 'Neue Haas Grotesk Display', 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-body: 'Plus Jakarta Sans', 'Neue Haas Grotesk Text', system-ui, -apple-system, sans-serif;
+      /* Typography */
+      --font-display: 'Space Grotesk', 'Neue Haas Grotesk Display', 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-body: 'Plus Jakarta Sans', 'Neue Haas Grotesk Text', system-ui, -apple-system, sans-serif;
 
-  /* Radii */
-  --radius-none: 0px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 10px;
-  --radius-xl: 12px;
-  --radius-full: 9999px;
+      /* Radii */
+      --radius-none: 0px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 10px;
+      --radius-xl: 12px;
+      --radius-full: 9999px;
 
-  /* Shadows (Tactile Neo-Editorial Shadow) */
-  --shadow-sm: 2px 2px 0px #000000;
-  --shadow-md: 4px 4px 0px #000000;
-  --shadow-red: 4px 4px 0px #FF1423;
-}
+      /* Shadows (Tactile Neo-Editorial Shadow) */
+      --shadow-sm: 2px 2px 0px #000000;
+      --shadow-md: 4px 4px 0px #000000;
+      --shadow-red: 4px 4px 0px #FF1423;
+    }
 
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  color: var(--on-surface);
-  background-color: var(--neutral);
-  background-image: radial-gradient(#d4d4d4 1.2px, transparent 1.2px);
-  background-size: 20px 20px;
-  min-height: 100vh;
-  user-select: none;
-  overflow-x: hidden;
-  line-height: 1.5;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* Hide old pastel bubbles for clean editorial layout */
-.bg-bubble {
-  display: none !important;
-}
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--on-surface);
+      background-color: var(--neutral);
+      background-image: radial-gradient(#d4d4d4 1.2px, transparent 1.2px);
+      background-size: 20px 20px;
+      min-height: 100vh;
+      user-select: none;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
 
-.wrap {
-  width: min(1000px, calc(100% - 24px));
-  margin: auto;
-  position: relative;
-  z-index: 1;
-  padding-bottom: 36px;
-}
+    /* Hide old pastel bubbles for clean editorial layout */
+    .bg-bubble {
+      display: none !important;
+    }
 
-/* ========================================================
+    .wrap {
+      width: min(1000px, calc(100% - 24px));
+      margin: auto;
+      position: relative;
+      z-index: 1;
+      padding-bottom: 36px;
+    }
+
+    /* ========================================================
    HEADER (MIT EDITORIAL ACADEMIC LAB BAR)
    ======================================================== */
-header {
-  background: var(--surface);
-  border-bottom: 3px solid var(--primary);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-.header-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0;
-}
-.brand-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.brand-avatar {
-  width: 44px;
-  height: 44px;
-  background: var(--secondary);
-  color: var(--tertiary);
-  border: 2px solid var(--primary);
-  border-radius: var(--radius-sm);
-  display: grid;
-  place-items: center;
-  font-size: 22px;
-  box-shadow: var(--shadow-sm);
-}
-.brand-title {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--secondary);
-  margin: 0;
-  letter-spacing: -0.5px;
-  text-transform: uppercase;
-}
-.brand-sub {
-  font-family: var(--font-body);
-  font-size: 11px;
-  color: var(--primary);
-  background: var(--neutral);
-  border: 1.5px solid var(--primary);
-  border-radius: var(--radius-full);
-  font-weight: 700;
-  padding: 2px 8px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-left: 4px;
-}
+    header {
+      background: var(--surface);
+      border-bottom: 3px solid var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
 
-.sound-btn {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-sm);
-  padding: 8px 14px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 12.5px;
-  color: var(--secondary);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.15s;
-}
-.sound-btn:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px var(--primary);
-}
-.sound-btn:active {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0px var(--secondary);
-}
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+    }
 
-/* Back to Home Button in Header */
-#btnGoHome {
-  border-color: var(--primary) !important;
-  color: var(--primary) !important;
-  background: var(--surface) !important;
-  box-shadow: var(--shadow-sm) !important;
-}
-#btnGoHome:hover {
-  background: var(--primary) !important;
-  color: var(--tertiary) !important;
-}
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-/* ========================================================
+    .brand-avatar {
+      width: 44px;
+      height: 44px;
+      background: var(--secondary);
+      color: var(--tertiary);
+      border: 2px solid var(--primary);
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--secondary);
+      margin: 0;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: var(--primary);
+      background: var(--neutral);
+      border: 1.5px solid var(--primary);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      padding: 2px 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-left: 4px;
+    }
+
+    .sound-btn {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12.5px;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s;
+    }
+
+    .sound-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--primary);
+    }
+
+    .sound-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px var(--secondary);
+    }
+
+    /* Back to Home Button in Header */
+    #btnGoHome {
+      border-color: var(--primary) !important;
+      color: var(--primary) !important;
+      background: var(--surface) !important;
+      box-shadow: var(--shadow-sm) !important;
+    }
+
+    #btnGoHome:hover {
+      background: var(--primary) !important;
+      color: var(--tertiary) !important;
+    }
+
+    /* ========================================================
    MASCOT BANNER (EDITORIAL BULLETIN WITH MILO 🦊)
    ======================================================== */
-.mascot-strip {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-left: 6px solid var(--primary);
-  border-radius: var(--radius-lg);
-  padding: 14px 20px;
-  margin: 18px 0 16px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  box-shadow: var(--shadow-md);
-}
-.mascot-face {
-  font-size: 42px;
-  flex-shrink: 0;
-  animation: wiggle 3s infinite ease-in-out;
-}
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-8deg); }
-  75% { transform: rotate(8deg); }
-}
-.mascot-text {
-  font-size: 14.5px;
-  color: var(--secondary);
-  line-height: 1.5;
-  font-weight: 600;
-}
-.mascot-text strong {
-  color: var(--primary);
-  font-weight: 800;
-}
+    .mascot-strip {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-left: 6px solid var(--primary);
+      border-radius: var(--radius-lg);
+      padding: 14px 20px;
+      margin: 18px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-md);
+    }
 
-/* ========================================================
+    .mascot-face {
+      font-size: 42px;
+      flex-shrink: 0;
+      animation: wiggle 3s infinite ease-in-out;
+    }
+
+    @keyframes wiggle {
+
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(-8deg);
+      }
+
+      75% {
+        transform: rotate(8deg);
+      }
+    }
+
+    .mascot-text {
+      font-size: 14.5px;
+      color: var(--secondary);
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .mascot-text strong {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    /* ========================================================
    NAV TABS (EDITORIAL GRID CONTROLS)
    ======================================================== */
-.nav-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-bottom: 22px;
-}
-.nav-tab {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-md);
-  padding: 12px 8px;
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.15s;
-}
-.nav-tab:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px var(--primary);
-}
-.nav-tab.active {
-  background: var(--primary);
-  border-color: var(--secondary);
-  color: var(--tertiary);
-  box-shadow: var(--shadow-md);
-  transform: translate(-1px, -1px);
-}
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 22px;
+    }
 
-/* TAB PANELS */
-.tab-content { display: none; }
-.tab-content.active { display: block; }
+    .nav-tab {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-md);
+      padding: 12px 8px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s;
+    }
 
-.main-card {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-xl);
-  padding: clamp(18px, 3vw, 26px);
-  box-shadow: 6px 6px 0px var(--primary);
-  margin-bottom: 24px;
-}
+    .nav-tab:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--primary);
+    }
 
-/* ========================================================
+    .nav-tab.active {
+      background: var(--primary);
+      border-color: var(--secondary);
+      color: var(--tertiary);
+      box-shadow: var(--shadow-md);
+      transform: translate(-1px, -1px);
+    }
+
+    /* TAB PANELS */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .main-card {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-xl);
+      padding: clamp(18px, 3vw, 26px);
+      box-shadow: 6px 6px 0px var(--primary);
+      margin-bottom: 24px;
+    }
+
+    /* ========================================================
    PANEL 1: BUTIRAN AJAIB (PARTICLE LENS)
    ======================================================== */
-.lens-box {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-lg);
-  padding: 20px;
-  box-shadow: var(--shadow-md);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 620px;
-  margin: auto;
-}
-.lens-badge {
-  background: var(--neutral);
-  border: 1.5px solid var(--secondary);
-  border-radius: var(--radius-full);
-  padding: 6px 16px;
-  font-family: var(--font-display);
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--secondary);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-canvas#particleCanvas {
-  width: 100%;
-  height: 240px;
-  border-radius: var(--radius-md);
-  background: #FAFAFA;
-  border: 2px solid var(--secondary);
-}
-.slider-container {
-  width: 100%;
-  margin-top: 16px;
-  background: var(--neutral);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-md);
-  padding: 12px 18px;
-}
-.slider-labels {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 800;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-.slider-labels span:first-child { color: var(--cold-color); }
-.slider-labels span:last-child { color: var(--heat-color); }
-.heat-range {
-  width: 100%;
-  -webkit-appearance: none;
-  height: 14px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(to right, var(--cold-color) 0%, #E5E5E5 50%, var(--primary) 100%);
-  border: 2px solid var(--secondary);
-  outline: none;
-  cursor: pointer;
-}
-.heat-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--surface);
-  border: 3px solid var(--secondary);
-  box-shadow: var(--shadow-sm);
-  cursor: grab;
-}
+    .lens-box {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 620px;
+      margin: auto;
+    }
 
-/* ========================================================
+    .lens-badge {
+      background: var(--neutral);
+      border: 1.5px solid var(--secondary);
+      border-radius: var(--radius-full);
+      padding: 6px 16px;
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    canvas#particleCanvas {
+      width: 100%;
+      height: 240px;
+      border-radius: var(--radius-md);
+      background: #FAFAFA;
+      border: 2px solid var(--secondary);
+    }
+
+    .slider-container {
+      width: 100%;
+      margin-top: 16px;
+      background: var(--neutral);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+    }
+
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .slider-labels span:first-child {
+      color: var(--cold-color);
+    }
+
+    .slider-labels span:last-child {
+      color: var(--heat-color);
+    }
+
+    .heat-range {
+      width: 100%;
+      -webkit-appearance: none;
+      height: 14px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(to right, var(--cold-color) 0%, #E5E5E5 50%, var(--primary) 100%);
+      border: 2px solid var(--secondary);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .heat-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--secondary);
+      box-shadow: var(--shadow-sm);
+      cursor: grab;
+    }
+
+    /* ========================================================
    PANEL 2: LAB 6 PERUBAHAN WUJUD (STAGE THEATER)
    ======================================================== */
-.wujud-nav {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
-  margin-bottom: 18px;
-}
-.wujud-btn {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-md);
-  padding: 10px 4px;
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--secondary);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.15s;
-}
-.wujud-btn:hover {
-  border-color: var(--primary);
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px var(--primary);
-}
-.wujud-btn.active {
-  background: var(--secondary);
-  border-color: var(--primary);
-  color: var(--tertiary);
-  box-shadow: 3px 3px 0px var(--primary);
-  transform: translate(-1px, -1px);
-}
-.wujud-btn .w-icon { font-size: 22px; }
+    .wujud-nav {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
 
-/* THE BIG PLAYGROUND THEATER */
-.stage-card {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-lg);
-  padding: 18px;
-  box-shadow: var(--shadow-md);
-  position: relative;
-}
+    .wujud-btn {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-md);
+      padding: 10px 4px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--secondary);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s;
+    }
 
-/* TOP MINI BADGES (SUPER CLEAN) */
-.stage-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
-}
-.badge-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 700;
-  padding: 5px 14px;
-  border-radius: var(--radius-full);
-}
-.badge-flow {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  color: var(--secondary);
-}
-.badge-heat-hot {
-  background: var(--surface);
-  border: 2px solid var(--primary);
-  color: var(--primary);
-}
-.badge-heat-cold {
-  background: var(--surface);
-  border: 2px solid var(--cold-color);
-  color: var(--cold-color);
-}
-.badge-example {
-  background: var(--neutral);
-  border: 1.5px solid var(--secondary);
-  color: var(--secondary);
-  font-size: 12.5px;
-}
+    .wujud-btn:hover {
+      border-color: var(--primary);
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--primary);
+    }
 
-/* CARTOON VIEWPORT */
-.viewport-screen {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  min-height: 250px;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
+    .wujud-btn.active {
+      background: var(--secondary);
+      border-color: var(--primary);
+      color: var(--tertiary);
+      box-shadow: 3px 3px 0px var(--primary);
+      transform: translate(-1px, -1px);
+    }
 
-/* COMIC SPEECH BUBBLE OVER OBJECT */
-.speech-bubble {
-  position: absolute;
-  top: 12px;
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-full);
-  padding: 6px 18px;
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--secondary);
-  box-shadow: 3px 3px 0px var(--primary);
-  z-index: 5;
-  text-align: center;
-  max-width: 90%;
-  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-@keyframes popIn {
-  0% { transform: scale(0.8); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
+    .wujud-btn .w-icon {
+      font-size: 22px;
+    }
 
-/* DRAG DROP BENCH & ACTION BUTTONS */
-.interactive-controls {
-  margin-top: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+    /* THE BIG PLAYGROUND THEATER */
+    .stage-card {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
 
-.tools-shelf {
-  background: var(--neutral);
-  border: 2px dashed var(--secondary);
-  border-radius: var(--radius-md);
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.tool-drag-chip {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-sm);
-  padding: 8px 18px;
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: grab;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.15s;
-}
-.tool-drag-chip.chip-heat {
-  border-color: var(--primary);
-  color: var(--primary);
-  box-shadow: 3px 3px 0px var(--primary);
-}
-.tool-drag-chip.chip-cold {
-  border-color: var(--cold-color);
-  color: var(--cold-color);
-  box-shadow: 3px 3px 0px var(--cold-color);
-}
-.tool-drag-chip:hover {
-  transform: translate(-1px, -1px);
-}
-.tool-drag-chip.dragging {
-  opacity: 0.35;
-  transform: scale(0.95);
-}
+    /* TOP MINI BADGES (SUPER CLEAN) */
+    .stage-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
 
-.btn-reset-stage {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-sm);
-  padding: 9px 20px;
-  font-family: var(--font-display);
-  font-size: 13.5px;
-  font-weight: 800;
-  color: var(--secondary);
-  cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.15s;
-}
-.btn-reset-stage:hover {
-  background: var(--neutral);
-  border-color: var(--primary);
-  color: var(--primary);
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px var(--primary);
-}
-.btn-reset-stage:active {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0px var(--secondary);
-}
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+    }
 
-/* ========================================================
+    .badge-flow {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+    }
+
+    .badge-heat-hot {
+      background: var(--surface);
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .badge-heat-cold {
+      background: var(--surface);
+      border: 2px solid var(--cold-color);
+      color: var(--cold-color);
+    }
+
+    .badge-example {
+      background: var(--neutral);
+      border: 1.5px solid var(--secondary);
+      color: var(--secondary);
+      font-size: 12.5px;
+    }
+
+    /* CARTOON VIEWPORT */
+    .viewport-screen {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      min-height: 250px;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* COMIC SPEECH BUBBLE OVER OBJECT */
+    .speech-bubble {
+      position: absolute;
+      top: 12px;
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-full);
+      padding: 6px 18px;
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--secondary);
+      box-shadow: 3px 3px 0px var(--primary);
+      z-index: 5;
+      text-align: center;
+      max-width: 90%;
+      animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* DRAG DROP BENCH & ACTION BUTTONS */
+    .interactive-controls {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tools-shelf {
+      background: var(--neutral);
+      border: 2px dashed var(--secondary);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .tool-drag-chip {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-sm);
+      padding: 8px 18px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: grab;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s;
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .tool-drag-chip.chip-heat {
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: 3px 3px 0px var(--primary);
+    }
+
+    .tool-drag-chip.chip-cold {
+      border-color: var(--cold-color);
+      color: var(--cold-color);
+      box-shadow: 3px 3px 0px var(--cold-color);
+    }
+
+    .tool-drag-chip:hover {
+      transform: translate(-1px, -1px);
+    }
+
+    .tool-drag-chip.dragging {
+      opacity: 0.35;
+      transform: scale(0.95);
+    }
+
+    .btn-reset-stage {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-sm);
+      padding: 9px 20px;
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--secondary);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+
+    .btn-reset-stage:hover {
+      background: var(--neutral);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--primary);
+    }
+
+    .btn-reset-stage:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px var(--secondary);
+    }
+
+    /* ========================================================
    PANEL 3: GAME KERANJANG KALOR (DRAG / CLICK)
    ======================================================== */
-.game-top-bar {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-md);
-  padding: 12px 18px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  box-shadow: var(--shadow-sm);
-}
-.score-pill {
-  background: var(--secondary);
-  color: var(--tertiary);
-  border: 2px solid var(--primary);
-  border-radius: var(--radius-full);
-  padding: 6px 16px;
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 800;
-  box-shadow: 2px 2px 0px var(--primary);
-  white-space: nowrap;
-}
+    .game-top-bar {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
 
-.baskets-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-.basket-card {
-  min-height: 220px;
-  border-radius: var(--radius-md);
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.2s;
-  background: var(--surface);
-}
-.basket-hot {
-  border: 2.5px dashed var(--primary);
-  box-shadow: 4px 4px 0px rgba(255, 20, 35, 0.12);
-}
-.basket-hot.over {
-  background: #FFF5F5;
-  border-style: solid;
-  transform: scale(1.02);
-}
-.basket-cold {
-  border: 2.5px dashed var(--cold-color);
-  box-shadow: 4px 4px 0px rgba(2, 132, 199, 0.12);
-}
-.basket-cold.over {
-  background: #F0F9FF;
-  border-style: solid;
-  transform: scale(1.02);
-}
-.basket-header {
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.basket-hot .basket-header { color: var(--primary); }
-.basket-cold .basket-header { color: var(--cold-color); }
-.basket-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+    .score-pill {
+      background: var(--secondary);
+      color: var(--tertiary);
+      border: 2px solid var(--primary);
+      border-radius: var(--radius-full);
+      padding: 6px 16px;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: 2px 2px 0px var(--primary);
+      white-space: nowrap;
+    }
 
-.cards-container {
-  background: var(--neutral);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-md);
-  padding: 14px;
-  margin-bottom: 14px;
-}
-.cards-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  min-height: 50px;
-}
-.event-card, .game-card-item {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-sm);
-  padding: 10px 16px;
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--secondary);
-  cursor: grab;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.15s;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.event-card:hover, .game-card-item:hover {
-  border-color: var(--primary);
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px var(--primary);
-}
-.event-card.dragging, .game-card-item.dragging {
-  opacity: 0.35;
-  transform: scale(0.95);
-}
-.event-card.in-basket, .game-card-item.in-basket {
-  cursor: default;
-  box-shadow: none;
-  border-width: 1.5px;
-  background: #FAFAFA;
-}
-.event-card.shake, .game-card-item.shake {
-  animation: shakeCard 0.4s ease;
-  border-color: var(--primary);
-  background: #FFF5F5;
-}
-@keyframes shakeCard {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-8px); }
-  75% { transform: translateX(8px); }
-}
+    .baskets-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
 
-/* ========================================================
+    .basket-card {
+      min-height: 220px;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s;
+      background: var(--surface);
+    }
+
+    .basket-hot {
+      border: 2.5px dashed var(--primary);
+      box-shadow: 4px 4px 0px rgba(255, 20, 35, 0.12);
+    }
+
+    .basket-hot.over {
+      background: #FFF5F5;
+      border-style: solid;
+      transform: scale(1.02);
+    }
+
+    .basket-cold {
+      border: 2.5px dashed var(--cold-color);
+      box-shadow: 4px 4px 0px rgba(2, 132, 199, 0.12);
+    }
+
+    .basket-cold.over {
+      background: #F0F9FF;
+      border-style: solid;
+      transform: scale(1.02);
+    }
+
+    .basket-header {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .basket-hot .basket-header {
+      color: var(--primary);
+    }
+
+    .basket-cold .basket-header {
+      color: var(--cold-color);
+    }
+
+    .basket-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cards-container {
+      background: var(--neutral);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .cards-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      min-height: 50px;
+    }
+
+    .event-card,
+    .game-card-item {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-sm);
+      padding: 10px 16px;
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--secondary);
+      cursor: grab;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s;
+      user-select: none;
+      touch-action: none;
+      -webkit-user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .event-card:hover,
+    .game-card-item:hover {
+      border-color: var(--primary);
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--primary);
+    }
+
+    .event-card.dragging,
+    .game-card-item.dragging {
+      opacity: 0.35;
+      transform: scale(0.95);
+    }
+
+    .event-card.in-basket,
+    .game-card-item.in-basket {
+      cursor: default;
+      box-shadow: none;
+      border-width: 1.5px;
+      background: #FAFAFA;
+    }
+
+    .event-card.shake,
+    .game-card-item.shake {
+      animation: shakeCard 0.4s ease;
+      border-color: var(--primary);
+      background: #FFF5F5;
+    }
+
+    @keyframes shakeCard {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-8px);
+      }
+
+      75% {
+        transform: translateX(8px);
+      }
+    }
+
+    /* ========================================================
    PANEL 4: GAME TARIK GARIS (MATCHING CHALLENGE)
    ======================================================== */
-.match-arena-box {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(250px, 310px) minmax(250px, 310px);
-  justify-content: space-between;
-  gap: 40px;
-  max-width: 820px;
-  margin: 14px auto;
-  padding: 16px 8px;
-}
-svg#matchSvgOverlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 10;
-  overflow: visible;
-}
-#activeDragLine {
-  stroke: var(--primary);
-  stroke-width: 4.5;
-  stroke-linecap: round;
-  stroke-dasharray: 8 5;
-}
-.match-col {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  z-index: 2;
-}
-.match-card {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-sm);
-  padding: 12px 18px;
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--secondary);
-  display: flex;
-  align-items: center;
-  position: relative;
-  box-shadow: var(--shadow-sm);
-  cursor: pointer;
-  transition: all 0.15s;
-  user-select: none;
-  min-height: 56px;
-}
-.match-col#colLeftEvents .match-card {
-  padding-right: 26px;
-}
-.match-col#colRightTargets .match-card {
-  padding-left: 26px;
-}
-.match-card:hover {
-  border-color: var(--primary);
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px var(--primary);
-}
-.match-card.selected {
-  border-color: var(--primary);
-  background: #FFF5F5;
-  box-shadow: 4px 4px 0px var(--primary);
-}
-.match-card.matched {
-  border-color: var(--secondary);
-  background: #F0FDF4;
-  color: #166534;
-  box-shadow: 2px 2px 0px var(--secondary);
-  cursor: default;
-}
-.pin-dot {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--surface);
-  border: 3px solid var(--secondary);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 15;
-  transition: all 0.2s;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.pin-dot.left-pin {
-  right: -10px;
-  border-color: var(--primary);
-}
-.pin-dot.right-pin {
-  left: -10px;
-  border-color: var(--cold-color);
-}
-.match-card.selected .pin-dot {
-  background: var(--primary);
-  transform: translateY(-50%) scale(1.25);
-  box-shadow: 0 0 8px rgba(255, 20, 35, 0.6);
-}
-.match-card.matched .pin-dot {
-  background: var(--secondary);
-  border-color: var(--secondary);
-}
-.match-card.shake {
-  animation: shakeLine 0.4s ease;
-  border-color: var(--primary);
-  background: #FFF5F5;
-}
-@keyframes shakeLine {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-8px); }
-  75% { transform: translateX(8px); }
-}
+    .match-arena-box {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(250px, 310px) minmax(250px, 310px);
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 820px;
+      margin: 14px auto;
+      padding: 16px 8px;
+    }
 
-@media(max-width: 768px) {
-  .match-arena-box {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 100%;
-  }
-  .match-col { gap: 12px; }
-  .match-card {
-    padding: 10px 14px;
-    font-size: 12.5px;
-    min-height: 52px;
-  }
-}
-@media(max-width: 520px) {
-  .match-arena-box {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .pin-dot.left-pin { right: 8px; }
-  .pin-dot.right-pin { left: 8px; }
-}
+    svg#matchSvgOverlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+      overflow: visible;
+    }
 
-/* ========================================================
+    #activeDragLine {
+      stroke: var(--primary);
+      stroke-width: 4.5;
+      stroke-linecap: round;
+      stroke-dasharray: 8 5;
+    }
+
+    .match-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 2;
+    }
+
+    .match-card {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-sm);
+      padding: 12px 18px;
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+      touch-action: none;
+      -webkit-user-select: none;
+      min-height: 56px;
+    }
+
+    .match-col#colLeftEvents .match-card {
+      padding-right: 26px;
+    }
+
+    .match-col#colRightTargets .match-card {
+      padding-left: 26px;
+    }
+
+    .match-card:hover {
+      border-color: var(--primary);
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--primary);
+    }
+
+    .match-card.selected {
+      border-color: var(--primary);
+      background: #FFF5F5;
+      box-shadow: 4px 4px 0px var(--primary);
+    }
+
+    .match-card.matched {
+      border-color: var(--secondary);
+      background: #F0FDF4;
+      color: #166534;
+      box-shadow: 2px 2px 0px var(--secondary);
+      cursor: default;
+    }
+
+    .pin-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--secondary);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 15;
+      transition: all 0.2s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      touch-action: none;
+    }
+
+    .pin-dot.left-pin {
+      right: -10px;
+      border-color: var(--primary);
+    }
+
+    .pin-dot.right-pin {
+      left: -10px;
+      border-color: var(--cold-color);
+    }
+
+    .match-card.selected .pin-dot {
+      background: var(--primary);
+      transform: translateY(-50%) scale(1.25);
+      box-shadow: 0 0 8px rgba(255, 20, 35, 0.6);
+    }
+
+    .match-card.matched .pin-dot {
+      background: var(--secondary);
+      border-color: var(--secondary);
+    }
+
+    .match-card.shake {
+      animation: shakeLine 0.4s ease;
+      border-color: var(--primary);
+      background: #FFF5F5;
+    }
+
+    @keyframes shakeLine {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-8px);
+      }
+
+      75% {
+        transform: translateX(8px);
+      }
+    }
+
+    @media(max-width: 768px) {
+      .match-arena-box {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 100%;
+      }
+
+      .match-col {
+        gap: 12px;
+      }
+
+      .match-card {
+        padding: 10px 14px;
+        font-size: 12.5px;
+        min-height: 52px;
+      }
+    }
+
+    @media(max-width: 520px) {
+      .match-arena-box {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .pin-dot.left-pin {
+        right: 8px;
+      }
+
+      .pin-dot.right-pin {
+        left: 8px;
+      }
+    }
+
+    /* ========================================================
    HOMESCREEN (EDITORIAL JOURNAL COVER FOR JUNIOR SCIENTISTS)
    ======================================================== */
-.screen-view {
-  animation: fadeInScreen 0.35s ease forwards;
-}
-@keyframes fadeInScreen {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    .screen-view {
+      animation: fadeInScreen 0.35s ease forwards;
+    }
 
-.homescreen-card {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-xl);
-  padding: clamp(24px, 4vw, 44px);
-  box-shadow: 8px 8px 0px var(--primary);
-  text-align: center;
-  max-width: 820px;
-  margin: 18px auto 24px;
-  position: relative;
-  overflow: hidden;
-}
-.homescreen-mascot {
-  font-size: 72px;
-  margin-bottom: 8px;
-  animation: cuteBounce 2.5s infinite ease-in-out;
-  display: inline-block;
-}
-@keyframes cuteBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-.homescreen-title {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 5vw, 42px);
-  font-weight: 800;
-  color: var(--secondary);
-  margin: 0 0 10px;
-  letter-spacing: -0.5px;
-  text-transform: uppercase;
-}
-.homescreen-badge {
-  display: inline-block;
-  background: var(--surface);
-  color: var(--primary);
-  border: 1.5px solid var(--primary);
-  font-family: var(--font-display);
-  font-size: 12.5px;
-  font-weight: 800;
-  padding: 4px 14px;
-  border-radius: var(--radius-full);
-  margin-bottom: 16px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-.homescreen-desc {
-  font-size: 16px;
-  color: #1E293B;
-  max-width: 600px;
-  margin: 0 auto 22px;
-  line-height: 1.6;
-  font-weight: 500;
-}
-.homescreen-name-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-.input-student-name {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-sm);
-  padding: 12px 18px;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--secondary);
-  width: min(100%, 280px);
-  text-align: center;
-  outline: none;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.15s;
-}
-.input-student-name:focus {
-  border-color: var(--primary);
-  box-shadow: 3px 3px 0px var(--primary);
-}
+    @keyframes fadeInScreen {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
 
-.btn-start-game {
-  background: var(--primary);
-  color: var(--tertiary);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-sm);
-  padding: 16px 38px;
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 5px 5px 0px var(--secondary);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.15s;
-}
-.btn-start-game:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0px var(--secondary);
-}
-.btn-start-game:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px var(--secondary);
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.preview-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 30px;
-  text-align: left;
-}
-.preview-item {
-  background: var(--surface);
-  border: 2px solid var(--secondary);
-  border-radius: var(--radius-md);
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  box-shadow: 3px 3px 0px var(--primary);
-  transition: all 0.15s;
-}
-.preview-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 4px 4px 0px var(--secondary);
-}
-.preview-item-icon { font-size: 24px; }
-.preview-item-title {
-  font-family: var(--font-display);
-  font-size: 13.5px;
-  font-weight: 800;
-  color: var(--secondary);
-  text-transform: uppercase;
-}
-.preview-item-desc {
-  font-size: 12px;
-  color: #334155;
-  line-height: 1.4;
-  font-weight: 500;
-}
+    .homescreen-card {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 4vw, 44px);
+      box-shadow: 8px 8px 0px var(--primary);
+      text-align: center;
+      max-width: 820px;
+      margin: 18px auto 24px;
+      position: relative;
+      overflow: hidden;
+    }
 
-@media(max-width: 768px) {
-  .preview-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media(max-width: 480px) {
-  .preview-grid { grid-template-columns: 1fr; }
-}
+    .homescreen-mascot {
+      font-size: 72px;
+      margin-bottom: 8px;
+      animation: cuteBounce 2.5s infinite ease-in-out;
+      display: inline-block;
+    }
 
-/* ========================================================
+    @keyframes cuteBounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .homescreen-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      color: var(--secondary);
+      margin: 0 0 10px;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+    }
+
+    .homescreen-badge {
+      display: inline-block;
+      background: var(--surface);
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+      font-family: var(--font-display);
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .homescreen-desc {
+      font-size: 16px;
+      color: #1E293B;
+      max-width: 600px;
+      margin: 0 auto 22px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .homescreen-name-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .input-student-name {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-sm);
+      padding: 12px 18px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--secondary);
+      width: min(100%, 280px);
+      text-align: center;
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s;
+    }
+
+    .input-student-name:focus {
+      border-color: var(--primary);
+      box-shadow: 3px 3px 0px var(--primary);
+    }
+
+    .btn-start-game {
+      background: var(--primary);
+      color: var(--tertiary);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-sm);
+      padding: 16px 38px;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 5px 5px 0px var(--secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.15s;
+    }
+
+    .btn-start-game:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0px var(--secondary);
+    }
+
+    .btn-start-game:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px var(--secondary);
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .preview-item {
+      background: var(--surface);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: 3px 3px 0px var(--primary);
+      transition: all 0.15s;
+    }
+
+    .preview-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 0px var(--secondary);
+    }
+
+    .preview-item-icon {
+      font-size: 24px;
+    }
+
+    .preview-item-title {
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--secondary);
+      text-transform: uppercase;
+    }
+
+    .preview-item-desc {
+      font-size: 12px;
+      color: #334155;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    @media(max-width: 768px) {
+      .preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 480px) {
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ========================================================
    CELEBRATION MODAL
    ======================================================== */
-.modal-mask {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  z-index: 999;
-  display: none;
-  place-items: center;
-  padding: 16px;
-}
-.modal-mask.show { display: grid; }
-.modal-popup {
-  background: var(--surface);
-  border: 3px solid var(--secondary);
-  border-radius: var(--radius-lg);
-  padding: 28px 24px;
-  text-align: center;
-  max-width: 420px;
-  width: 100%;
-  box-shadow: 8px 8px 0px var(--primary);
-  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.modal-stars { font-size: 46px; margin-bottom: 6px; }
-.modal-heading {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--secondary);
-  margin: 0 0 6px;
-  text-transform: uppercase;
-}
-.modal-score-num {
-  font-family: var(--font-display);
-  font-size: 40px;
-  font-weight: 800;
-  color: var(--primary);
-  margin: 4px 0 10px;
-}
-.modal-message {
-  font-size: 14.5px;
-  color: var(--secondary);
-  margin-bottom: 20px;
-  line-height: 1.5;
-  font-weight: 500;
-}
+    .modal-mask {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: none;
+      place-items: center;
+      padding: 16px;
+    }
 
-#confettiCanvas {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1000;
-}
+    .modal-mask.show {
+      display: grid;
+    }
 
-@media(max-width: 768px) {
-  .wujud-nav { grid-template-columns: repeat(3, 1fr); }
-  .nav-grid { grid-template-columns: repeat(2, 1fr); }
-  .baskets-grid { grid-template-columns: 1fr; }
-}
+    .modal-popup {
+      background: var(--surface);
+      border: 3px solid var(--secondary);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 8px 8px 0px var(--primary);
+      animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
 
-</style>
+    .modal-stars {
+      font-size: 46px;
+      margin-bottom: 6px;
+    }
+
+    .modal-heading {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--secondary);
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+
+    .modal-score-num {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 4px 0 10px;
+    }
+
+    .modal-message {
+      font-size: 14.5px;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    @media(max-width: 768px) {
+      .wujud-nav {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .baskets-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<canvas id="confettiCanvas"></canvas>
+  <canvas id="confettiCanvas"></canvas>
 
-<!-- FLOATING BUBBLES -->
-<div class="bg-bubble" style="width:70px;height:70px;background:#38bdf8;left:6%;animation-delay:0s;"></div>
-<div class="bg-bubble" style="width:90px;height:90px;background:#facc15;left:35%;animation-delay:4s;"></div>
-<div class="bg-bubble" style="width:80px;height:80px;background:#4ade80;left:68%;animation-delay:7s;"></div>
+  <!-- FLOATING BUBBLES -->
+  <div class="bg-bubble" style="width:70px;height:70px;background:#38bdf8;left:6%;animation-delay:0s;"></div>
+  <div class="bg-bubble" style="width:90px;height:90px;background:#facc15;left:35%;animation-delay:4s;"></div>
+  <div class="bg-bubble" style="width:80px;height:80px;background:#4ade80;left:68%;animation-delay:7s;"></div>
 
-<header>
-  <div class="wrap header-row">
-    <div class="brand-group" id="brandGroupBtn" style="cursor:pointer;" title="Kembali ke Beranda">
-      <div class="brand-avatar">🧪</div>
-      <div>
-        <h1 class="brand-title">Sainsfera</h1>
-        <span class="brand-sub">IPAS Kelas 4 SD</span>
+  <header>
+    <div class="wrap header-row">
+      <div class="brand-group" id="brandGroupBtn" style="cursor:pointer;" title="Kembali ke Beranda">
+        <div class="brand-avatar">🧪</div>
+        <div>
+          <h1 class="brand-title">Sainsfera</h1>
+          <span class="brand-sub">IPAS Kelas 4 SD</span>
+        </div>
       </div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <button class="sound-btn" id="btnGoHome" style="display:none;">
-        <span style="font-size:15px;">🏠</span> <span>Beranda</span>
-      </button>
-      <button class="sound-btn" id="soundBtn">
-        <span id="soundIcon">🔊</span> <span id="soundText">Suara Nyala</span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<main class="wrap">
-  <!-- SCREEN 1: HOMESCREEN / HALAMAN DEPAN -->
-  <div id="screen-home" class="screen-view">
-    <div class="homescreen-card">
-      <div class="homescreen-mascot">🦊</div>
-      <div class="homescreen-badge">IPAS Kelas 4 SD · Kurikulum Merdeka</div>
-      <h1 class="homescreen-title">Petualangan Sainsfera</h1>
-      <p class="homescreen-desc">
-        Halo Sahabat Peneliti Cilik! Selamat datang di <strong>Sainsfera</strong>! Pernahkah kamu melihat es krim yang meleleh, atau air yang menjadi es batu? Ayo bereksperimen dan bermain game seru untuk menemukan rahasia <strong>6 Perubahan Wujud Benda</strong>!
-      </p>
-
-      <div class="homescreen-name-box">
-        <label for="inputName" style="font-weight:700;font-size:13px;color:#000000;font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.5px;">Namamu (Opsional):</label>
-        <input type="text" id="inputName" class="input-student-name" maxlength="25" placeholder="Tulis namamu di sini...">
-      </div>
-
-      <div>
-        <button class="btn-start-game" id="btnStartAdventure">
-          🚀 MULAI PETUALANGAN!
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button class="sound-btn" id="btnGoHome" style="display:none;">
+          <span style="font-size:15px;">🏠</span> <span>Beranda</span>
+        </button>
+        <button class="sound-btn" id="soundBtn">
+          <span id="soundIcon">🔊</span> <span id="soundText">Suara Nyala</span>
         </button>
       </div>
+    </div>
+  </header>
 
-      <!-- 4 Zona Belajar Preview -->
-      <div class="preview-grid">
-        <div class="preview-item">
-          <span class="preview-item-icon">🧪</span>
-          <span class="preview-item-title">1. Lab 6 Wujud</span>
-          <span class="preview-item-desc">Tarik Api 🔥 & Es ❄️ ke benda nyata untuk melihat perubahannya!</span>
+  <main class="wrap">
+    <!-- SCREEN 1: HOMESCREEN / HALAMAN DEPAN -->
+    <div id="screen-home" class="screen-view">
+      <div class="homescreen-card">
+        <div class="homescreen-mascot">🦊</div>
+        <div class="homescreen-badge">IPAS Kelas 4 SD · Kurikulum Merdeka</div>
+        <h1 class="homescreen-title">Petualangan Sainsfera</h1>
+        <p class="homescreen-desc">
+          Halo Sahabat Peneliti Cilik! Selamat datang di <strong>Sainsfera</strong>! Pernahkah kamu melihat es krim yang
+          meleleh, atau air yang menjadi es batu? Ayo bereksperimen dan bermain game seru untuk menemukan rahasia
+          <strong>6 Perubahan Wujud Benda</strong>!
+        </p>
+
+        <div class="homescreen-name-box">
+          <label for="inputName"
+            style="font-weight:700;font-size:13px;color:#000000;font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.5px;">Namamu
+            (Opsional):</label>
+          <input type="text" id="inputName" class="input-student-name" maxlength="25"
+            placeholder="Tulis namamu di sini...">
         </div>
-        <div class="preview-item">
-          <span class="preview-item-icon">🔍</span>
-          <span class="preview-item-title">2. Butiran Ajaib</span>
-          <span class="preview-item-desc">Geser suhu dan amati butiran partikel bergetar dan melompat!</span>
+
+        <div>
+          <button class="btn-start-game" id="btnStartAdventure">
+            🚀 MULAI PETUALANGAN!
+          </button>
         </div>
-        <div class="preview-item">
-          <span class="preview-item-icon">🧺</span>
-          <span class="preview-item-title">3. Game Keranjang</span>
-          <span class="preview-item-desc">Pilah kartu peristiwa ke Keranjang Panas atau Dingin!</span>
-        </div>
-        <div class="preview-item">
-          <span class="preview-item-icon">✏️</span>
-          <span class="preview-item-title">4. Tarik Garis</span>
-          <span class="preview-item-desc">Hubungkan peristiwa nyata dengan nama wujud yang tepat!</span>
+
+        <!-- 4 Zona Belajar Preview -->
+        <div class="preview-grid">
+          <div class="preview-item">
+            <span class="preview-item-icon">🧪</span>
+            <span class="preview-item-title">1. Lab 6 Wujud</span>
+            <span class="preview-item-desc">Tarik Api 🔥 & Es ❄️ ke benda nyata untuk melihat perubahannya!</span>
+          </div>
+          <div class="preview-item">
+            <span class="preview-item-icon">🔍</span>
+            <span class="preview-item-title">2. Butiran Ajaib</span>
+            <span class="preview-item-desc">Geser suhu dan amati butiran partikel bergetar dan melompat!</span>
+          </div>
+          <div class="preview-item">
+            <span class="preview-item-icon">🧺</span>
+            <span class="preview-item-title">3. Game Keranjang</span>
+            <span class="preview-item-desc">Pilah kartu peristiwa ke Keranjang Panas atau Dingin!</span>
+          </div>
+          <div class="preview-item">
+            <span class="preview-item-icon">✏️</span>
+            <span class="preview-item-title">4. Tarik Garis</span>
+            <span class="preview-item-desc">Hubungkan peristiwa nyata dengan nama wujud yang tepat!</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- SCREEN 2: AREA PERMAINAN / LAB -->
-  <div id="screen-game" class="screen-view" style="display:none;">
-    <!-- MASCOT BANNER (PENDEK & RAMAH) -->
-    <div class="mascot-strip">
-      <div class="mascot-face">🦊</div>
-      <div class="mascot-text" id="mascotGreeting">
-        <strong>Halo Peneliti Cilik!</strong> Benda bisa berubah wujud jika <strong>diberi panas 🔥</strong> atau <strong>didinginkan ❄️</strong>. Ayo coba tarik api atau es ke benda di bawah!
+    <!-- SCREEN 2: AREA PERMAINAN / LAB -->
+    <div id="screen-game" class="screen-view" style="display:none;">
+      <!-- MASCOT BANNER (PENDEK & RAMAH) -->
+      <div class="mascot-strip">
+        <div class="mascot-face">🦊</div>
+        <div class="mascot-text" id="mascotGreeting">
+          <strong>Halo Peneliti Cilik!</strong> Benda bisa berubah wujud jika <strong>diberi panas 🔥</strong> atau
+          <strong>didinginkan ❄️</strong>. Ayo coba tarik api atau es ke benda di bawah!
+        </div>
       </div>
-    </div>
 
-  <!-- NAVIGATION TABS -->
-  <nav class="nav-grid">
-    <button class="nav-tab active" data-tab="tab-lab">
-      <span>🧪</span> 1. Lab 6 Wujud
-    </button>
-    <button class="nav-tab" data-tab="tab-lens">
-      <span>🔍</span> 2. Butiran Ajaib
-    </button>
-    <button class="nav-tab" data-tab="tab-game">
-      <span>🧺</span> 3. Game Keranjang
-    </button>
-    <button class="nav-tab" data-tab="tab-quiz">
-      <span>✏️</span> 4. Tarik Garis Wujud
-    </button>
-  </nav>
+      <!-- NAVIGATION TABS -->
+      <nav class="nav-grid">
+        <button class="nav-tab active" data-tab="tab-lab">
+          <span>🧪</span> 1. Lab 6 Wujud
+        </button>
+        <button class="nav-tab" data-tab="tab-lens">
+          <span>🔍</span> 2. Butiran Ajaib
+        </button>
+        <button class="nav-tab" data-tab="tab-game">
+          <span>🧺</span> 3. Game Keranjang
+        </button>
+        <button class="nav-tab" data-tab="tab-quiz">
+          <span>✏️</span> 4. Tarik Garis Wujud
+        </button>
+      </nav>
 
-  <!-- ========================================================
+      <!-- ========================================================
        TAB 1: LAB 6 PERUBAHAN WUJUD (UTAMA - LOGIKA AKURAT!)
        ======================================================== -->
-  <section id="tab-lab" class="tab-content active">
-    <div class="main-card">
-      <!-- 6 TOMBOL WUJUD KARTUN -->
-      <div class="wujud-nav">
-        <button class="wujud-btn active" data-key="mencair">
-          <span class="w-icon">🍦</span>
-          <span>1. Mencair</span>
-        </button>
-        <button class="wujud-btn" data-key="membeku">
-          <span class="w-icon">🧊</span>
-          <span>2. Membeku</span>
-        </button>
-        <button class="wujud-btn" data-key="menguap">
-          <span class="w-icon">💨</span>
-          <span>3. Menguap</span>
-        </button>
-        <button class="wujud-btn" data-key="mengembun">
-          <span class="w-icon">💧</span>
-          <span>4. Mengembun</span>
-        </button>
-        <button class="wujud-btn" data-key="menyublim">
-          <span class="w-icon">🌸</span>
-          <span>5. Menyublim</span>
-        </button>
-        <button class="wujud-btn" data-key="mengkristal">
-          <span class="w-icon">❄️</span>
-          <span>6. Mengkristal</span>
-        </button>
-      </div>
-
-      <!-- STAGE CONTAINER -->
-      <div class="stage-card">
-        <!-- TOP SHORT BADGES -->
-        <div class="stage-top-bar">
-          <span class="badge-tag badge-flow" id="stageFlow">Padat ➔ Cair</span>
-          <span class="badge-tag badge-heat-hot" id="stageHeatReq">🔥 Butuh Panas (Menyerap Kalor)</span>
-          <span class="badge-tag badge-example" id="stageExample">Contoh: Es krim meleleh</span>
-        </div>
-
-        <!-- CARTOON VIEWPORT -->
-        <div class="viewport-screen" id="viewportScreen">
-          <!-- SPEECH BUBBLE DYNAMIC -->
-          <div class="speech-bubble" id="speechBubble">
-            Es batu padat dan dingin! Coba beri 🔥 Panas agar mencair!
-          </div>
-          <div id="svgHolder"></div>
-        </div>
-
-        <!-- CONTROLS: DRAG TOOLS + CLICK BUTTONS -->
-        <div class="interactive-controls">
-          <div class="tools-shelf" id="toolsShelf">
-            <span style="font-size:12px;font-weight:800;color:#000000;font-family:var(--font-display);letter-spacing:0.5px;">TARIK KE GAMBAR:</span>
-            <div class="tool-drag-chip chip-heat" id="dragHeat" draggable="true">
-              <span style="font-size:20px;">🔥</span> Beri Panas
-            </div>
-            <div class="tool-drag-chip chip-cold" id="dragCold" draggable="true">
-              <span style="font-size:20px;">❄️</span> Beri Dingin
-            </div>
+      <section id="tab-lab" class="tab-content active">
+        <div class="main-card">
+          <!-- 6 TOMBOL WUJUD KARTUN -->
+          <div class="wujud-nav">
+            <button class="wujud-btn active" data-key="mencair">
+              <span class="w-icon">🍦</span>
+              <span>1. Mencair</span>
+            </button>
+            <button class="wujud-btn" data-key="membeku">
+              <span class="w-icon">🧊</span>
+              <span>2. Membeku</span>
+            </button>
+            <button class="wujud-btn" data-key="menguap">
+              <span class="w-icon">💨</span>
+              <span>3. Menguap</span>
+            </button>
+            <button class="wujud-btn" data-key="mengembun">
+              <span class="w-icon">💧</span>
+              <span>4. Mengembun</span>
+            </button>
+            <button class="wujud-btn" data-key="menyublim">
+              <span class="w-icon">🌸</span>
+              <span>5. Menyublim</span>
+            </button>
+            <button class="wujud-btn" data-key="mengkristal">
+              <span class="w-icon">❄️</span>
+              <span>6. Mengkristal</span>
+            </button>
           </div>
 
-          <!-- RESET BUTTON -->
-          <div style="display:flex;justify-content:center;margin-top:4px;">
-            <button class="btn-reset-stage" id="btnResetStage" title="Kembali ke awal">
-              🔄 Ulangi Percobaan
+          <!-- STAGE CONTAINER -->
+          <div class="stage-card">
+            <!-- TOP SHORT BADGES -->
+            <div class="stage-top-bar">
+              <span class="badge-tag badge-flow" id="stageFlow">Padat ➔ Cair</span>
+              <span class="badge-tag badge-heat-hot" id="stageHeatReq">🔥 Butuh Panas (Menyerap Kalor)</span>
+              <span class="badge-tag badge-example" id="stageExample">Contoh: Es krim meleleh</span>
+            </div>
+
+            <!-- CARTOON VIEWPORT -->
+            <div class="viewport-screen" id="viewportScreen">
+              <!-- SPEECH BUBBLE DYNAMIC -->
+              <div class="speech-bubble" id="speechBubble">
+                Es batu padat dan dingin! Coba beri 🔥 Panas agar mencair!
+              </div>
+              <div id="svgHolder"></div>
+            </div>
+
+            <!-- CONTROLS: DRAG TOOLS + CLICK BUTTONS -->
+            <div class="interactive-controls">
+              <div class="tools-shelf" id="toolsShelf">
+                <span
+                  style="font-size:12px;font-weight:800;color:#000000;font-family:var(--font-display);letter-spacing:0.5px;">TARIK
+                  KE GAMBAR:</span>
+                <div class="tool-drag-chip chip-heat" id="dragHeat" draggable="true">
+                  <span style="font-size:20px;">🔥</span> Beri Panas
+                </div>
+                <div class="tool-drag-chip chip-cold" id="dragCold" draggable="true">
+                  <span style="font-size:20px;">❄️</span> Beri Dingin
+                </div>
+              </div>
+
+              <!-- RESET BUTTON -->
+              <div style="display:flex;justify-content:center;margin-top:4px;">
+                <button class="btn-reset-stage" id="btnResetStage" title="Kembali ke awal">
+                  🔄 Ulangi Percobaan
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+       TAB 2: BUTIRAN AJAIB (KACA PEMBESAR)
+       ======================================================== -->
+      <section id="tab-lens" class="tab-content">
+        <div class="main-card">
+          <div class="lens-box">
+            <div class="lens-badge">
+              <span id="lensIcon">🧊</span>
+              <span id="lensTitle">Benda Padat (Butiran Pelukan Rapat)</span>
+            </div>
+
+            <canvas id="particleCanvas" width="480" height="240"></canvas>
+
+            <div class="slider-container">
+              <div class="slider-labels">
+                <span>❄️ Dingin (Padat)</span>
+                <span>💧 Sedang (Cair)</span>
+                <span>🔥 Panas (Gas)</span>
+              </div>
+              <input type="range" id="tempRange" class="heat-range" min="0" max="100" value="15">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+       TAB 3: GAME KERANJANG KALOR
+       ======================================================== -->
+      <section id="tab-game" class="tab-content">
+        <div class="main-card">
+          <div class="game-top-bar">
+            <div style="font-size:14px;color:#000000;font-weight:600;">
+              🎯 <strong>Tarik kartu</strong> ke keranjang yang pas: <strong style="color:var(--primary);">Butuh Panas
+                🔥</strong> atau <strong style="color:var(--cold-color);">Butuh Dingin ❄️</strong>!
+            </div>
+            <div class="score-pill">
+              ⭐ Skor: <span id="gameScoreText">0</span>
+            </div>
+          </div>
+
+          <!-- 2 BASKETS -->
+          <div class="baskets-grid">
+            <div class="basket-card basket-hot" id="dropBasketHot" data-box="hot">
+              <div class="basket-header">
+                <span>🔥 BUTUH PANAS</span>
+                <span style="font-size:12px;">(Menyerap Kalor)</span>
+              </div>
+              <div class="basket-content" id="slotHot"></div>
+            </div>
+
+            <div class="basket-card basket-cold" id="dropBasketCold" data-box="cold">
+              <div class="basket-header">
+                <span>❄️ BUTUH DINGIN</span>
+                <span style="font-size:12px;">(Melepas Kalor)</span>
+              </div>
+              <div class="basket-content" id="slotCold"></div>
+            </div>
+          </div>
+
+          <!-- CARDS TO DRAG -->
+          <div class="cards-container">
+            <div class="cards-row" id="gameCardsRow"></div>
+          </div>
+
+          <div style="text-align:center;">
+            <button class="btn-action-heat" id="btnRestartGame" style="display:inline-flex;padding:10px 24px;">
+              🔄 Acak Ulang Kartu
             </button>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ========================================================
-       TAB 2: BUTIRAN AJAIB (KACA PEMBESAR)
-       ======================================================== -->
-  <section id="tab-lens" class="tab-content">
-    <div class="main-card">
-      <div class="lens-box">
-        <div class="lens-badge">
-          <span id="lensIcon">🧊</span>
-          <span id="lensTitle">Benda Padat (Butiran Pelukan Rapat)</span>
-        </div>
-
-        <canvas id="particleCanvas" width="480" height="240"></canvas>
-
-        <div class="slider-container">
-          <div class="slider-labels">
-            <span>❄️ Dingin (Padat)</span>
-            <span>💧 Sedang (Cair)</span>
-            <span>🔥 Panas (Gas)</span>
-          </div>
-          <input type="range" id="tempRange" class="heat-range" min="0" max="100" value="15">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       TAB 3: GAME KERANJANG KALOR
-       ======================================================== -->
-  <section id="tab-game" class="tab-content">
-    <div class="main-card">
-      <div class="game-top-bar">
-        <div style="font-size:14px;color:#000000;font-weight:600;">
-          🎯 <strong>Tarik kartu</strong> ke keranjang yang pas: <strong style="color:var(--primary);">Butuh Panas 🔥</strong> atau <strong style="color:var(--cold-color);">Butuh Dingin ❄️</strong>!
-        </div>
-        <div class="score-pill">
-          ⭐ Skor: <span id="gameScoreText">0</span>
-        </div>
-      </div>
-
-      <!-- 2 BASKETS -->
-      <div class="baskets-grid">
-        <div class="basket-card basket-hot" id="dropBasketHot" data-box="hot">
-          <div class="basket-header">
-            <span>🔥 BUTUH PANAS</span>
-            <span style="font-size:12px;">(Menyerap Kalor)</span>
-          </div>
-          <div class="basket-content" id="slotHot"></div>
-        </div>
-
-        <div class="basket-card basket-cold" id="dropBasketCold" data-box="cold">
-          <div class="basket-header">
-            <span>❄️ BUTUH DINGIN</span>
-            <span style="font-size:12px;">(Melepas Kalor)</span>
-          </div>
-          <div class="basket-content" id="slotCold"></div>
-        </div>
-      </div>
-
-      <!-- CARDS TO DRAG -->
-      <div class="cards-container">
-        <div class="cards-row" id="gameCardsRow"></div>
-      </div>
-
-      <div style="text-align:center;">
-        <button class="btn-action-heat" id="btnRestartGame" style="display:inline-flex;padding:10px 24px;">
-          🔄 Acak Ulang Kartu
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
+      <!-- ========================================================
        TAB 4: TANTANGAN TARIK GARIS (INTERAKTIF & SERU)
        ======================================================== -->
-  <section id="tab-quiz" class="tab-content">
-    <div class="main-card">
-      <!-- Game Top Info -->
-      <div class="game-top-bar">
-        <div style="font-size:14px;color:#000000;line-height:1.5;font-weight:600;">
-          ✏️ <strong>Tantangan Tarik Garis:</strong> Hubungkan peristiwa di sebelah <strong>Kiri</strong> dengan nama wujud yang pas di sebelah <strong>Kanan</strong>! <em>(Tarik garis atau klik 2 kotak)</em>
+      <section id="tab-quiz" class="tab-content">
+        <div class="main-card">
+          <!-- Game Top Info -->
+          <div class="game-top-bar">
+            <div style="font-size:14px;color:#000000;line-height:1.5;font-weight:600;">
+              ✏️ <strong>Tantangan Tarik Garis:</strong> Hubungkan peristiwa di sebelah <strong>Kiri</strong> dengan
+              nama wujud yang pas di sebelah <strong>Kanan</strong>! <em>(Tarik garis atau klik 2 kotak)</em>
+            </div>
+            <div class="score-pill" id="matchCounter">
+              ⭐ Terhubung: 0 / 6
+            </div>
+          </div>
+
+          <!-- Arena Garis -->
+          <div class="match-arena-box" id="matchArena">
+            <!-- SVG Canvas for Connecting Lines -->
+            <svg id="matchSvgOverlay">
+              <line id="activeDragLine" x1="0" y1="0" x2="0" y2="0" style="display:none;"></line>
+              <g id="connectedLinesGroup"></g>
+            </svg>
+
+            <!-- Kolom Kiri: Peristiwa -->
+            <div class="match-col" id="colLeftEvents"></div>
+
+            <!-- Kolom Kanan: Nama Wujud -->
+            <div class="match-col" id="colRightTargets"></div>
+          </div>
+
+          <!-- Tombol Acak / Reset -->
+          <div style="margin-top:16px;display:flex;justify-content:center;gap:12px;">
+            <button class="btn-reset-stage" id="btnRestartMatch">
+              🔄 Acak & Ulangi Garis
+            </button>
+          </div>
         </div>
-        <div class="score-pill" id="matchCounter">
-          ⭐ Terhubung: 0 / 6
-        </div>
-      </div>
+      </section>
+    </div> <!-- END SCREEN 2 -->
+  </main>
 
-      <!-- Arena Garis -->
-      <div class="match-arena-box" id="matchArena">
-        <!-- SVG Canvas for Connecting Lines -->
-        <svg id="matchSvgOverlay">
-          <line id="activeDragLine" x1="0" y1="0" x2="0" y2="0" style="display:none;"></line>
-          <g id="connectedLinesGroup"></g>
-        </svg>
-
-        <!-- Kolom Kiri: Peristiwa -->
-        <div class="match-col" id="colLeftEvents"></div>
-
-        <!-- Kolom Kanan: Nama Wujud -->
-        <div class="match-col" id="colRightTargets"></div>
-      </div>
-
-      <!-- Tombol Acak / Reset -->
-      <div style="margin-top:16px;display:flex;justify-content:center;gap:12px;">
-        <button class="btn-reset-stage" id="btnRestartMatch">
-          🔄 Acak & Ulangi Garis
-        </button>
-      </div>
+  <!-- MODAL CELEBRATION -->
+  <div class="modal-mask" id="modalMask">
+    <div class="modal-popup">
+      <div class="modal-stars" id="modalStars">⭐⭐⭐</div>
+      <h3 class="modal-heading" id="modalTitle">Luar Biasa Hebat!</h3>
+      <div class="modal-score-num" id="modalScoreNum">100 / 100</div>
+      <p class="modal-message" id="modalMsg">Kamu telah menguasai 6 perubahan wujud zat dengan sangat baik!</p>
+      <button class="btn-action-heat" id="btnCloseModal" style="width:100%;padding:12px;font-size:15px;">
+        🎉 Hore! Selesai
+      </button>
     </div>
-  </section>
-  </div> <!-- END SCREEN 2 -->
-</main>
-
-<!-- MODAL CELEBRATION -->
-<div class="modal-mask" id="modalMask">
-  <div class="modal-popup">
-    <div class="modal-stars" id="modalStars">⭐⭐⭐</div>
-    <h3 class="modal-heading" id="modalTitle">Luar Biasa Hebat!</h3>
-    <div class="modal-score-num" id="modalScoreNum">100 / 100</div>
-    <p class="modal-message" id="modalMsg">Kamu telah menguasai 6 perubahan wujud zat dengan sangat baik!</p>
-    <button class="btn-action-heat" id="btnCloseModal" style="width:100%;padding:12px;font-size:15px;">
-      🎉 Hore! Selesai
-    </button>
   </div>
-</div>
 
-<script>
-/* ========================================================
-   SUARA CERIA (SYNTHETIC WEB AUDIO API - 100% OFFLINE)
-   ======================================================== */
-class SoundEngine {
-  constructor() {
-    this.enabled = true;
-    this.ctx = null;
-  }
-  boot() {
-    if (!this.ctx) {
-      const AC = window.AudioContext || window.webkitAudioContext;
-      if (AC) this.ctx = new AC();
+  <script>
+    /* ========================================================
+       SUARA CERIA (SYNTHETIC WEB AUDIO API - 100% OFFLINE)
+       ======================================================== */
+    class SoundEngine {
+      constructor() {
+        this.enabled = true;
+        this.ctx = null;
+      }
+      boot() {
+        if (!this.ctx) {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (AC) this.ctx = new AC();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+      click() {
+        if (!this.enabled) return;
+        this.boot();
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const g = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(400, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.08);
+        g.gain.setValueAtTime(0.18, this.ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.08);
+        osc.connect(g);
+        g.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.08);
+      }
+      success() {
+        if (!this.enabled) return;
+        this.boot();
+        if (!this.ctx) return;
+        [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
+          const osc = this.ctx.createOscillator();
+          const g = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, this.ctx.currentTime + idx * 0.08);
+          g.gain.setValueAtTime(0.2, this.ctx.currentTime + idx * 0.08);
+          g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + idx * 0.08 + 0.35);
+          osc.connect(g);
+          g.connect(this.ctx.destination);
+          osc.start(this.ctx.currentTime + idx * 0.08);
+          osc.stop(this.ctx.currentTime + idx * 0.08 + 0.35);
+        });
+      }
+      wrong() {
+        if (!this.enabled) return;
+        this.boot();
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const g = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(220, this.ctx.currentTime);
+        osc.frequency.setValueAtTime(180, this.ctx.currentTime + 0.12);
+        g.gain.setValueAtTime(0.18, this.ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.25);
+        osc.connect(g);
+        g.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.25);
+      }
     }
-    if (this.ctx && this.ctx.state === 'suspended') {
-      this.ctx.resume();
-    }
-  }
-  click() {
-    if (!this.enabled) return;
-    this.boot();
-    if (!this.ctx) return;
-    const osc = this.ctx.createOscillator();
-    const g = this.ctx.createGain();
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(400, this.ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.08);
-    g.gain.setValueAtTime(0.18, this.ctx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.08);
-    osc.connect(g);
-    g.connect(this.ctx.destination);
-    osc.start();
-    osc.stop(this.ctx.currentTime + 0.08);
-  }
-  success() {
-    if (!this.enabled) return;
-    this.boot();
-    if (!this.ctx) return;
-    [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
-      const osc = this.ctx.createOscillator();
-      const g = this.ctx.createGain();
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(freq, this.ctx.currentTime + idx * 0.08);
-      g.gain.setValueAtTime(0.2, this.ctx.currentTime + idx * 0.08);
-      g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + idx * 0.08 + 0.35);
-      osc.connect(g);
-      g.connect(this.ctx.destination);
-      osc.start(this.ctx.currentTime + idx * 0.08);
-      osc.stop(this.ctx.currentTime + idx * 0.08 + 0.35);
+    const snd = new SoundEngine();
+
+    document.getElementById('soundBtn').addEventListener('click', () => {
+      snd.enabled = !snd.enabled;
+      document.getElementById('soundIcon').textContent = snd.enabled ? '🔊' : '🔇';
+      document.getElementById('soundText').textContent = snd.enabled ? 'Suara Nyala' : 'Suara Mati';
     });
-  }
-  wrong() {
-    if (!this.enabled) return;
-    this.boot();
-    if (!this.ctx) return;
-    const osc = this.ctx.createOscillator();
-    const g = this.ctx.createGain();
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(220, this.ctx.currentTime);
-    osc.frequency.setValueAtTime(180, this.ctx.currentTime + 0.12);
-    g.gain.setValueAtTime(0.18, this.ctx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.25);
-    osc.connect(g);
-    g.connect(this.ctx.destination);
-    osc.start();
-    osc.stop(this.ctx.currentTime + 0.25);
-  }
-}
-const snd = new SoundEngine();
 
-document.getElementById('soundBtn').addEventListener('click', () => {
-  snd.enabled = !snd.enabled;
-  document.getElementById('soundIcon').textContent = snd.enabled ? '🔊' : '🔇';
-  document.getElementById('soundText').textContent = snd.enabled ? 'Suara Nyala' : 'Suara Mati';
-});
+    /* ========================================================
+       HOMESCREEN / SCREEN TRANSITION
+       ======================================================== */
+    const screenHome = document.getElementById('screen-home');
+    const screenGame = document.getElementById('screen-game');
+    const btnStartAdventure = document.getElementById('btnStartAdventure');
+    const btnGoHome = document.getElementById('btnGoHome');
+    const inputName = document.getElementById('inputName');
+    const mascotGreeting = document.getElementById('mascotGreeting');
 
-/* ========================================================
-   HOMESCREEN / SCREEN TRANSITION
-   ======================================================== */
-const screenHome = document.getElementById('screen-home');
-const screenGame = document.getElementById('screen-game');
-const btnStartAdventure = document.getElementById('btnStartAdventure');
-const btnGoHome = document.getElementById('btnGoHome');
-const inputName = document.getElementById('inputName');
-const mascotGreeting = document.getElementById('mascotGreeting');
+    btnStartAdventure.addEventListener('click', () => {
+      snd.success();
+      launchConfetti();
 
-btnStartAdventure.addEventListener('click', () => {
-  snd.success();
-  launchConfetti();
+      const studentName = inputName.value.trim();
+      if (studentName) {
+        mascotGreeting.innerHTML = `<strong>Halo Peneliti Cilik ${studentName}!</strong> Selamat datang di <strong>Sainsfera</strong>! Benda bisa berubah wujud jika <strong>diberi panas 🔥</strong> atau <strong>didinginkan ❄️</strong>. Ayo coba tarik api atau es ke benda di bawah!`;
+      }
 
-  const studentName = inputName.value.trim();
-  if (studentName) {
-    mascotGreeting.innerHTML = `<strong>Halo Peneliti Cilik ${studentName}!</strong> Selamat datang di <strong>Sainsfera</strong>! Benda bisa berubah wujud jika <strong>diberi panas 🔥</strong> atau <strong>didinginkan ❄️</strong>. Ayo coba tarik api atau es ke benda di bawah!`;
-  }
+      screenHome.style.display = 'none';
+      screenGame.style.display = 'block';
+      btnGoHome.style.display = 'inline-flex';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-  screenHome.style.display = 'none';
-  screenGame.style.display = 'block';
-  btnGoHome.style.display = 'inline-flex';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+    btnGoHome.addEventListener('click', () => {
+      snd.click();
+      screenGame.style.display = 'none';
+      screenHome.style.display = 'block';
+      btnGoHome.style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-btnGoHome.addEventListener('click', () => {
-  snd.click();
-  screenGame.style.display = 'none';
-  screenHome.style.display = 'block';
-  btnGoHome.style.display = 'none';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+    document.getElementById('brandGroupBtn').addEventListener('click', () => {
+      if (screenGame.style.display !== 'none') {
+        btnGoHome.click();
+      }
+    });
 
-document.getElementById('brandGroupBtn').addEventListener('click', () => {
-  if (screenGame.style.display !== 'none') {
-    btnGoHome.click();
-  }
-});
+    /* ========================================================
+       NAVIGATION
+       ======================================================== */
+    const navTabs = document.querySelectorAll('.nav-tab');
+    const tabPanels = document.querySelectorAll('.tab-content');
 
-/* ========================================================
-   NAVIGATION
-   ======================================================== */
-const navTabs = document.querySelectorAll('.nav-tab');
-const tabPanels = document.querySelectorAll('.tab-content');
+    navTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        snd.click();
+        navTabs.forEach(t => t.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
 
-navTabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    snd.click();
-    navTabs.forEach(t => t.classList.remove('active'));
-    tabPanels.forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById(tab.dataset.tab).classList.add('active');
-  });
-});
-
-/* ========================================================
-   TAB 1: LOGIKA LAB 6 WUJUD ZAT (SEPENUHNYA BENAR!)
-   - Mencair: Butuh Panas 🔥. Jika dikasih Dingin ❄️ -> Es makin beku/menggigil!
-   - Membeku: Butuh Dingin ❄️. Jika dikasih Panas 🔥 -> Air mendidih/menguap!
-   - Menguap: Butuh Panas 🔥. Jika dikasih Dingin ❄️ -> Baju tetap basah kuyup!
-   - Mengembun: Butuh Dingin ❄️. Jika dikasih Panas 🔥 -> Gelas kering panas!
-   - Menyublim: Butuh Panas 🔥. Jika dikasih Dingin ❄️ -> Kamper tetap utuh!
-   - Mengkristal: Butuh Dingin ❄️. Jika dikasih Panas 🔥 -> Uap tetap gas!
-   ======================================================== */
-const stateDb = {
-  mencair: {
-    flow: 'Padat ➔ Cair',
-    needsHeat: true, // Butuh PANAS
-    heatLabel: '🔥 Butuh Panas (Menyerap Kalor)',
-    heatClass: 'badge-heat-hot',
-    example: 'Contoh: Es batu atau es krim meleleh di terik siang',
-    initialMsg: 'Es batu padat dan dingin! Coba beri 🔥 Panas agar mencair!',
-    successMsg: 'Yey! Es batu menyerap panas dan mencair jadi air!',
-    wrongMsg: 'Brrr! Dikasih dingin es malah makin beku! Tarik 🔥 Panas ya!',
-    // 1. Tampilan Awal: Es Batu 3D Kristal di Piring
-    initialSvg: `
+    /* ========================================================
+       TAB 1: LOGIKA LAB 6 WUJUD ZAT (SEPENUHNYA BENAR!)
+       - Mencair: Butuh Panas 🔥. Jika dikasih Dingin ❄️ -> Es makin beku/menggigil!
+       - Membeku: Butuh Dingin ❄️. Jika dikasih Panas 🔥 -> Air mendidih/menguap!
+       - Menguap: Butuh Panas 🔥. Jika dikasih Dingin ❄️ -> Baju tetap basah kuyup!
+       - Mengembun: Butuh Dingin ❄️. Jika dikasih Panas 🔥 -> Gelas kering panas!
+       - Menyublim: Butuh Panas 🔥. Jika dikasih Dingin ❄️ -> Kamper tetap utuh!
+       - Mengkristal: Butuh Dingin ❄️. Jika dikasih Panas 🔥 -> Uap tetap gas!
+       ======================================================== */
+    const stateDb = {
+      mencair: {
+        flow: 'Padat ➔ Cair',
+        needsHeat: true, // Butuh PANAS
+        heatLabel: '🔥 Butuh Panas (Menyerap Kalor)',
+        heatClass: 'badge-heat-hot',
+        example: 'Contoh: Es batu atau es krim meleleh di terik siang',
+        initialMsg: 'Es batu padat dan dingin! Coba beri 🔥 Panas agar mencair!',
+        successMsg: 'Yey! Es batu menyerap panas dan mencair jadi air!',
+        wrongMsg: 'Brrr! Dikasih dingin es malah makin beku! Tarik 🔥 Panas ya!',
+        // 1. Tampilan Awal: Es Batu 3D Kristal di Piring
+        initialSvg: `
       <!-- Bayangan Meja & Piring Kaca Bening -->
       <ellipse cx="140" cy="186" rx="88" ry="14" fill="#cbd5e1" opacity="0.6"/>
       <ellipse cx="140" cy="182" rx="78" ry="16" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
@@ -1545,8 +1767,8 @@ const stateDb = {
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Es Batu (Padat & Dingin)</text>
     `,
-    // 2. Berhasil Kena Panas: Mencair Jadi Air
-    successSvg: `
+        // 2. Berhasil Kena Panas: Mencair Jadi Air
+        successSvg: `
       <!-- Bayangan Meja & Piring Kaca Bening -->
       <ellipse cx="140" cy="186" rx="88" ry="14" fill="#cbd5e1" opacity="0.6"/>
       <ellipse cx="140" cy="182" rx="78" ry="16" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
@@ -1603,8 +1825,8 @@ const stateDb = {
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Mencair Jadi Air!</text>
     `,
-    // 3. Salah Dikasih Dingin: Es Menggigil Kedinginan (Makin Beku!)
-    wrongSvg: `
+        // 3. Salah Dikasih Dingin: Es Menggigil Kedinginan (Makin Beku!)
+        wrongSvg: `
       <!-- Bayangan Meja & Piring Kaca Bening -->
       <ellipse cx="140" cy="186" rx="88" ry="14" fill="#cbd5e1" opacity="0.6"/>
       <ellipse cx="140" cy="182" rx="78" ry="16" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
@@ -1635,19 +1857,19 @@ const stateDb = {
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Makin Beku! (Butuh Panas 🔥)</text>
     `
-  },
+      },
 
-  membeku: {
-    flow: 'Cair ➔ Padat',
-    needsHeat: false, // Butuh DINGIN
-    heatLabel: '❄️ Butuh Dingin (Melepas Kalor)',
-    heatClass: 'badge-heat-cold',
-    example: 'Contoh: Air di kulkas freezer mengeras jadi es',
-    initialMsg: 'Air minum di dalam wadah! Coba beri ❄️ Dingin agar membeku!',
-    successMsg: 'Hore! Air melepaskan panas ke udara dingin dan membeku jadi es!',
-    wrongMsg: 'Waduh panas! Dikasih api airnya malah mau mendidih! Beri ❄️ Dingin ya!',
-    // 1. Tampilan Awal: Air Cair di Wadah Bening
-    initialSvg: `
+      membeku: {
+        flow: 'Cair ➔ Padat',
+        needsHeat: false, // Butuh DINGIN
+        heatLabel: '❄️ Butuh Dingin (Melepas Kalor)',
+        heatClass: 'badge-heat-cold',
+        example: 'Contoh: Air di kulkas freezer mengeras jadi es',
+        initialMsg: 'Air minum di dalam wadah! Coba beri ❄️ Dingin agar membeku!',
+        successMsg: 'Hore! Air melepaskan panas ke udara dingin dan membeku jadi es!',
+        wrongMsg: 'Waduh panas! Dikasih api airnya malah mau mendidih! Beri ❄️ Dingin ya!',
+        // 1. Tampilan Awal: Air Cair di Wadah Bening
+        initialSvg: `
       <!-- Bayangan Meja -->
       <ellipse cx="140" cy="186" rx="82" ry="13" fill="#cbd5e1" opacity="0.6"/>
       <ellipse cx="140" cy="185" rx="54" ry="8" fill="#94a3b8" opacity="0.4"/>
@@ -1703,8 +1925,8 @@ const stateDb = {
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Air Cair di Wadah</text>
     `,
-    // 2. Berhasil Didinginkan: Jadi Es Balok Beku
-    successSvg: `
+        // 2. Berhasil Didinginkan: Jadi Es Balok Beku
+        successSvg: `
       <!-- Bayangan Meja -->
       <ellipse cx="140" cy="186" rx="82" ry="13" fill="#cbd5e1" opacity="0.6"/>
       <ellipse cx="140" cy="185" rx="54" ry="8" fill="#94a3b8" opacity="0.4"/>
@@ -1748,8 +1970,8 @@ const stateDb = {
       <text x="135" y="65" font-size="18">✨</text>
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Brrr! Air Membeku Jadi Es!</text>
     `,
-    // 3. Salah Dikasih Panas: Air Bergelembung Mendidih
-    wrongSvg: `
+        // 3. Salah Dikasih Panas: Air Bergelembung Mendidih
+        wrongSvg: `
       <!-- Bayangan Meja -->
       <ellipse cx="140" cy="186" rx="82" ry="13" fill="#cbd5e1" opacity="0.6"/>
       <ellipse cx="140" cy="185" rx="54" ry="8" fill="#ea580c" opacity="0.3"/>
@@ -1799,19 +2021,19 @@ const stateDb = {
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">Mendidih! (Butuh Dingin ❄️)</text>
     `
-  },
+      },
 
-  menguap: {
-    flow: 'Cair ➔ Gas',
-    needsHeat: true, // Butuh PANAS
-    heatLabel: '🔥 Butuh Panas (Menyerap Kalor)',
-    heatClass: 'badge-heat-hot',
-    example: 'Contoh: Kaos basah dijemur di bawah matahari jadi kering',
-    initialMsg: 'Baju masih basah oleh air! Coba beri 🔥 Panas agar menguap!',
-    successMsg: 'Hebat! Air menyerap panas matahari dan menguap ke udara!',
-    wrongMsg: 'Brrr! Baju basah didinginkan tetap basah! Jemur di bawah 🔥 Panas ya!',
-    // 1. Tampilan Awal: Baju Basah di Jemuran
-    initialSvg: `
+      menguap: {
+        flow: 'Cair ➔ Gas',
+        needsHeat: true, // Butuh PANAS
+        heatLabel: '🔥 Butuh Panas (Menyerap Kalor)',
+        heatClass: 'badge-heat-hot',
+        example: 'Contoh: Kaos basah dijemur di bawah matahari jadi kering',
+        initialMsg: 'Baju masih basah oleh air! Coba beri 🔥 Panas agar menguap!',
+        successMsg: 'Hebat! Air menyerap panas matahari dan menguap ke udara!',
+        wrongMsg: 'Brrr! Baju basah didinginkan tetap basah! Jemur di bawah 🔥 Panas ya!',
+        // 1. Tampilan Awal: Baju Basah di Jemuran
+        initialSvg: `
       <!-- Tali Jemuran Melengkung Alami -->
       <path d="M 30 68 Q 140 84 250 68" stroke="#64748b" stroke-width="3.5" stroke-linecap="round" fill="none"/>
       
@@ -1847,8 +2069,8 @@ const stateDb = {
 
       <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Baju Basah Kena Air</text>
     `,
-    // 2. Berhasil Dipanaskan: Air Menguap, Baju Kering
-    successSvg: `
+        // 2. Berhasil Dipanaskan: Air Menguap, Baju Kering
+        successSvg: `
       <!-- Matahari Terik Bersinar Hangat -->
       <circle cx="58" cy="52" r="22" fill="#facc15" stroke="#eab308" stroke-width="3.5"/>
       <!-- Sinar Matahari Hangat -->
@@ -1880,8 +2102,8 @@ const stateDb = {
 
       <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">Air Menguap, Baju Kering!</text>
     `,
-    // 3. Salah Dikasih Dingin: Baju Tetap Basah & Membeku Kaku
-    wrongSvg: `
+        // 3. Salah Dikasih Dingin: Baju Tetap Basah & Membeku Kaku
+        wrongSvg: `
       <!-- Tali Jemuran & Jepitan Kayu -->
       <path d="M 30 68 Q 140 84 250 68" stroke="#64748b" stroke-width="3.5" stroke-linecap="round" fill="none"/>
       <rect x="94" y="58" width="8" height="18" rx="2" fill="#94a3b8" stroke="#64748b" stroke-width="1.5"/>
@@ -1904,19 +2126,19 @@ const stateDb = {
       <text x="210" y="70" font-size="24">🥶</text>
       <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Tetap Basah! (Butuh Panas 🔥)</text>
     `
-  },
+      },
 
-  mengembun: {
-    flow: 'Gas ➔ Cair',
-    needsHeat: false, // Butuh DINGIN
-    heatLabel: '❄️ Butuh Dingin (Melepas Kalor)',
-    heatClass: 'badge-heat-cold',
-    example: 'Contoh: Dinding luar gelas dingin jadi basah berembun',
-    initialMsg: 'Gelas masih kering di luar! Coba beri ❄️ Dingin agar mengembun!',
-    successMsg: 'Keren! Uap air di udara melepaskan panas dan jadi titik embun air!',
-    wrongMsg: 'Aduh panas! Dikasih api titik embunnya malah menguap hilang! Beri ❄️ Dingin ya!',
-    // 1. Tampilan Awal: Gelas Kering
-    initialSvg: `
+      mengembun: {
+        flow: 'Gas ➔ Cair',
+        needsHeat: false, // Butuh DINGIN
+        heatLabel: '❄️ Butuh Dingin (Melepas Kalor)',
+        heatClass: 'badge-heat-cold',
+        example: 'Contoh: Dinding luar gelas dingin jadi basah berembun',
+        initialMsg: 'Gelas masih kering di luar! Coba beri ❄️ Dingin agar mengembun!',
+        successMsg: 'Keren! Uap air di udara melepaskan panas dan jadi titik embun air!',
+        wrongMsg: 'Aduh panas! Dikasih api titik embunnya malah menguap hilang! Beri ❄️ Dingin ya!',
+        // 1. Tampilan Awal: Gelas Kering
+        initialSvg: `
       <!-- Meja / Coaster -->
       <ellipse cx="140" cy="192" rx="78" ry="16" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="3"/>
       <ellipse cx="140" cy="189" rx="46" ry="8" fill="#94a3b8" opacity="0.3"/>
@@ -1937,8 +2159,8 @@ const stateDb = {
       <path d="M 104 74 Q 107 105 111 145" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
       <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Gelas di Meja (Luar Kering Bersih)</text>
     `,
-    // 2. Berhasil Diberi Dingin: Muncul Titik Embun
-    successSvg: `
+        // 2. Berhasil Diberi Dingin: Muncul Titik Embun
+        successSvg: `
       <!-- Meja / Coaster dengan Genangan Rembesan Embun -->
       <ellipse cx="140" cy="192" rx="78" ry="16" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="3"/>
       <ellipse cx="140" cy="189" rx="52" ry="9" fill="#7dd3fc" opacity="0.5"/>
@@ -1982,8 +2204,8 @@ const stateDb = {
       <text x="202" y="75" font-size="20">✨</text>
       <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Muncul Banyak Titik Embun Air!</text>
     `,
-    // 3. Salah Dikasih Panas: Gelas Panas Tanpa Embun
-    wrongSvg: `
+        // 3. Salah Dikasih Panas: Gelas Panas Tanpa Embun
+        wrongSvg: `
       <!-- Meja / Coaster Kering -->
       <ellipse cx="140" cy="192" rx="78" ry="16" fill="#fed7aa" stroke="#fdba74" stroke-width="3"/>
       <!-- Sedotan Belang -->
@@ -2005,19 +2227,19 @@ const stateDb = {
       <text x="200" y="85" font-size="28">♨️</text>
       <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">Gelas Kering Panas! (Beri ❄️)</text>
     `
-  },
+      },
 
-  menyublim: {
-    flow: 'Padat ➔ Gas',
-    needsHeat: true, // Butuh PANAS / HANGAT
-    heatLabel: '🔥 Butuh Panas (Menyerap Kalor)',
-    heatClass: 'badge-heat-hot',
-    example: 'Contoh: Kapur barus wangi di lemari lama-lama mengecil',
-    initialMsg: 'Kapur barus padat di lemari! Coba beri 🔥 Panas agar menyublim!',
-    successMsg: 'Wah harum! Kapur barus menyerap panas dan langsung jadi gas wangi!',
-    wrongMsg: 'Brrr! Di tempat sangat dingin kapur barus tetap utuh! Beri 🔥 Panas ya!',
-    // 1. Tampilan Awal: Kapur Barus Bulat 3D di Lemari
-    initialSvg: `
+      menyublim: {
+        flow: 'Padat ➔ Gas',
+        needsHeat: true, // Butuh PANAS / HANGAT
+        heatLabel: '🔥 Butuh Panas (Menyerap Kalor)',
+        heatClass: 'badge-heat-hot',
+        example: 'Contoh: Kapur barus wangi di lemari lama-lama mengecil',
+        initialMsg: 'Kapur barus padat di lemari! Coba beri 🔥 Panas agar menyublim!',
+        successMsg: 'Wah harum! Kapur barus menyerap panas dan langsung jadi gas wangi!',
+        wrongMsg: 'Brrr! Di tempat sangat dingin kapur barus tetap utuh! Beri 🔥 Panas ya!',
+        // 1. Tampilan Awal: Kapur Barus Bulat 3D di Lemari
+        initialSvg: `
       <!-- Papan Kayu Lemari Cantik & Halus -->
       <rect x="35" y="168" width="210" height="26" rx="6" fill="#d97706" stroke="#92400e" stroke-width="3"/>
       <rect x="37" y="170" width="206" height="6" rx="3" fill="#fbbf24" opacity="0.6"/>
@@ -2061,8 +2283,8 @@ const stateDb = {
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#9d174d">Kapur Barus Padat di Lemari</text>
     `,
-    // 2. Berhasil Dipanaskan: Mengecil Jadi Gas Wangi
-    successSvg: `
+        // 2. Berhasil Dipanaskan: Mengecil Jadi Gas Wangi
+        successSvg: `
       <!-- Papan Kayu Lemari Cantik -->
       <rect x="35" y="168" width="210" height="26" rx="6" fill="#d97706" stroke="#92400e" stroke-width="3"/>
       <rect x="37" y="170" width="206" height="6" rx="3" fill="#fbbf24" opacity="0.6"/>
@@ -2088,8 +2310,8 @@ const stateDb = {
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c3aed">Mengecil & Jadi Gas Wangi!</text>
     `,
-    // 3. Salah Dikasih Dingin: Kapur Barus Tetap Beku Utuh
-    wrongSvg: `
+        // 3. Salah Dikasih Dingin: Kapur Barus Tetap Beku Utuh
+        wrongSvg: `
       <!-- Papan Kayu Lemari Cantik -->
       <rect x="35" y="168" width="210" height="26" rx="6" fill="#d97706" stroke="#92400e" stroke-width="3"/>
       <ellipse cx="140" cy="170" rx="78" ry="9" fill="#78350f" opacity="0.3"/>
@@ -2108,19 +2330,19 @@ const stateDb = {
       <text x="200" y="85" font-size="24">🥶</text>
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Tetap Utuh! (Butuh Panas 🔥)</text>
     `
-  },
+      },
 
-  mengkristal: {
-    flow: 'Gas ➔ Padat',
-    needsHeat: false, // Butuh DINGIN SEKALI
-    heatLabel: '❄️ Butuh Dingin (Melepas Kalor)',
-    heatClass: 'badge-heat-cold',
-    example: 'Contoh: Uap air di awan membeku langsung jadi butiran salju',
-    initialMsg: 'Uap air di awan langit! Coba beri ❄️ Dingin agar mengkristal jadi salju!',
-    successMsg: 'Luar biasa! Uap air langsung membeku jadi kristal salju padat!',
-    wrongMsg: 'Aduh panas! Uap air dipanaskan tidak bisa jadi salju! Beri ❄️ Dingin ya!',
-    // 1. Tampilan Awal: Uap Air di Awan Langit
-    initialSvg: `
+      mengkristal: {
+        flow: 'Gas ➔ Padat',
+        needsHeat: false, // Butuh DINGIN SEKALI
+        heatLabel: '❄️ Butuh Dingin (Melepas Kalor)',
+        heatClass: 'badge-heat-cold',
+        example: 'Contoh: Uap air di awan membeku langsung jadi butiran salju',
+        initialMsg: 'Uap air di awan langit! Coba beri ❄️ Dingin agar mengkristal jadi salju!',
+        successMsg: 'Luar biasa! Uap air langsung membeku jadi kristal salju padat!',
+        wrongMsg: 'Aduh panas! Uap air dipanaskan tidak bisa jadi salju! Beri ❄️ Dingin ya!',
+        // 1. Tampilan Awal: Uap Air di Awan Langit
+        initialSvg: `
       <!-- Bayangan Awan Lembut di Langit -->
       <ellipse cx="140" cy="184" rx="80" ry="12" fill="#cbd5e1" opacity="0.5"/>
 
@@ -2158,8 +2380,8 @@ const stateDb = {
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Uap Air Gas di Awan Langit</text>
     `,
-    // 2. Berhasil Diberi Dingin: Kristal Salju Padat
-    successSvg: `
+        // 2. Berhasil Diberi Dingin: Kristal Salju Padat
+        successSvg: `
       <!-- Awan Langit Dingin Musim Dingin -->
       <path d="M 76 118 Q 58 102 74 82 Q 80 60 108 58 Q 130 38 161 46 Q 192 40 202 66 Q 221 82 212 106 Q 216 128 191 132 L 85 132 Q 70 132 76 118 Z" fill="#e0f2fe" stroke="#0284c7" stroke-width="3.5" stroke-linejoin="round"/>
       
@@ -2195,8 +2417,8 @@ const stateDb = {
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Gas Jadi Kristal Salju Padat!</text>
     `,
-    // 3. Salah Dikasih Panas: Awan Panas & Gerah
-    wrongSvg: `
+        // 3. Salah Dikasih Panas: Awan Panas & Gerah
+        wrongSvg: `
       <!-- Awan Panas Memerah Kegerahan -->
       <path d="M 76 148 Q 58 132 74 112 Q 80 90 108 88 Q 130 68 161 76 Q 192 70 202 96 Q 221 112 212 136 Q 216 158 191 162 L 85 162 Q 70 162 76 148 Z" fill="#fed7aa" stroke="#f97316" stroke-width="4" stroke-linejoin="round"/>
       
@@ -2212,240 +2434,299 @@ const stateDb = {
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">Makin Panas! (Beri ❄️ Salju)</text>
     `
-  }
-};
-
-let activeKey = 'mencair';
-let currentStatus = 'initial'; // 'initial' | 'success' | 'wrong'
-
-function updateLabDisplay() {
-  const item = stateDb[activeKey];
-  document.getElementById('stageFlow').textContent = item.flow;
-  
-  const heatEl = document.getElementById('stageHeatReq');
-  heatEl.textContent = item.heatLabel;
-  heatEl.className = 'badge-tag ' + item.heatClass;
-
-  document.getElementById('stageExample').textContent = item.example;
-
-  const bubble = document.getElementById('speechBubble');
-  const holder = document.getElementById('svgHolder');
-
-  let svgCode = item.initialSvg;
-  let text = item.initialMsg;
-
-  if (currentStatus === 'success') {
-    svgCode = item.successSvg;
-    text = item.successMsg;
-  } else if (currentStatus === 'wrong') {
-    svgCode = item.wrongSvg;
-    text = item.wrongMsg;
-  }
-
-  bubble.innerHTML = text;
-  holder.innerHTML = `<svg viewBox="0 0 280 230" width="280" height="230">${svgCode}</svg>`;
-}
-
-// LOGIKA UTAMA: MEMERIKSA APAKAH ALAT YANG DIBERIKAN COCOK!
-function applyTool(toolType) { // toolType: 'heat' | 'cold'
-  const item = stateDb[activeKey];
-  const isCorrect = (toolType === 'heat' && item.needsHeat) || (toolType === 'cold' && !item.needsHeat);
-
-  if (isCorrect) {
-    snd.success();
-    currentStatus = 'success';
-  } else {
-    snd.wrong();
-    currentStatus = 'wrong';
-  }
-  updateLabDisplay();
-}
-
-// Tombol 6 Wujud
-document.querySelectorAll('.wujud-btn').forEach(b => {
-  b.addEventListener('click', () => {
-    snd.click();
-    document.querySelectorAll('.wujud-btn').forEach(btn => btn.classList.remove('active'));
-    b.classList.add('active');
-    activeKey = b.dataset.key;
-    currentStatus = 'initial';
-    updateLabDisplay();
-  });
-});
-
-// Tombol Ulangi
-document.getElementById('btnResetStage').addEventListener('click', () => {
-  snd.click();
-  currentStatus = 'initial';
-  updateLabDisplay();
-});
-
-// Drag and drop tools
-const dragHeat = document.getElementById('dragHeat');
-const dragCold = document.getElementById('dragCold');
-const viewportScreen = document.getElementById('viewportScreen');
-
-[dragHeat, dragCold].forEach(chip => {
-  chip.addEventListener('dragstart', (e) => {
-    chip.classList.add('dragging');
-    e.dataTransfer.setData('text/plain', chip.id === 'dragHeat' ? 'heat' : 'cold');
-  });
-  chip.addEventListener('dragend', () => chip.classList.remove('dragging'));
-
-  // Tablet touch
-  chip.addEventListener('touchend', (e) => {
-    const touch = e.changedTouches[0];
-    const rect = viewportScreen.getBoundingClientRect();
-    if (touch.clientX >= rect.left && touch.clientX <= rect.right &&
-        touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
-      applyTool(chip.id === 'dragHeat' ? 'heat' : 'cold');
-    }
-  });
-});
-
-viewportScreen.addEventListener('dragover', (e) => e.preventDefault());
-viewportScreen.addEventListener('drop', (e) => {
-  e.preventDefault();
-  const tool = e.dataTransfer.getData('text/plain');
-  applyTool(tool);
-});
-
-updateLabDisplay();
-
-/* ========================================================
-   TAB 2: KACA PEMBESAR AJAIB (CANVAS BUTIRAN)
-   ======================================================== */
-const pCanvas = document.getElementById('particleCanvas');
-const pCtx = pCanvas.getContext('2d');
-const tempRange = document.getElementById('tempRange');
-
-class LittleDot {
-  constructor(x, y) {
-    this.origX = x;
-    this.origY = y;
-    this.x = x;
-    this.y = y;
-    this.vx = (Math.random() - 0.5) * 2;
-    this.vy = (Math.random() - 0.5) * 2;
-    this.radius = 13;
-  }
-  update(t, w, h) {
-    if (t < 35) {
-      // Padat: Rapat & bergetar
-      const j = (t / 35) * 1.5 + 0.5;
-      this.x = this.origX + (Math.random() - 0.5) * j;
-      this.y = this.origY + (Math.random() - 0.5) * j;
-    } else if (t < 70) {
-      // Cair: Mengalir santai
-      this.x += this.vx * 1.3;
-      this.y += this.vy * 1.3 + 0.3;
-      if (this.x - this.radius < 15 || this.x + this.radius > w - 15) this.vx *= -1;
-      if (this.y - this.radius < h * 0.35) this.vy = Math.abs(this.vy);
-      if (this.y + this.radius > h - 15) {
-        this.y = h - 15 - this.radius;
-        this.vy *= -0.7;
       }
-    } else {
-      // Gas: Terbang bebas
-      this.x += this.vx * 3.5;
-      this.y += this.vy * 3.5;
-      if (this.x - this.radius < 15 || this.x + this.radius > w - 15) this.vx *= -1;
-      if (this.y - this.radius < 15 || this.y + this.radius > h - 15) this.vy *= -1;
+    };
+
+    let activeKey = 'mencair';
+    let currentStatus = 'initial'; // 'initial' | 'success' | 'wrong'
+
+    function updateLabDisplay() {
+      const item = stateDb[activeKey];
+      document.getElementById('stageFlow').textContent = item.flow;
+
+      const heatEl = document.getElementById('stageHeatReq');
+      heatEl.textContent = item.heatLabel;
+      heatEl.className = 'badge-tag ' + item.heatClass;
+
+      document.getElementById('stageExample').textContent = item.example;
+
+      const bubble = document.getElementById('speechBubble');
+      const holder = document.getElementById('svgHolder');
+
+      let svgCode = item.initialSvg;
+      let text = item.initialMsg;
+
+      if (currentStatus === 'success') {
+        svgCode = item.successSvg;
+        text = item.successMsg;
+      } else if (currentStatus === 'wrong') {
+        svgCode = item.wrongSvg;
+        text = item.wrongMsg;
+      }
+
+      bubble.innerHTML = text;
+      holder.innerHTML = `<svg viewBox="0 0 280 230" width="280" height="230">${svgCode}</svg>`;
     }
-  }
-  draw(ctx, t) {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = t < 35 ? '#bae6fd' : (t < 70 ? '#67e8f9' : '#fca5a5');
-    ctx.strokeStyle = t < 35 ? '#0284c7' : (t < 70 ? '#0891b2' : '#dc2626');
-    ctx.lineWidth = 2.5;
-    ctx.fill();
-    ctx.stroke();
 
-    // Wajah tersenyum
-    ctx.fillStyle = '#0f172a';
-    ctx.beginPath();
-    ctx.arc(this.x - 4, this.y - 2, 1.8, 0, Math.PI * 2);
-    ctx.arc(this.x + 4, this.y - 2, 1.8, 0, Math.PI * 2);
-    ctx.fill();
+    // LOGIKA UTAMA: MEMERIKSA APAKAH ALAT YANG DIBERIKAN COCOK!
+    function applyTool(toolType) { // toolType: 'heat' | 'cold'
+      const item = stateDb[activeKey];
+      const isCorrect = (toolType === 'heat' && item.needsHeat) || (toolType === 'cold' && !item.needsHeat);
 
-    ctx.beginPath();
-    ctx.arc(this.x, this.y + 2, 3.5, 0, Math.PI);
-    ctx.strokeStyle = '#0f172a';
-    ctx.lineWidth = 1.6;
-    ctx.stroke();
-  }
-}
+      if (isCorrect) {
+        snd.success();
+        currentStatus = 'success';
+      } else {
+        snd.wrong();
+        currentStatus = 'wrong';
+      }
+      updateLabDisplay();
+    }
 
-const dots = [];
-for (let r = 0; r < 4; r++) {
-  for (let c = 0; c < 7; c++) {
-    dots.push(new LittleDot(150 + c * 28, 130 + r * 26));
-  }
-}
+    // Tombol 6 Wujud
+    document.querySelectorAll('.wujud-btn').forEach(b => {
+      b.addEventListener('click', () => {
+        snd.click();
+        document.querySelectorAll('.wujud-btn').forEach(btn => btn.classList.remove('active'));
+        b.classList.add('active');
+        activeKey = b.dataset.key;
+        currentStatus = 'initial';
+        updateLabDisplay();
+      });
+    });
 
-function updateLensTitle(t) {
-  const icon = document.getElementById('lensIcon');
-  const title = document.getElementById('lensTitle');
-  if (t < 35) {
-    icon.textContent = '🧊';
-    title.textContent = 'Benda Padat (Butiran Pelukan Rapat)';
-  } else if (t < 70) {
-    icon.textContent = '💧';
-    title.textContent = 'Benda Cair (Butiran Berenang Mengalir)';
-  } else {
-    icon.textContent = '💨';
-    title.textContent = 'Benda Gas (Butiran Melompat Terbang Tinggi)';
-  }
-}
+    // Tombol Ulangi
+    document.getElementById('btnResetStage').addEventListener('click', () => {
+      snd.click();
+      currentStatus = 'initial';
+      updateLabDisplay();
+    });
 
-function runParticleLoop() {
-  pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
-  const temp = parseInt(tempRange.value, 10);
-  dots.forEach(d => {
-    d.update(temp, pCanvas.width, pCanvas.height);
-    d.draw(pCtx, temp);
-  });
-  requestAnimationFrame(runParticleLoop);
-}
-tempRange.addEventListener('input', () => updateLensTitle(parseInt(tempRange.value, 10)));
-runParticleLoop();
+    // Drag and drop & Touch tools
+    const dragHeat = document.getElementById('dragHeat');
+    const dragCold = document.getElementById('dragCold');
+    const viewportScreen = document.getElementById('viewportScreen');
 
-/* ========================================================
-   TAB 3: GAME KERANJANG KALOR
-   ======================================================== */
-const cardsData = [
-  { id: 'cd1', text: '🍦 Es krim meleleh', target: 'hot', icon: '☀️' },
-  { id: 'cd2', text: '🧊 Air membeku jadi es batu', target: 'cold', icon: '❄️' },
-  { id: 'cd3', text: '👕 Seragam basah dijemur kering', target: 'hot', icon: '💨' },
-  { id: 'cd4', text: '💧 Rumput basah oleh embun pagi', target: 'cold', icon: '🍃' },
-  { id: 'cd5', text: '🌸 Kapur barus mengecil di lemari', target: 'hot', icon: '📦' },
-  { id: 'cd6', text: '❄️ Uap air jadi butiran salju', target: 'cold', icon: '☁️' }
-];
+    let activeTouchGhost = null;
 
-let gamePoints = 0;
-const gameCardsRow = document.getElementById('gameCardsRow');
-const dropBasketHot = document.getElementById('dropBasketHot');
-const dropBasketCold = document.getElementById('dropBasketCold');
-const slotHot = document.getElementById('slotHot');
-const slotCold = document.getElementById('slotCold');
-const gameScoreText = document.getElementById('gameScoreText');
+    function createTouchGhost(sourceEl, touch) {
+      if (activeTouchGhost) activeTouchGhost.remove();
+      const ghost = sourceEl.cloneNode(true);
+      ghost.style.cssText = 'position:fixed;left:' + touch.clientX + 'px;top:' + touch.clientY + 'px;transform:translate(-50%, -50%) scale(1.08);pointer-events:none;z-index:10000;opacity:0.92;box-shadow:0 8px 24px rgba(0,0,0,0.3);';
+      document.body.appendChild(ghost);
+      activeTouchGhost = ghost;
+    }
 
-function initBasketGame() {
-  gamePoints = 0;
-  gameScoreText.textContent = '0';
-  slotHot.innerHTML = '';
-  slotCold.innerHTML = '';
-  gameCardsRow.innerHTML = '';
+    function updateTouchGhost(touch) {
+      if (!activeTouchGhost) return;
+      activeTouchGhost.style.left = touch.clientX + 'px';
+      activeTouchGhost.style.top = touch.clientY + 'px';
+    }
 
-  const shuffled = [...cardsData].sort(() => Math.random() - 0.5);
+    function removeTouchGhost() {
+      if (activeTouchGhost) {
+        activeTouchGhost.remove();
+        activeTouchGhost = null;
+      }
+    }
 
-  shuffled.forEach(c => {
-    const cardEl = document.createElement('div');
-    cardEl.className = 'game-card-item';
-    cardEl.draggable = true;
-    cardEl.id = c.id;
-    cardEl.innerHTML = `
+    [dragHeat, dragCold].forEach(chip => {
+      const toolType = chip.id === 'dragHeat' ? 'heat' : 'cold';
+
+      // Desktop mouse drag
+      chip.addEventListener('dragstart', (e) => {
+        chip.classList.add('dragging');
+        e.dataTransfer.setData('text/plain', toolType);
+      });
+      chip.addEventListener('dragend', () => chip.classList.remove('dragging'));
+
+      // Mobile / Touch Drag & Tap
+      let touchMoved = false;
+      let startX = 0, startY = 0;
+
+      chip.addEventListener('touchstart', (e) => {
+        const t = e.touches[0];
+        startX = t.clientX;
+        startY = t.clientY;
+        touchMoved = false;
+      }, { passive: true });
+
+      chip.addEventListener('touchmove', (e) => {
+        const t = e.touches[0];
+        const dist = Math.hypot(t.clientX - startX, t.clientY - startY);
+        if (dist > 8) {
+          touchMoved = true;
+          e.preventDefault(); // Stop mobile browser scrolling while dragging
+          if (!activeTouchGhost) {
+            createTouchGhost(chip, t);
+          } else {
+            updateTouchGhost(t);
+          }
+        }
+      }, { passive: false });
+
+      chip.addEventListener('touchend', (e) => {
+        const t = e.changedTouches[0];
+        removeTouchGhost();
+
+        const elemBelow = document.elementFromPoint(t.clientX, t.clientY);
+        const inViewport = elemBelow ? elemBelow.closest('#viewportScreen') : false;
+
+        if (inViewport || !touchMoved) {
+          // Either dropped on the theater OR directly tapped!
+          applyTool(toolType);
+        }
+      });
+
+      // Direct desktop click support
+      chip.addEventListener('click', () => {
+        applyTool(toolType);
+      });
+    });
+
+    viewportScreen.addEventListener('dragover', (e) => e.preventDefault());
+    viewportScreen.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const tool = e.dataTransfer.getData('text/plain');
+      applyTool(tool);
+    });
+
+    updateLabDisplay();
+
+    /* ========================================================
+       TAB 2: KACA PEMBESAR AJAIB (CANVAS BUTIRAN)
+       ======================================================== */
+    const pCanvas = document.getElementById('particleCanvas');
+    const pCtx = pCanvas.getContext('2d');
+    const tempRange = document.getElementById('tempRange');
+
+    class LittleDot {
+      constructor(x, y) {
+        this.origX = x;
+        this.origY = y;
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 2;
+        this.vy = (Math.random() - 0.5) * 2;
+        this.radius = 13;
+      }
+      update(t, w, h) {
+        if (t < 35) {
+          // Padat: Rapat & bergetar
+          const j = (t / 35) * 1.5 + 0.5;
+          this.x = this.origX + (Math.random() - 0.5) * j;
+          this.y = this.origY + (Math.random() - 0.5) * j;
+        } else if (t < 70) {
+          // Cair: Mengalir santai
+          this.x += this.vx * 1.3;
+          this.y += this.vy * 1.3 + 0.3;
+          if (this.x - this.radius < 15 || this.x + this.radius > w - 15) this.vx *= -1;
+          if (this.y - this.radius < h * 0.35) this.vy = Math.abs(this.vy);
+          if (this.y + this.radius > h - 15) {
+            this.y = h - 15 - this.radius;
+            this.vy *= -0.7;
+          }
+        } else {
+          // Gas: Terbang bebas
+          this.x += this.vx * 3.5;
+          this.y += this.vy * 3.5;
+          if (this.x - this.radius < 15 || this.x + this.radius > w - 15) this.vx *= -1;
+          if (this.y - this.radius < 15 || this.y + this.radius > h - 15) this.vy *= -1;
+        }
+      }
+      draw(ctx, t) {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = t < 35 ? '#bae6fd' : (t < 70 ? '#67e8f9' : '#fca5a5');
+        ctx.strokeStyle = t < 35 ? '#0284c7' : (t < 70 ? '#0891b2' : '#dc2626');
+        ctx.lineWidth = 2.5;
+        ctx.fill();
+        ctx.stroke();
+
+        // Wajah tersenyum
+        ctx.fillStyle = '#0f172a';
+        ctx.beginPath();
+        ctx.arc(this.x - 4, this.y - 2, 1.8, 0, Math.PI * 2);
+        ctx.arc(this.x + 4, this.y - 2, 1.8, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(this.x, this.y + 2, 3.5, 0, Math.PI);
+        ctx.strokeStyle = '#0f172a';
+        ctx.lineWidth = 1.6;
+        ctx.stroke();
+      }
+    }
+
+    const dots = [];
+    for (let r = 0; r < 4; r++) {
+      for (let c = 0; c < 7; c++) {
+        dots.push(new LittleDot(150 + c * 28, 130 + r * 26));
+      }
+    }
+
+    function updateLensTitle(t) {
+      const icon = document.getElementById('lensIcon');
+      const title = document.getElementById('lensTitle');
+      if (t < 35) {
+        icon.textContent = '🧊';
+        title.textContent = 'Benda Padat (Butiran Pelukan Rapat)';
+      } else if (t < 70) {
+        icon.textContent = '💧';
+        title.textContent = 'Benda Cair (Butiran Berenang Mengalir)';
+      } else {
+        icon.textContent = '💨';
+        title.textContent = 'Benda Gas (Butiran Melompat Terbang Tinggi)';
+      }
+    }
+
+    function runParticleLoop() {
+      pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+      const temp = parseInt(tempRange.value, 10);
+      dots.forEach(d => {
+        d.update(temp, pCanvas.width, pCanvas.height);
+        d.draw(pCtx, temp);
+      });
+      requestAnimationFrame(runParticleLoop);
+    }
+    tempRange.addEventListener('input', () => updateLensTitle(parseInt(tempRange.value, 10)));
+    runParticleLoop();
+
+    /* ========================================================
+       TAB 3: GAME KERANJANG KALOR
+       ======================================================== */
+    const cardsData = [
+      { id: 'cd1', text: '🍦 Es krim meleleh', target: 'hot', icon: '☀️' },
+      { id: 'cd2', text: '🧊 Air membeku jadi es batu', target: 'cold', icon: '❄️' },
+      { id: 'cd3', text: '👕 Seragam basah dijemur kering', target: 'hot', icon: '💨' },
+      { id: 'cd4', text: '💧 Rumput basah oleh embun pagi', target: 'cold', icon: '🍃' },
+      { id: 'cd5', text: '🌸 Kapur barus mengecil di lemari', target: 'hot', icon: '📦' },
+      { id: 'cd6', text: '❄️ Uap air jadi butiran salju', target: 'cold', icon: '☁️' }
+    ];
+
+    let gamePoints = 0;
+    const gameCardsRow = document.getElementById('gameCardsRow');
+    const dropBasketHot = document.getElementById('dropBasketHot');
+    const dropBasketCold = document.getElementById('dropBasketCold');
+    const slotHot = document.getElementById('slotHot');
+    const slotCold = document.getElementById('slotCold');
+    const gameScoreText = document.getElementById('gameScoreText');
+
+    function initBasketGame() {
+      gamePoints = 0;
+      gameScoreText.textContent = '0';
+      slotHot.innerHTML = '';
+      slotCold.innerHTML = '';
+      gameCardsRow.innerHTML = '';
+
+      const shuffled = [...cardsData].sort(() => Math.random() - 0.5);
+
+      shuffled.forEach(c => {
+        const cardEl = document.createElement('div');
+        cardEl.className = 'game-card-item';
+        cardEl.draggable = true;
+        cardEl.id = c.id;
+        cardEl.innerHTML = `
       <div style="display:flex;align-items:center;gap:8px;">
         <span style="font-size:20px;">${c.icon}</span>
         <span>${c.text}</span>
@@ -2456,435 +2737,495 @@ function initBasketGame() {
       </div>
     `;
 
-    // Click buttons fallback
-    const [btnH, btnC] = cardEl.querySelectorAll('button');
-    btnH.addEventListener('click', (e) => { e.stopPropagation(); processDrop(c.id, 'hot', cardEl); });
-    btnC.addEventListener('click', (e) => { e.stopPropagation(); processDrop(c.id, 'cold', cardEl); });
+        // Click buttons fallback
+        const [btnH, btnC] = cardEl.querySelectorAll('button');
+        btnH.addEventListener('click', (e) => { e.stopPropagation(); processDrop(c.id, 'hot', cardEl); });
+        btnC.addEventListener('click', (e) => { e.stopPropagation(); processDrop(c.id, 'cold', cardEl); });
 
-    // Drag handlers
-    cardEl.addEventListener('dragstart', (e) => {
-      cardEl.classList.add('dragging');
-      e.dataTransfer.setData('text/plain', c.id);
-    });
-    cardEl.addEventListener('dragend', () => cardEl.classList.remove('dragging'));
+        // Drag handlers
+        cardEl.addEventListener('dragstart', (e) => {
+          cardEl.classList.add('dragging');
+          e.dataTransfer.setData('text/plain', c.id);
+        });
+        cardEl.addEventListener('dragend', () => cardEl.classList.remove('dragging'));
 
-    // Tablet touch drop
-    cardEl.addEventListener('touchend', (e) => {
-      const touch = e.changedTouches[0];
-      const rH = dropBasketHot.getBoundingClientRect();
-      const rC = dropBasketCold.getBoundingClientRect();
+        // Mobile Touch Drag with Ghost & Auto-highlight
+        let cardTouchMoved = false;
+        let cardStartX = 0, cardStartY = 0;
 
-      if (touch.clientX >= rH.left && touch.clientX <= rH.right &&
-          touch.clientY >= rH.top && touch.clientY <= rH.bottom) {
-        processDrop(c.id, 'hot', cardEl);
-      } else if (touch.clientX >= rC.left && touch.clientX <= rC.right &&
-                 touch.clientY >= rC.top && touch.clientY <= rC.bottom) {
-        processDrop(c.id, 'cold', cardEl);
+        cardEl.addEventListener('touchstart', (e) => {
+          const t = e.touches[0];
+          cardStartX = t.clientX;
+          cardStartY = t.clientY;
+          cardTouchMoved = false;
+        }, { passive: true });
+
+        cardEl.addEventListener('touchmove', (e) => {
+          const t = e.touches[0];
+          const dist = Math.hypot(t.clientX - cardStartX, t.clientY - cardStartY);
+          if (dist > 10) {
+            cardTouchMoved = true;
+            e.preventDefault(); // Prevent page scroll while dragging card
+            if (!activeTouchGhost) {
+              createTouchGhost(cardEl, t);
+            } else {
+              updateTouchGhost(t);
+            }
+
+            const rH = dropBasketHot.getBoundingClientRect();
+            const rC = dropBasketCold.getBoundingClientRect();
+            if (t.clientX >= rH.left && t.clientX <= rH.right && t.clientY >= rH.top && t.clientY <= rH.bottom) {
+              dropBasketHot.classList.add('over');
+            } else {
+              dropBasketHot.classList.remove('over');
+            }
+            if (t.clientX >= rC.left && t.clientX <= rC.right && t.clientY >= rC.top && t.clientY <= rC.bottom) {
+              dropBasketCold.classList.add('over');
+            } else {
+              dropBasketCold.classList.remove('over');
+            }
+          }
+        }, { passive: false });
+
+        cardEl.addEventListener('touchend', (e) => {
+          dropBasketHot.classList.remove('over');
+          dropBasketCold.classList.remove('over');
+          removeTouchGhost();
+
+          if (!cardTouchMoved) return; // Quick tap, let buttons handle it
+
+          const t = e.changedTouches[0];
+          const elemBelow = document.elementFromPoint(t.clientX, t.clientY);
+          const hotBasket = elemBelow ? elemBelow.closest('#dropBasketHot') : null;
+          const coldBasket = elemBelow ? elemBelow.closest('#dropBasketCold') : null;
+
+          if (hotBasket) {
+            processDrop(c.id, 'hot', cardEl);
+          } else if (coldBasket) {
+            processDrop(c.id, 'cold', cardEl);
+          }
+        });
+
+        gameCardsRow.appendChild(cardEl);
+      });
+    }
+
+    function processDrop(cardId, basketType, el) {
+      const c = cardsData.find(x => x.id === cardId);
+      if (!c) return;
+
+      if (c.target === basketType) {
+        snd.success();
+        gamePoints += 20;
+        gameScoreText.textContent = gamePoints;
+        el.classList.add('correct');
+        el.draggable = false;
+        el.querySelectorAll('button').forEach(b => b.remove());
+
+        if (basketType === 'hot') {
+          slotHot.appendChild(el);
+        } else {
+          slotCold.appendChild(el);
+        }
+
+        if (gamePoints >= 120) {
+          showWinnerModal('Pakar Kalor Cilik!', '120 / 120 ⭐', 'Hebat sekali! Semua kartu berhasil kamu kelompokkan dengan benar!');
+          launchConfetti();
+        }
+      } else {
+        snd.wrong();
+        el.classList.add('shake');
+        setTimeout(() => el.classList.remove('shake'), 450);
       }
+    }
+
+    [dropBasketHot, dropBasketCold].forEach(b => {
+      b.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        b.classList.add('over');
+      });
+      b.addEventListener('dragleave', () => b.classList.remove('over'));
+      b.addEventListener('drop', (e) => {
+        e.preventDefault();
+        b.classList.remove('over');
+        const cId = e.dataTransfer.getData('text/plain');
+        const el = document.getElementById(cId);
+        if (el) processDrop(cId, b.dataset.box, el);
+      });
     });
 
-    gameCardsRow.appendChild(cardEl);
-  });
-}
+    document.getElementById('btnRestartGame').addEventListener('click', () => {
+      snd.click();
+      initBasketGame();
+    });
 
-function processDrop(cardId, basketType, el) {
-  const c = cardsData.find(x => x.id === cardId);
-  if (!c) return;
+    initBasketGame();
 
-  if (c.target === basketType) {
-    snd.success();
-    gamePoints += 20;
-    gameScoreText.textContent = gamePoints;
-    el.classList.add('correct');
-    el.draggable = false;
-    el.querySelectorAll('button').forEach(b => b.remove());
+    /* ========================================================
+       TAB 4: GAME TARIK GARIS (INTERAKTIF & AKURAT)
+       ======================================================== */
+    const matchPairData = [
+      {
+        id: 'mencair',
+        event: '🍦 Es krim / es batu meleleh',
+        target: '1. Mencair',
+        sub: 'Padat ➔ Cair (Butuh Panas 🔥)',
+        color: '#f97316'
+      },
+      {
+        id: 'membeku',
+        event: '🧊 Air di kulkas membeku jadi es',
+        target: '2. Membeku',
+        sub: 'Cair ➔ Padat (Butuh Dingin ❄️)',
+        color: '#0284c7'
+      },
+      {
+        id: 'menguap',
+        event: '👕 Baju basah dijemur jadi kering',
+        target: '3. Menguap',
+        sub: 'Cair ➔ Gas (Butuh Panas 🔥)',
+        color: '#ca8a04'
+      },
+      {
+        id: 'mengembun',
+        event: '💧 Rumput basah oleh embun pagi',
+        target: '4. Mengembun',
+        sub: 'Gas ➔ Cair (Butuh Dingin ❄️)',
+        color: '#0891b2'
+      },
+      {
+        id: 'menyublim',
+        event: '🌸 Kapur barus di lemari mengecil',
+        target: '5. Menyublim',
+        sub: 'Padat ➔ Gas (Butuh Panas 🔥)',
+        color: '#c026d3'
+      },
+      {
+        id: 'mengkristal',
+        event: '❄️ Uap air di langit jadi butiran salju',
+        target: '6. Mengkristal',
+        sub: 'Gas ➔ Padat (Butuh Dingin ❄️)',
+        color: '#2563eb'
+      }
+    ];
 
-    if (basketType === 'hot') {
-      slotHot.appendChild(el);
-    } else {
-      slotCold.appendChild(el);
+    let connectedMatches = [];
+    let selectedFromCard = null;
+    let isDraggingLine = false;
+
+    const matchArena = document.getElementById('matchArena');
+    const matchSvgOverlay = document.getElementById('matchSvgOverlay');
+    const activeDragLine = document.getElementById('activeDragLine');
+    const connectedLinesGroup = document.getElementById('connectedLinesGroup');
+    const colLeftEvents = document.getElementById('colLeftEvents');
+    const colRightTargets = document.getElementById('colRightTargets');
+    const matchCounter = document.getElementById('matchCounter');
+
+    function getPinCenter(pinEl) {
+      const arenaRect = matchArena.getBoundingClientRect();
+      const pinRect = pinEl.getBoundingClientRect();
+      return {
+        x: pinRect.left + pinRect.width / 2 - arenaRect.left,
+        y: pinRect.top + pinRect.height / 2 - arenaRect.top
+      };
     }
 
-    if (gamePoints >= 120) {
-      showWinnerModal('Pakar Kalor Cilik!', '120 / 120 ⭐', 'Hebat sekali! Semua kartu berhasil kamu kelompokkan dengan benar!');
-      launchConfetti();
+    function redrawConnectedLines() {
+      connectedLinesGroup.innerHTML = '';
+      connectedMatches.forEach(item => {
+        const fromPin = item.fromEl.querySelector('.pin-dot');
+        const toPin = item.toEl.querySelector('.pin-dot');
+        if (!fromPin || !toPin) return;
+
+        const p1 = getPinCenter(fromPin);
+        const p2 = getPinCenter(toPin);
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        const dx = Math.abs(p2.x - p1.x) * 0.5;
+        const d = `M ${p1.x} ${p1.y} C ${p1.x + dx} ${p1.y}, ${p2.x - dx} ${p2.y}, ${p2.x} ${p2.y}`;
+        path.setAttribute('d', d);
+        path.setAttribute('stroke', item.color);
+        path.setAttribute('stroke-width', '5');
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke-linecap', 'round');
+        path.setAttribute('filter', 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))');
+        connectedLinesGroup.appendChild(path);
+      });
     }
-  } else {
-    snd.wrong();
-    el.classList.add('shake');
-    setTimeout(() => el.classList.remove('shake'), 450);
-  }
-}
 
-[dropBasketHot, dropBasketCold].forEach(b => {
-  b.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    b.classList.add('over');
-  });
-  b.addEventListener('dragleave', () => b.classList.remove('over'));
-  b.addEventListener('drop', (e) => {
-    e.preventDefault();
-    b.classList.remove('over');
-    const cId = e.dataTransfer.getData('text/plain');
-    const el = document.getElementById(cId);
-    if (el) processDrop(cId, b.dataset.box, el);
-  });
-});
+    function initMatchingGame() {
+      connectedMatches = [];
+      selectedFromCard = null;
+      isDraggingLine = false;
+      if (activeDragLine) activeDragLine.style.display = 'none';
+      if (connectedLinesGroup) connectedLinesGroup.innerHTML = '';
+      if (matchCounter) matchCounter.textContent = '⭐ Terhubung: 0 / 6';
 
-document.getElementById('btnRestartGame').addEventListener('click', () => {
-  snd.click();
-  initBasketGame();
-});
+      if (!colLeftEvents || !colRightTargets) return;
+      colLeftEvents.innerHTML = '';
+      colRightTargets.innerHTML = '';
 
-initBasketGame();
+      const leftItems = [...matchPairData];
+      const rightItems = [...matchPairData].sort(() => Math.random() - 0.5);
 
-/* ========================================================
-   TAB 4: GAME TARIK GARIS (INTERAKTIF & AKURAT)
-   ======================================================== */
-const matchPairData = [
-  {
-    id: 'mencair',
-    event: '🍦 Es krim / es batu meleleh',
-    target: '1. Mencair',
-    sub: 'Padat ➔ Cair (Butuh Panas 🔥)',
-    color: '#f97316'
-  },
-  {
-    id: 'membeku',
-    event: '🧊 Air di kulkas membeku jadi es',
-    target: '2. Membeku',
-    sub: 'Cair ➔ Padat (Butuh Dingin ❄️)',
-    color: '#0284c7'
-  },
-  {
-    id: 'menguap',
-    event: '👕 Baju basah dijemur jadi kering',
-    target: '3. Menguap',
-    sub: 'Cair ➔ Gas (Butuh Panas 🔥)',
-    color: '#ca8a04'
-  },
-  {
-    id: 'mengembun',
-    event: '💧 Rumput basah oleh embun pagi',
-    target: '4. Mengembun',
-    sub: 'Gas ➔ Cair (Butuh Dingin ❄️)',
-    color: '#0891b2'
-  },
-  {
-    id: 'menyublim',
-    event: '🌸 Kapur barus di lemari mengecil',
-    target: '5. Menyublim',
-    sub: 'Padat ➔ Gas (Butuh Panas 🔥)',
-    color: '#c026d3'
-  },
-  {
-    id: 'mengkristal',
-    event: '❄️ Uap air di langit jadi butiran salju',
-    target: '6. Mengkristal',
-    sub: 'Gas ➔ Padat (Butuh Dingin ❄️)',
-    color: '#2563eb'
-  }
-];
-
-let connectedMatches = [];
-let selectedFromCard = null;
-let isDraggingLine = false;
-
-const matchArena = document.getElementById('matchArena');
-const matchSvgOverlay = document.getElementById('matchSvgOverlay');
-const activeDragLine = document.getElementById('activeDragLine');
-const connectedLinesGroup = document.getElementById('connectedLinesGroup');
-const colLeftEvents = document.getElementById('colLeftEvents');
-const colRightTargets = document.getElementById('colRightTargets');
-const matchCounter = document.getElementById('matchCounter');
-
-function getPinCenter(pinEl) {
-  const arenaRect = matchArena.getBoundingClientRect();
-  const pinRect = pinEl.getBoundingClientRect();
-  return {
-    x: pinRect.left + pinRect.width / 2 - arenaRect.left,
-    y: pinRect.top + pinRect.height / 2 - arenaRect.top
-  };
-}
-
-function redrawConnectedLines() {
-  connectedLinesGroup.innerHTML = '';
-  connectedMatches.forEach(item => {
-    const fromPin = item.fromEl.querySelector('.pin-dot');
-    const toPin = item.toEl.querySelector('.pin-dot');
-    if (!fromPin || !toPin) return;
-
-    const p1 = getPinCenter(fromPin);
-    const p2 = getPinCenter(toPin);
-
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    const dx = Math.abs(p2.x - p1.x) * 0.5;
-    const d = `M ${p1.x} ${p1.y} C ${p1.x + dx} ${p1.y}, ${p2.x - dx} ${p2.y}, ${p2.x} ${p2.y}`;
-    path.setAttribute('d', d);
-    path.setAttribute('stroke', item.color);
-    path.setAttribute('stroke-width', '5');
-    path.setAttribute('fill', 'none');
-    path.setAttribute('stroke-linecap', 'round');
-    path.setAttribute('filter', 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))');
-    connectedLinesGroup.appendChild(path);
-  });
-}
-
-function initMatchingGame() {
-  connectedMatches = [];
-  selectedFromCard = null;
-  isDraggingLine = false;
-  if (activeDragLine) activeDragLine.style.display = 'none';
-  if (connectedLinesGroup) connectedLinesGroup.innerHTML = '';
-  if (matchCounter) matchCounter.textContent = '⭐ Terhubung: 0 / 6';
-
-  if (!colLeftEvents || !colRightTargets) return;
-  colLeftEvents.innerHTML = '';
-  colRightTargets.innerHTML = '';
-
-  const leftItems = [...matchPairData];
-  const rightItems = [...matchPairData].sort(() => Math.random() - 0.5);
-
-  leftItems.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'match-card';
-    card.dataset.matchId = item.id;
-    card.dataset.side = 'left';
-    card.innerHTML = `
+      leftItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'match-card';
+        card.dataset.matchId = item.id;
+        card.dataset.side = 'left';
+        card.innerHTML = `
       <span>${item.event}</span>
       <div class="pin-dot left-pin" title="Tarik dari sini"></div>
     `;
-    colLeftEvents.appendChild(card);
-  });
+        colLeftEvents.appendChild(card);
+      });
 
-  rightItems.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'match-card';
-    card.dataset.matchId = item.id;
-    card.dataset.side = 'right';
-    card.innerHTML = `
+      rightItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'match-card';
+        card.dataset.matchId = item.id;
+        card.dataset.side = 'right';
+        card.innerHTML = `
       <div class="pin-dot right-pin"></div>
       <div>
         <div style="font-size:14px;color:#000000;font-weight:700;">${item.target}</div>
         <div style="font-size:11.5px;color:#475569;font-weight:600;">${item.sub}</div>
       </div>
     `;
-    colRightTargets.appendChild(card);
-  });
+        colRightTargets.appendChild(card);
+      });
 
-  attachMatchEvents();
-}
+      attachMatchEvents();
+    }
 
-function attachMatchEvents() {
-  colLeftEvents.querySelectorAll('.match-card').forEach(card => {
-    const pin = card.querySelector('.pin-dot');
+    function attachMatchEvents() {
+      colLeftEvents.querySelectorAll('.match-card').forEach(card => {
+        const pin = card.querySelector('.pin-dot');
 
-    const handleStart = (clientX, clientY) => {
-      if (card.classList.contains('matched')) return;
-      selectedFromCard = card;
-      isDraggingLine = true;
+        const handleStart = (clientX, clientY) => {
+          if (card.classList.contains('matched')) return;
+          selectedFromCard = card;
+          isDraggingLine = true;
 
-      colLeftEvents.querySelectorAll('.match-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
+          colLeftEvents.querySelectorAll('.match-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
 
-      const p1 = getPinCenter(pin);
-      const arenaRect = matchArena.getBoundingClientRect();
-      activeDragLine.setAttribute('x1', p1.x);
-      activeDragLine.setAttribute('y1', p1.y);
-      activeDragLine.setAttribute('x2', clientX - arenaRect.left);
-      activeDragLine.setAttribute('y2', clientY - arenaRect.top);
-      activeDragLine.style.display = 'block';
-    };
+          const p1 = getPinCenter(pin);
+          const arenaRect = matchArena.getBoundingClientRect();
+          activeDragLine.setAttribute('x1', p1.x);
+          activeDragLine.setAttribute('y1', p1.y);
+          activeDragLine.setAttribute('x2', clientX - arenaRect.left);
+          activeDragLine.setAttribute('y2', clientY - arenaRect.top);
+          activeDragLine.style.display = 'block';
+        };
 
-    pin.addEventListener('mousedown', (e) => {
-      e.stopPropagation();
-      handleStart(e.clientX, e.clientY);
-    });
-    card.addEventListener('mousedown', (e) => {
-      handleStart(e.clientX, e.clientY);
-    });
-
-    pin.addEventListener('touchstart', (e) => {
-      const t = e.touches[0];
-      handleStart(t.clientX, t.clientY);
-    }, { passive: true });
-    card.addEventListener('touchstart', (e) => {
-      const t = e.touches[0];
-      handleStart(t.clientX, t.clientY);
-    }, { passive: true });
-  });
-
-  const handleMove = (clientX, clientY) => {
-    if (!isDraggingLine || !selectedFromCard) return;
-    const arenaRect = matchArena.getBoundingClientRect();
-    const currX = clientX - arenaRect.left;
-    const currY = clientY - arenaRect.top;
-    activeDragLine.setAttribute('x2', currX);
-    activeDragLine.setAttribute('y2', currY);
-  };
-
-  window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
-  window.addEventListener('touchmove', (e) => {
-    if (!isDraggingLine) return;
-    const t = e.touches[0];
-    handleMove(t.clientX, t.clientY);
-  }, { passive: true });
-
-  colRightTargets.querySelectorAll('.match-card').forEach(rightCard => {
-    const checkConnect = () => {
-      if (!selectedFromCard) return;
-      if (rightCard.classList.contains('matched')) return;
-
-      const leftId = selectedFromCard.dataset.matchId;
-      const rightId = rightCard.dataset.matchId;
-
-      if (leftId === rightId) {
-        snd.success();
-        const pairInfo = matchPairData.find(x => x.id === leftId);
-        selectedFromCard.classList.remove('selected');
-        selectedFromCard.classList.add('matched');
-        rightCard.classList.add('matched');
-
-        const chk1 = document.createElement('span');
-        chk1.style.cssText = 'color:#10b981;font-weight:900;margin-left:auto;padding-left:6px;';
-        chk1.textContent = '✓';
-        selectedFromCard.appendChild(chk1);
-
-        const chk2 = document.createElement('span');
-        chk2.style.cssText = 'color:#10b981;font-weight:900;margin-left:auto;padding-left:6px;';
-        chk2.textContent = '✓';
-        rightCard.appendChild(chk2);
-
-        connectedMatches.push({
-          id: leftId,
-          fromEl: selectedFromCard,
-          toEl: rightCard,
-          color: pairInfo ? pairInfo.color : '#10b981'
+        pin.addEventListener('mousedown', (e) => {
+          e.stopPropagation();
+          handleStart(e.clientX, e.clientY);
+        });
+        card.addEventListener('mousedown', (e) => {
+          handleStart(e.clientX, e.clientY);
         });
 
-        redrawConnectedLines();
-        matchCounter.textContent = `⭐ Terhubung: ${connectedMatches.length} / 6`;
+        pin.addEventListener('touchstart', (e) => {
+          const t = e.touches[0];
+          handleStart(t.clientX, t.clientY);
+        }, { passive: true });
+        card.addEventListener('touchstart', (e) => {
+          const t = e.touches[0];
+          handleStart(t.clientX, t.clientY);
+        }, { passive: true });
+      });
 
-        if (connectedMatches.length >= 6) {
-          launchConfetti();
-          showWinnerModal(
-            'Luar Biasa Hebat! 🌟',
-            '100 / 100 ⭐⭐⭐',
-            'Hebat sekali! Semua 6 pasangan perubahan wujud zat berhasil kamu hubungkan dengan tepat!'
-          );
+      const handleMove = (clientX, clientY) => {
+        if (!isDraggingLine || !selectedFromCard) return;
+        const arenaRect = matchArena.getBoundingClientRect();
+        const currX = clientX - arenaRect.left;
+        const currY = clientY - arenaRect.top;
+        activeDragLine.setAttribute('x2', currX);
+        activeDragLine.setAttribute('y2', currY);
+      };
+
+      window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+      window.addEventListener('touchmove', (e) => {
+        if (!isDraggingLine) return;
+        e.preventDefault(); // Stop mobile browser scrolling while dragging rubber line
+        const t = e.touches[0];
+        handleMove(t.clientX, t.clientY);
+      }, { passive: false });
+
+      function tryConnectCards(leftCard, rightCard) {
+        if (!leftCard || !rightCard) return;
+        if (rightCard.classList.contains('matched') || leftCard.classList.contains('matched')) return;
+
+        const leftId = leftCard.dataset.matchId;
+        const rightId = rightCard.dataset.matchId;
+
+        if (leftId === rightId) {
+          snd.success();
+          const pairInfo = matchPairData.find(x => x.id === leftId);
+          leftCard.classList.remove('selected');
+          leftCard.classList.add('matched');
+          rightCard.classList.add('matched');
+
+          const chk1 = document.createElement('span');
+          chk1.style.cssText = 'color:#10b981;font-weight:900;margin-left:auto;padding-left:6px;';
+          chk1.textContent = '✓';
+          leftCard.appendChild(chk1);
+
+          const chk2 = document.createElement('span');
+          chk2.style.cssText = 'color:#10b981;font-weight:900;margin-left:auto;padding-left:6px;';
+          chk2.textContent = '✓';
+          rightCard.appendChild(chk2);
+
+          connectedMatches.push({
+            id: leftId,
+            fromEl: leftCard,
+            toEl: rightCard,
+            color: pairInfo ? pairInfo.color : '#10b981'
+          });
+
+          redrawConnectedLines();
+          matchCounter.textContent = `⭐ Terhubung: ${connectedMatches.length} / 6`;
+
+          if (connectedMatches.length >= 6) {
+            launchConfetti();
+            showWinnerModal(
+              'Luar Biasa Hebat! 🌟',
+              '100 / 100 ⭐⭐⭐',
+              'Hebat sekali! Semua 6 pasangan perubahan wujud zat berhasil kamu hubungkan dengan tepat!'
+            );
+          }
+        } else {
+          snd.wrong();
+          rightCard.classList.add('shake');
+          setTimeout(() => rightCard.classList.remove('shake'), 450);
         }
-      } else {
-        snd.wrong();
-        rightCard.classList.add('shake');
-        setTimeout(() => rightCard.classList.remove('shake'), 450);
+
+        activeDragLine.style.display = 'none';
+        isDraggingLine = false;
+        selectedFromCard = null;
+        colLeftEvents.querySelectorAll('.match-card').forEach(c => c.classList.remove('selected'));
       }
 
-      activeDragLine.style.display = 'none';
-      isDraggingLine = false;
-      selectedFromCard = null;
-      colLeftEvents.querySelectorAll('.match-card').forEach(c => c.classList.remove('selected'));
-    };
+      colRightTargets.querySelectorAll('.match-card').forEach(rightCard => {
+        rightCard.addEventListener('click', () => {
+          if (selectedFromCard) {
+            tryConnectCards(selectedFromCard, rightCard);
+          }
+        });
+      });
 
-    rightCard.addEventListener('mouseup', checkConnect);
-    rightCard.addEventListener('click', checkConnect);
-    rightCard.addEventListener('touchend', () => checkConnect());
-  });
+      window.addEventListener('mouseup', (e) => {
+        if (isDraggingLine && selectedFromCard) {
+          const elemBelow = document.elementFromPoint(e.clientX, e.clientY);
+          const rightCard = elemBelow ? elemBelow.closest('#colRightTargets .match-card') : null;
+          if (rightCard) {
+            tryConnectCards(selectedFromCard, rightCard);
+            return;
+          }
+        }
+        activeDragLine.style.display = 'none';
+        isDraggingLine = false;
+      });
 
-  window.addEventListener('mouseup', () => {
-    if (isDraggingLine) {
-      activeDragLine.style.display = 'none';
-      isDraggingLine = false;
+      window.addEventListener('touchend', (e) => {
+        if (isDraggingLine && selectedFromCard) {
+          const t = e.changedTouches[0];
+          const elemBelow = document.elementFromPoint(t.clientX, t.clientY);
+          const rightCard = elemBelow ? elemBelow.closest('#colRightTargets .match-card') : null;
+          if (rightCard) {
+            tryConnectCards(selectedFromCard, rightCard);
+            return;
+          }
+        }
+        activeDragLine.style.display = 'none';
+        isDraggingLine = false;
+      });
     }
-  });
-  window.addEventListener('touchend', () => {
-    if (isDraggingLine) {
-      activeDragLine.style.display = 'none';
-      isDraggingLine = false;
-    }
-  });
-}
 
-window.addEventListener('resize', redrawConnectedLines);
+    window.addEventListener('resize', redrawConnectedLines);
 
-document.getElementById('btnRestartMatch').addEventListener('click', () => {
-  snd.click();
-  initMatchingGame();
-});
-
-initMatchingGame();
-
-/* ========================================================
-   CONFETTI KEMBANG API
-   ======================================================== */
-const cCanvas = document.getElementById('confettiCanvas');
-const cfCtx = cCanvas.getContext('2d');
-let particles = [];
-let animFrame = null;
-
-function fitCanvas() {
-  cCanvas.width = window.innerWidth;
-  cCanvas.height = window.innerHeight;
-}
-window.addEventListener('resize', fitCanvas);
-fitCanvas();
-
-function launchConfetti() {
-  particles = [];
-  const palette = ['#fbbf24', '#38bdf8', '#f472b6', '#34d399', '#a78bfa'];
-  for (let i = 0; i < 80; i++) {
-    particles.push({
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2,
-      vx: (Math.random() - 0.5) * 15,
-      vy: (Math.random() - 0.7) * 16,
-      size: Math.random() * 8 + 5,
-      color: palette[Math.floor(Math.random() * palette.length)],
-      rot: Math.random() * 360,
-      vRot: (Math.random() - 0.5) * 8
+    document.getElementById('btnRestartMatch').addEventListener('click', () => {
+      snd.click();
+      initMatchingGame();
     });
-  }
-  if (animFrame) cancelAnimationFrame(animFrame);
-  loopConfetti();
-}
 
-function loopConfetti() {
-  cfCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
-  particles.forEach(p => {
-    p.x += p.vx;
-    p.y += p.vy;
-    p.vy += 0.38;
-    p.rot += p.vRot;
+    initMatchingGame();
 
-    cfCtx.save();
-    cfCtx.translate(p.x, p.y);
-    cfCtx.rotate((p.rot * Math.PI) / 180);
-    cfCtx.fillStyle = p.color;
-    cfCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
-    cfCtx.restore();
-  });
+    /* ========================================================
+       CONFETTI KEMBANG API
+       ======================================================== */
+    const cCanvas = document.getElementById('confettiCanvas');
+    const cfCtx = cCanvas.getContext('2d');
+    let particles = [];
+    let animFrame = null;
 
-  particles = particles.filter(p => p.y < window.innerHeight + 20);
-  if (particles.length > 0) {
-    animFrame = requestAnimationFrame(loopConfetti);
-  } else {
-    cfCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
-  }
-}
+    function fitCanvas() {
+      cCanvas.width = window.innerWidth;
+      cCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', fitCanvas);
+    fitCanvas();
 
-/* ========================================================
-   MODAL DIALOG
-   ======================================================== */
-function showWinnerModal(title, scoreText, msg) {
-  document.getElementById('modalTitle').textContent = title;
-  document.getElementById('modalScoreNum').textContent = scoreText;
-  document.getElementById('modalMsg').textContent = msg;
-  document.getElementById('modalMask').classList.add('show');
-}
+    function launchConfetti() {
+      particles = [];
+      const palette = ['#fbbf24', '#38bdf8', '#f472b6', '#34d399', '#a78bfa'];
+      for (let i = 0; i < 80; i++) {
+        particles.push({
+          x: window.innerWidth / 2,
+          y: window.innerHeight / 2,
+          vx: (Math.random() - 0.5) * 15,
+          vy: (Math.random() - 0.7) * 16,
+          size: Math.random() * 8 + 5,
+          color: palette[Math.floor(Math.random() * palette.length)],
+          rot: Math.random() * 360,
+          vRot: (Math.random() - 0.5) * 8
+        });
+      }
+      if (animFrame) cancelAnimationFrame(animFrame);
+      loopConfetti();
+    }
 
-document.getElementById('btnCloseModal').addEventListener('click', () => {
-  snd.click();
-  document.getElementById('modalMask').classList.remove('show');
-});
-</script>
+    function loopConfetti() {
+      cfCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.38;
+        p.rot += p.vRot;
+
+        cfCtx.save();
+        cfCtx.translate(p.x, p.y);
+        cfCtx.rotate((p.rot * Math.PI) / 180);
+        cfCtx.fillStyle = p.color;
+        cfCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+        cfCtx.restore();
+      });
+
+      particles = particles.filter(p => p.y < window.innerHeight + 20);
+      if (particles.length > 0) {
+        animFrame = requestAnimationFrame(loopConfetti);
+      } else {
+        cfCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+      }
+    }
+
+    /* ========================================================
+       MODAL DIALOG
+       ======================================================== */
+    function showWinnerModal(title, scoreText, msg) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalScoreNum').textContent = scoreText;
+      document.getElementById('modalMsg').textContent = msg;
+      document.getElementById('modalMask').classList.add('show');
+    }
+
+    document.getElementById('btnCloseModal').addEventListener('click', () => {
+      snd.click();
+      document.getElementById('modalMask').classList.remove('show');
+    });
+  </script>
 </body>
+
 </html>
