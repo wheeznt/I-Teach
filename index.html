@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>Petualangan Seru 6 Perubahan Wujud Zat | Kelas 4 SD</title>
+<title>Sainsfera · Petualangan 6 Perubahan Wujud Zat | Kelas 4 SD</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
 
@@ -969,7 +969,7 @@ svg#matchSvgOverlay {
     <div class="brand-group" id="brandGroupBtn" style="cursor:pointer;" title="Kembali ke Beranda">
       <div class="brand-avatar">🧪</div>
       <div>
-        <h1 class="brand-title">Lab Wujud Cilik</h1>
+        <h1 class="brand-title">Sainsfera</h1>
         <span class="brand-sub">IPAS Kelas 4 SD</span>
       </div>
     </div>
@@ -990,9 +990,9 @@ svg#matchSvgOverlay {
     <div class="homescreen-card">
       <div class="homescreen-mascot">🦊</div>
       <div class="homescreen-badge">IPAS Kelas 4 SD · Kurikulum Merdeka</div>
-      <h1 class="homescreen-title">Petualangan Lab Wujud Zat</h1>
+      <h1 class="homescreen-title">Petualangan Sainsfera</h1>
       <p class="homescreen-desc">
-        Halo Sahabat Peneliti Cilik! Pernahkah kamu melihat es krim yang meleleh, atau air yang menjadi es batu? Ayo bereksperimen dan bermain game seru untuk menemukan rahasia <strong>6 Perubahan Wujud Benda</strong>!
+        Halo Sahabat Peneliti Cilik! Selamat datang di <strong>Sainsfera</strong>! Pernahkah kamu melihat es krim yang meleleh, atau air yang menjadi es batu? Ayo bereksperimen dan bermain game seru untuk menemukan rahasia <strong>6 Perubahan Wujud Benda</strong>!
       </p>
 
       <div class="homescreen-name-box">
@@ -1349,7 +1349,7 @@ btnStartAdventure.addEventListener('click', () => {
 
   const studentName = inputName.value.trim();
   if (studentName) {
-    mascotGreeting.innerHTML = `<strong>Halo Peneliti Cilik ${studentName}!</strong> Benda bisa berubah wujud jika <strong>diberi panas 🔥</strong> atau <strong>didinginkan ❄️</strong>. Ayo coba tarik api atau es ke benda di bawah!`;
+    mascotGreeting.innerHTML = `<strong>Halo Peneliti Cilik ${studentName}!</strong> Selamat datang di <strong>Sainsfera</strong>! Benda bisa berubah wujud jika <strong>diberi panas 🔥</strong> atau <strong>didinginkan ❄️</strong>. Ayo coba tarik api atau es ke benda di bawah!`;
   }
 
   screenHome.style.display = 'none';
@@ -1461,32 +1461,54 @@ const stateDb = {
       <ellipse cx="140" cy="182" rx="78" ry="16" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
       <ellipse cx="140" cy="180" rx="62" ry="11" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.5"/>
 
-      <!-- Genangan Air Biru Segar Luas di Atas Piring -->
-      <ellipse cx="140" cy="172" rx="70" ry="16" fill="#38bdf8" stroke="#0284c7" stroke-width="3"/>
-      <ellipse cx="140" cy="171" rx="58" ry="12" fill="#7dd3fc" opacity="0.9"/>
-      <path d="M 90 171 Q 115 166 140 171 T 190 171" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8"/>
+      <!-- Genangan Air Meleleh Lebar di Piring -->
+      <ellipse cx="140" cy="172" rx="72" ry="16" fill="#38bdf8" stroke="#0284c7" stroke-width="3.5"/>
+      <ellipse cx="140" cy="171" rx="60" ry="11" fill="#7dd3fc" opacity="0.9"/>
+      <!-- Riak Gelombang Air Putih Berkilau -->
+      <path d="M 88 171 Q 114 166 140 171 T 192 171" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+      <path d="M 105 175 Q 125 172 145 175" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.6"/>
 
-      <!-- Sisa Es Batu Mungil yang Sedang Meleleh di Tengah -->
+      <!-- Tetesan Air Terpisah di Samping Kiri & Kanan -->
+      <ellipse cx="64" cy="171" rx="5" ry="3.5" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/>
+      <ellipse cx="216" cy="171" rx="5.5" ry="4" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/>
+
+      <!-- ES BATU YANG SEDANG MENCAIR (Melted Ice Cube) -->
       <g>
-        <path d="M 125 142 L 155 142 L 152 165 L 128 165 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="2.5" stroke-linejoin="round"/>
-        <ellipse cx="140" cy="142" rx="15" ry="5" fill="#e0f2fe"/>
-        <!-- Tetesan Air Meleleh -->
-        <circle cx="120" cy="158" r="3" fill="#0284c7"/>
-        <circle cx="160" cy="158" r="3" fill="#0284c7"/>
+        <!-- Badan Es Meleleh (Translucent Ice Body) -->
+        <path d="M 112 134 Q 106 150 114 166 Q 140 172 166 166 Q 174 150 168 134 Q 164 122 140 122 Q 116 122 112 134 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="3" stroke-linejoin="round"/>
+        
+        <!-- Permukaan Atas Es Kubus yang Membulat Licin -->
+        <path d="M 114 134 Q 140 124 166 134 Q 155 142 140 142 Q 125 142 114 134 Z" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+        
+        <!-- Kilau Refleksi Es Kaca Bening -->
+        <path d="M 118 138 Q 124 150 122 162" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.9"/>
+        <path d="M 128 129 Q 142 126 156 131" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8"/>
+
+        <!-- Aliran Lelehan Air Mengalir Turun dari Es ke Genangan -->
+        <path d="M 132 144 Q 130 154 132 168" stroke="#0284c7" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7"/>
+        <path d="M 152 144 Q 154 154 152 168" stroke="#0284c7" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7"/>
+        
+        <!-- Tetesan Air Menetes di Samping Es -->
+        <circle cx="106" cy="160" r="2.5" fill="#0284c7"/>
+        <circle cx="174" cy="160" r="2.5" fill="#0284c7"/>
+
+        <!-- Wajah Es Batu Ceria & Segar yang Sedang Meleleh (Mata Bahagia ^ ^) -->
+        <g>
+          <path d="M 130 148 Q 134 142 138 148" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M 142 148 Q 146 142 150 148" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <!-- Senyum Manis -->
+          <path d="M 136 154 Q 140 159 144 154" stroke="#0f172a" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <!-- Pipi Merona Pink Segar -->
+          <ellipse cx="125" cy="152" rx="3.5" ry="2" fill="#f472b6" opacity="0.8"/>
+          <ellipse cx="155" cy="152" rx="3.5" ry="2" fill="#f472b6" opacity="0.8"/>
+        </g>
       </g>
 
-      <!-- Wajah Air Bahagia Mengapung -->
-      <g>
-        <circle cx="132" cy="170" r="3.5" fill="#0f172a"/>
-        <circle cx="148" cy="170" r="3.5" fill="#0f172a"/>
-        <path d="M 137 175 Q 140 178 143 175" stroke="#0f172a" stroke-width="2" stroke-linecap="round" fill="none"/>
-      </g>
-
-      <!-- Percikan Tetesan Air Riang di Samping -->
-      <ellipse cx="68" cy="162" rx="5" ry="8" fill="#38bdf8" transform="rotate(-30 68 162)"/>
-      <ellipse cx="212" cy="162" rx="5" ry="8" fill="#38bdf8" transform="rotate(30 212 162)"/>
-      <text x="65" y="110" font-size="22">☀️</text>
-      <text x="200" y="110" font-size="20">💧</text>
+      <!-- Matahari Hangat & Tetesan Air -->
+      <text x="65" y="105" font-size="24">☀️</text>
+      <text x="200" y="105" font-size="22">💧</text>
+      <text x="180" y="150" font-size="16">✨</text>
+      <text x="90" y="150" font-size="16">✨</text>
 
       <text x="140" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Mencair Jadi Air!</text>
     `,
