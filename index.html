@@ -153,7 +153,7 @@ header {
 /* NAV BUTTONS */
 .nav-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-bottom: 20px;
 }
@@ -1125,7 +1125,7 @@ svg#matchSvgOverlay {
 }
 .preview-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin-top: 28px;
   text-align: left;
@@ -1188,7 +1188,7 @@ svg#matchSvgOverlay {
 
 @media(max-width: 768px) {
   .wujud-nav { grid-template-columns: repeat(3, 1fr); }
-  .nav-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav-grid { grid-template-columns: repeat(3, 1fr); }
   .baskets-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -1244,7 +1244,7 @@ svg#matchSvgOverlay {
         </button>
       </div>
 
-      <!-- 4 Zona Belajar Preview -->
+      <!-- 3 Zona Belajar Preview -->
       <div class="preview-grid">
         <div class="preview-item">
           <span class="preview-item-icon">🧪</span>
@@ -1252,18 +1252,13 @@ svg#matchSvgOverlay {
           <span class="preview-item-desc">Tarik Api 🔥 & Es ❄️ ke benda nyata untuk melihat perubahannya!</span>
         </div>
         <div class="preview-item">
-          <span class="preview-item-icon">🔍</span>
-          <span class="preview-item-title">2. Butiran Ajaib</span>
-          <span class="preview-item-desc">Geser suhu dan amati butiran partikel bergetar dan melompat!</span>
-        </div>
-        <div class="preview-item">
           <span class="preview-item-icon">🧺</span>
-          <span class="preview-item-title">3. Game Keranjang</span>
+          <span class="preview-item-title">2. Game Keranjang</span>
           <span class="preview-item-desc">Pilah kartu peristiwa ke Keranjang Panas atau Dingin!</span>
         </div>
         <div class="preview-item">
           <span class="preview-item-icon">✏️</span>
-          <span class="preview-item-title">4. Tarik Garis</span>
+          <span class="preview-item-title">3. Tarik Garis</span>
           <span class="preview-item-desc">Hubungkan peristiwa nyata dengan nama wujud yang tepat!</span>
         </div>
       </div>
@@ -1285,14 +1280,11 @@ svg#matchSvgOverlay {
     <button class="nav-tab active" data-tab="tab-lab">
       <span>🧪</span> 1. Lab Zat
     </button>
-    <button class="nav-tab" data-tab="tab-lens">
-      <span>🔍</span> 2. Butiran Ajaib
-    </button>
     <button class="nav-tab" data-tab="tab-game">
-      <span>🧺</span> 3. Game Keranjang
+      <span>🧺</span> 2. Game Keranjang
     </button>
     <button class="nav-tab" data-tab="tab-quiz">
-      <span>✏️</span> 4. Tarik Garis
+      <span>✏️</span> 3. Tarik Garis
     </button>
   </nav>
 
@@ -1370,30 +1362,7 @@ svg#matchSvgOverlay {
     </div>
   </section>
 
-  <!-- ========================================================
-       TAB 2: BUTIRAN AJAIB (KACA PEMBESAR)
-       ======================================================== -->
-  <section id="tab-lens" class="tab-content">
-    <div class="main-card">
-      <div class="lens-box">
-        <div class="lens-badge">
-          <span id="lensIcon">🧊</span>
-          <span id="lensTitle">Benda Padat (Butiran Pelukan Rapat)</span>
-        </div>
-
-        <canvas id="particleCanvas" width="480" height="240"></canvas>
-
-        <div class="slider-container">
-          <div class="slider-labels">
-            <span>❄️ Dingin (Padat)</span>
-            <span>💧 Sedang (Cair)</span>
-            <span>🔥 Panas (Gas)</span>
-          </div>
-          <input type="range" id="tempRange" class="heat-range" min="0" max="100" value="15">
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- ========================================================
        TAB 3: GAME KERANJANG KALOR
@@ -1980,107 +1949,154 @@ const stateDb = {
     needsHeat: false,
     heatLabel: '❄️ Butuh Dingin (Melepas Kalor)',
     heatClass: 'badge-heat-cold',
-    example: 'Contoh: Dinding luar gelas dingin jadi basah berembun',
-    initialMsg: 'Gelas masih kering di luar! Coba beri ❄️ Dingin agar mengembun!',
-    successMsg: 'Keren! Uap air di udara melepaskan panas dan jadi titik embun air!',
-    wrongMsg: 'Aduh panas! Dikasih api titik embunnya malah menguap hilang! Beri ❄️ Dingin ya!',
-    // IDLE: Gelas Bersih Bernapas Halus di Meja (anim-float-slow) & Air Tenang Beriak
+    example: 'Contoh: Uap air di udara dingin mengembun jadi butiran embun di daun rumput',
+    initialMsg: 'Rumput segar di taman! Coba beri ❄️ Dingin agar uap air mengembun jadi titik air!',
+    successMsg: 'Segar sekali! Uap air di udara melepaskan panas dan jadi butiran embun di daun rumput!',
+    wrongMsg: 'Aduh terik! Dikasih api udara jadi panas, embunnya malah menguap kering! Beri ❄️ Dingin ya!',
+    // IDLE: Rumput Hijau Segar Melambai Anggun Tertiup Angin (anim-cloth-sway)
     initialSvg: `
-      <!-- Meja / Coaster -->
-      <ellipse cx="140" cy="192" rx="78" ry="16" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="3"/>
-      <ellipse cx="140" cy="189" rx="46" ry="8" fill="#94a3b8" opacity="0.3"/>
+      <!-- Tanah Taman & Bukit Hijau Lembut -->
+      <ellipse cx="140" cy="188" rx="88" ry="16" fill="#86efac" stroke="#16a34a" stroke-width="3.5" class="anim-shadow"/>
+      <ellipse cx="140" cy="186" rx="76" ry="11" fill="#bbf7d0"/>
+      <ellipse cx="140" cy="184" rx="55" ry="7" fill="#dcfce7"/>
 
-      <!-- Gelas Kaca Elegan Mengapung Tenang (anim-float-slow) -->
-      <g class="anim-float-slow">
-        <!-- Sedotan Belang -->
-        <path d="M 170 20 L 152 65 L 128 165" stroke="#f43f5e" stroke-width="6.5" stroke-linecap="round" fill="none"/>
-        <path d="M 170 20 L 152 65 L 128 165" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 7" fill="none"/>
+      <!-- RUMPUN DAUN RUMPUT HIJAU SEGAR (anim-cloth-sway) -->
+      <g class="anim-cloth-sway" style="transform-origin: 140px 185px;">
+        <!-- Helai Daun Rumput Kiri Jauh -->
+        <path d="M 125 185 Q 90 145 75 105 Q 92 120 120 178 Z" fill="#22c55e" stroke="#15803d" stroke-width="3" stroke-linejoin="round"/>
+        <!-- Helai Daun Rumput Kanan Jauh -->
+        <path d="M 155 185 Q 190 145 205 105 Q 188 120 160 178 Z" fill="#22c55e" stroke="#15803d" stroke-width="3" stroke-linejoin="round"/>
         
-        <!-- Air Minum Segar Bening Beriak Halus (anim-wave) -->
-        <g class="anim-wave">
-          <path d="M 94 92 Q 140 100 186 92 L 175 170 Q 140 180 105 170 Z" fill="#67e8f9" opacity="0.7"/>
-          <ellipse cx="140" cy="92" rx="46" ry="8" fill="#a5f3fc" opacity="0.9"/>
+        <!-- Helai Daun Rumput Kiri Tengah -->
+        <path d="M 130 185 Q 105 125 95 75 Q 115 105 136 178 Z" fill="#4ade80" stroke="#16a34a" stroke-width="3.5" stroke-linejoin="round"/>
+        <!-- Helai Daun Rumput Kanan Tengah -->
+        <path d="M 150 185 Q 175 125 185 75 Q 165 105 144 178 Z" fill="#4ade80" stroke="#16a34a" stroke-width="3.5" stroke-linejoin="round"/>
+        
+        <!-- Helai Daun Rumput Utama Tengah (Tegak & Gagah) -->
+        <path d="M 132 185 Q 128 115 140 55 Q 152 115 148 185 Z" fill="#86efac" stroke="#15803d" stroke-width="3.5" stroke-linejoin="round"/>
+        <path d="M 140 58 Q 140 125 140 182" stroke="#16a34a" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+
+        <!-- Wajah Ramah Daun Rumput Imut -->
+        <g>
+          <circle cx="132" cy="130" r="4.5" fill="#0f172a"/>
+          <circle cx="130.5" cy="128.5" r="1.5" fill="white"/>
+          <circle cx="148" cy="130" r="4.5" fill="#0f172a"/>
+          <circle cx="146.5" cy="128.5" r="1.5" fill="white"/>
+          <path d="M 136 138 Q 140 144 144 138" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <ellipse cx="124" cy="135" rx="4" ry="2.5" fill="#f472b6" opacity="0.8"/>
+          <ellipse cx="156" cy="135" rx="4" ry="2.5" fill="#f472b6" opacity="0.8"/>
         </g>
-        
-        <!-- Badan Gelas Kaca -->
-        <path d="M 88 55 L 103 172 Q 140 184 177 172 L 192 55" fill="rgba(240, 249, 255, 0.4)" stroke="#0284c7" stroke-width="4" stroke-linecap="round"/>
-        <path d="M 103 172 Q 140 184 177 172 L 175 183 Q 140 193 105 183 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="3"/>
-        <ellipse cx="140" cy="55" rx="52" ry="10" fill="rgba(224, 242, 254, 0.3)" stroke="#0284c7" stroke-width="4"/>
-        <path d="M 97 68 Q 102 110 108 160" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.85"/>
       </g>
 
-      <!-- Kilau Kaca Bersih (anim-twinkle) -->
-      <g class="anim-twinkle"><text x="65" y="65" font-size="16">✨</text></g>
-      <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Gelas di Meja (Luar Kering Bersih)</text>
+      <!-- Semilir Angin Pagi & Daun Melayang (anim-twinkle) -->
+      <g class="anim-twinkle"><text x="60" y="75" font-size="22">🍃</text></g>
+      <g class="anim-twinkle-delay"><text x="205" y="80" font-size="20">✨</text></g>
+      <g class="anim-twinkle"><text x="135" y="40" font-size="18">💨</text></g>
+
+      <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#15803d">Rumput Segar di Taman</text>
     `,
-    // AKTIF: Titik Embun Menetes Turun (anim-drop-slide), Es Batu Terapung, Hawa Dingin
+    // AKTIF: Butiran Embun Air Berkilau di Daun Rumput & Tetesan Air Drip
     successSvg: `
-      <!-- Meja / Coaster dengan Genangan Rembesan Embun -->
-      <ellipse cx="140" cy="192" rx="78" ry="16" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="3"/>
-      <ellipse cx="140" cy="189" rx="52" ry="9" fill="#7dd3fc" opacity="0.5"/>
-      <ellipse cx="178" cy="188" rx="7" ry="3.5" fill="#0284c7" opacity="0.7"/>
-      <ellipse cx="102" cy="189" rx="5" ry="3" fill="#0284c7" opacity="0.7"/>
+      <!-- Tanah Basah Segar Berembun -->
+      <ellipse cx="140" cy="188" rx="88" ry="16" fill="#86efac" stroke="#16a34a" stroke-width="3.5"/>
+      <ellipse cx="140" cy="186" rx="76" ry="11" fill="#7dd3fc" opacity="0.5"/>
+      <!-- Genangan Tetesan Embun di Tanah -->
+      <ellipse cx="108" cy="186" rx="10" ry="4" fill="#38bdf8" opacity="0.8"/>
+      <ellipse cx="170" cy="187" rx="12" ry="4.5" fill="#38bdf8" opacity="0.8"/>
 
-      <!-- Sedotan Belang Cantik -->
-      <path d="M 170 20 L 152 65 L 128 165" stroke="#f43f5e" stroke-width="6.5" stroke-linecap="round" fill="none"/>
-      <path d="M 170 20 L 152 65 L 128 165" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 7" fill="none"/>
+      <!-- RUMPUN DAUN RUMPUT PENUH TITIK EMBUN BERKILAU (anim-cloth-happy) -->
+      <g class="anim-cloth-happy" style="transform-origin: 140px 185px;">
+        <!-- Helai Daun Rumput Kiri Jauh -->
+        <path d="M 125 185 Q 90 145 75 105 Q 92 120 120 178 Z" fill="#22c55e" stroke="#15803d" stroke-width="3" stroke-linejoin="round"/>
+        <!-- Helai Daun Rumput Kanan Jauh -->
+        <path d="M 155 185 Q 190 145 205 105 Q 188 120 160 178 Z" fill="#22c55e" stroke="#15803d" stroke-width="3" stroke-linejoin="round"/>
+        
+        <!-- Helai Daun Rumput Kiri Tengah -->
+        <path d="M 130 185 Q 105 125 95 75 Q 115 105 136 178 Z" fill="#4ade80" stroke="#16a34a" stroke-width="3.5" stroke-linejoin="round"/>
+        <!-- Helai Daun Rumput Kanan Tengah -->
+        <path d="M 150 185 Q 175 125 185 75 Q 165 105 144 178 Z" fill="#4ade80" stroke="#16a34a" stroke-width="3.5" stroke-linejoin="round"/>
+        
+        <!-- Helai Daun Rumput Utama Tengah -->
+        <path d="M 132 185 Q 128 115 140 55 Q 152 115 148 185 Z" fill="#86efac" stroke="#15803d" stroke-width="3.5" stroke-linejoin="round"/>
+        <path d="M 140 58 Q 140 125 140 182" stroke="#16a34a" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
 
-      <!-- Air Dingin Bersalju di Dalam -->
-      <path d="M 94 92 Q 140 100 186 92 L 175 170 Q 140 180 105 170 Z" fill="#38bdf8" opacity="0.85"/>
-      <ellipse cx="140" cy="92" rx="46" ry="8" fill="#bae6fd" opacity="0.9"/>
+        <!-- Wajah Sangat Bahagia Rumput Kena Embun Dingin (Mata ^ ^) -->
+        <g>
+          <path d="M 128 128 Q 132 122 136 128" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M 144 128 Q 148 122 152 128" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M 135 135 Q 140 141 145 135" stroke="#0f172a" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <ellipse cx="123" cy="133" rx="4" ry="2.5" fill="#38bdf8" opacity="0.85"/>
+          <ellipse cx="157" cy="133" rx="4" ry="2.5" fill="#38bdf8" opacity="0.85"/>
+        </g>
 
-      <!-- Es Batu Kubus Terapung Bergerak Halus (anim-float) -->
-      <g class="anim-float">
-        <rect x="110" y="98" width="26" height="26" rx="5" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.5" transform="rotate(-10 123 111)"/>
-        <rect x="144" y="104" width="28" height="28" rx="5" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.5" transform="rotate(15 158 118)"/>
-        <rect x="124" y="128" width="25" height="25" rx="5" fill="#bae6fd" stroke="#0284c7" stroke-width="2.5" transform="rotate(5 136 140)"/>
-      </g>
-
-      <!-- Badan Kaca Dingin Berembun -->
-      <path d="M 88 55 L 103 172 Q 140 184 177 172 L 192 55" fill="rgba(186, 230, 253, 0.55)" stroke="#0284c7" stroke-width="4" stroke-linecap="round"/>
-      <path d="M 103 172 Q 140 184 177 172 L 175 183 Q 140 193 105 183 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="3"/>
-      <ellipse cx="140" cy="55" rx="52" ry="10" fill="rgba(224, 242, 254, 0.4)" stroke="#0284c7" stroke-width="4"/>
-      <path d="M 97 68 Q 102 110 108 160" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.8"/>
-
-      <!-- BUTIRAN EMBUN AIR BERANIMASI MELUNCUR TURUN (anim-drop-slide) -->
-      <g fill="#0284c7" stroke="#ffffff" stroke-width="1.2">
-        <circle cx="112" cy="78" r="4.5"/>
-        <circle cx="166" cy="82" r="5"/>
-        <circle cx="106" cy="108" r="5.5"/>
-        <circle cx="174" cy="112" r="6"/>
-        <circle cx="122" cy="125" r="4.5"/>
-        <circle cx="160" cy="132" r="5"/>
-        <circle cx="138" cy="142" r="5.5"/>
-        <circle cx="116" cy="154" r="5"/>
-        <circle cx="168" cy="158" r="5.5"/>
-        <circle cx="142" cy="166" r="4.5"/>
-        <!-- Alur Tetesan Meluncur Turun -->
-        <g class="anim-drop-slide">
-          <path d="M 128 95 Q 130 115 128 135" stroke="#0284c7" stroke-width="3" stroke-linecap="round" fill="none"/>
-          <ellipse cx="128" cy="137" rx="3.5" ry="5.5" fill="#0284c7"/>
-          <path d="M 152 85 Q 150 110 152 125" stroke="#0284c7" stroke-width="3" stroke-linecap="round" fill="none"/>
-          <ellipse cx="152" cy="127" rx="3.5" ry="5" fill="#0284c7"/>
+        <!-- BUTIRAN-BUTIRAN EMBUN AIR 3D MENEMPEL DI DAUN RUMPUT -->
+        <g fill="#38bdf8" stroke="#0284c7" stroke-width="1.5">
+          <!-- Butir Embun di Puncak Daun Utama -->
+          <circle cx="140" cy="52" r="5.5" fill="#7dd3fc"/>
+          <circle cx="138.5" cy="50.5" r="1.8" fill="white" stroke="none"/>
+          <!-- Butir Embun di Ujung Daun Kiri -->
+          <circle cx="93" cy="74" r="5" fill="#7dd3fc"/>
+          <circle cx="91.5" cy="72.5" r="1.5" fill="white" stroke="none"/>
+          <!-- Butir Embun di Ujung Daun Kanan -->
+          <circle cx="187" cy="74" r="5" fill="#7dd3fc"/>
+          <circle cx="185.5" cy="72.5" r="1.5" fill="white" stroke="none"/>
+          <!-- Butir Embun di Daun Kiri Jauh -->
+          <circle cx="73" cy="104" r="4.5" fill="#7dd3fc"/>
+          <circle cx="71.5" cy="102.5" r="1.5" fill="white" stroke="none"/>
+          <!-- Butir Embun di Daun Kanan Jauh -->
+          <circle cx="207" cy="104" r="4.5" fill="#7dd3fc"/>
+          <circle cx="205.5" cy="102.5" r="1.5" fill="white" stroke="none"/>
+          <!-- Butir Embun di Batang Daun Tengah -->
+          <circle cx="138" cy="95" r="4" fill="#7dd3fc"/>
+          <circle cx="143" cy="115" r="4.5" fill="#7dd3fc"/>
+          <circle cx="137" cy="155" r="4" fill="#7dd3fc"/>
         </g>
       </g>
 
-      <g class="anim-twinkle"><text x="65" y="70" font-size="20">❄️</text></g>
-      <g class="anim-twinkle-delay"><text x="202" y="75" font-size="20">✨</text></g>
-      <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Muncul Banyak Titik Embun Air!</text>
+      <!-- Tetesan Embun Menetes Turun (anim-drip) -->
+      <g class="anim-drip">
+        <circle cx="93" cy="85" r="3" fill="#0284c7"/>
+      </g>
+      <g class="anim-drip-delay">
+        <circle cx="187" cy="85" r="3" fill="#0284c7"/>
+      </g>
+
+      <!-- Butiran Air Embun & Salju Berkedip Gemerlap (anim-twinkle) -->
+      <g class="anim-twinkle"><text x="50" y="65" font-size="22">💧</text></g>
+      <g class="anim-twinkle-delay"><text x="215" y="70" font-size="22">💧</text></g>
+      <g class="anim-twinkle"><text x="135" y="32" font-size="22">❄️</text></g>
+      <g class="anim-twinkle-delay"><text x="180" y="45" font-size="18">✨</text></g>
+
+      <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">Embun Air Basah di Daun Rumput!</text>
     `,
-    // SALAH: Gelas Panas & Kepulan Asap Panas (anim-steam)
+    // SALAH: Rumput Kering Keringat Terbakar Panas
     wrongSvg: `
-      <ellipse cx="140" cy="192" rx="78" ry="16" fill="#fed7aa" stroke="#fdba74" stroke-width="3"/>
-      <path d="M 88 55 L 103 172 Q 140 184 177 172 L 192 55" fill="rgba(254, 215, 170, 0.45)" stroke="#ea580c" stroke-width="4" stroke-linecap="round"/>
-      <ellipse cx="140" cy="55" rx="52" ry="10" fill="rgba(254, 243, 199, 0.5)" stroke="#ea580c" stroke-width="4"/>
+      <!-- Tanah Kering Kekuningan -->
+      <ellipse cx="140" cy="188" rx="88" ry="16" fill="#fef08a" stroke="#ca8a04" stroke-width="3.5"/>
+      <ellipse cx="140" cy="186" rx="76" ry="11" fill="#fef9c3"/>
+
+      <!-- Rumput Layu Kering Kepanasan (anim-shiver) -->
+      <g class="anim-shiver" style="transform-origin: 140px 185px;">
+        <path d="M 125 185 Q 85 155 70 125 Q 92 135 120 178 Z" fill="#facc15" stroke="#b45309" stroke-width="3"/>
+        <path d="M 155 185 Q 195 155 210 125 Q 188 135 160 178 Z" fill="#facc15" stroke="#b45309" stroke-width="3"/>
+        <path d="M 130 185 Q 110 135 105 95 Q 118 115 136 178 Z" fill="#fde047" stroke="#b45309" stroke-width="3.5"/>
+        <path d="M 150 185 Q 170 135 175 95 Q 162 115 144 178 Z" fill="#fde047" stroke="#b45309" stroke-width="3.5"/>
+        <path d="M 132 185 Q 130 125 140 75 Q 150 125 148 185 Z" fill="#fef08a" stroke="#b45309" stroke-width="3.5"/>
+        <circle cx="132" cy="130" r="4.5" fill="#7c2d12"/>
+        <circle cx="148" cy="130" r="4.5" fill="#7c2d12"/>
+        <ellipse cx="140" cy="140" rx="6" ry="4" fill="#7c2d12"/>
+      </g>
+
+      <g class="anim-sun-pulse"><text x="55" y="75" font-size="28">🔥</text></g>
+      <g class="anim-sun-pulse"><text x="205" y="75" font-size="28">☀️</text></g>
       <g class="anim-steam">
-        <path d="M 125 45 Q 115 25 125 8 Q 135 -8 120 -20" stroke="#f97316" stroke-width="3.5" stroke-dasharray="5 4" fill="none"/>
+        <path d="M 125 65 Q 120 45 130 25" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4" fill="none"/>
       </g>
       <g class="anim-steam-delay">
-        <path d="M 155 45 Q 165 25 155 8 Q 145 -8 160 -20" stroke="#f97316" stroke-width="3.5" stroke-dasharray="5 4" fill="none"/>
+        <path d="M 155 65 Q 160 45 150 25" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4" fill="none"/>
       </g>
-      <g class="anim-twinkle"><text x="60" y="85" font-size="28">🔥</text></g>
-      <g class="anim-twinkle-delay"><text x="200" y="85" font-size="28">♨️</text></g>
-      <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">Gelas Kering Panas! (Beri ❄️)</text>
+
+      <text x="140" y="218" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">Rumput Kering! (Butuh Dingin ❄️)</text>
     `
   },
 
@@ -2433,105 +2449,6 @@ viewportScreen.addEventListener('drop', (e) => {
 });
 
 updateLabDisplay();
-
-/* ========================================================
-   TAB 2: KACA PEMBESAR AJAIB (CANVAS BUTIRAN)
-   ======================================================== */
-const pCanvas = document.getElementById('particleCanvas');
-const pCtx = pCanvas.getContext('2d');
-const tempRange = document.getElementById('tempRange');
-
-class LittleDot {
-  constructor(x, y) {
-    this.origX = x;
-    this.origY = y;
-    this.x = x;
-    this.y = y;
-    this.vx = (Math.random() - 0.5) * 2;
-    this.vy = (Math.random() - 0.5) * 2;
-    this.radius = 13;
-  }
-  update(t, w, h) {
-    if (t < 35) {
-      // Padat: Rapat & bergetar
-      const j = (t / 35) * 1.5 + 0.5;
-      this.x = this.origX + (Math.random() - 0.5) * j;
-      this.y = this.origY + (Math.random() - 0.5) * j;
-    } else if (t < 70) {
-      // Cair: Mengalir santai
-      this.x += this.vx * 1.3;
-      this.y += this.vy * 1.3 + 0.3;
-      if (this.x - this.radius < 15 || this.x + this.radius > w - 15) this.vx *= -1;
-      if (this.y - this.radius < h * 0.35) this.vy = Math.abs(this.vy);
-      if (this.y + this.radius > h - 15) {
-        this.y = h - 15 - this.radius;
-        this.vy *= -0.7;
-      }
-    } else {
-      // Gas: Terbang bebas
-      this.x += this.vx * 3.5;
-      this.y += this.vy * 3.5;
-      if (this.x - this.radius < 15 || this.x + this.radius > w - 15) this.vx *= -1;
-      if (this.y - this.radius < 15 || this.y + this.radius > h - 15) this.vy *= -1;
-    }
-  }
-  draw(ctx, t) {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = t < 35 ? '#bae6fd' : (t < 70 ? '#67e8f9' : '#fca5a5');
-    ctx.strokeStyle = t < 35 ? '#0284c7' : (t < 70 ? '#0891b2' : '#dc2626');
-    ctx.lineWidth = 2.5;
-    ctx.fill();
-    ctx.stroke();
-
-    // Wajah tersenyum
-    ctx.fillStyle = '#0f172a';
-    ctx.beginPath();
-    ctx.arc(this.x - 4, this.y - 2, 1.8, 0, Math.PI * 2);
-    ctx.arc(this.x + 4, this.y - 2, 1.8, 0, Math.PI * 2);
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.arc(this.x, this.y + 2, 3.5, 0, Math.PI);
-    ctx.strokeStyle = '#0f172a';
-    ctx.lineWidth = 1.6;
-    ctx.stroke();
-  }
-}
-
-const dots = [];
-for (let r = 0; r < 4; r++) {
-  for (let c = 0; c < 7; c++) {
-    dots.push(new LittleDot(150 + c * 28, 130 + r * 26));
-  }
-}
-
-function updateLensTitle(t) {
-  const icon = document.getElementById('lensIcon');
-  const title = document.getElementById('lensTitle');
-  if (t < 35) {
-    icon.textContent = '🧊';
-    title.textContent = 'Benda Padat (Butiran Pelukan Rapat)';
-  } else if (t < 70) {
-    icon.textContent = '💧';
-    title.textContent = 'Benda Cair (Butiran Berenang Mengalir)';
-  } else {
-    icon.textContent = '💨';
-    title.textContent = 'Benda Gas (Butiran Melompat Terbang Tinggi)';
-  }
-}
-
-function runParticleLoop() {
-  pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
-  const temp = parseInt(tempRange.value, 10);
-  dots.forEach(d => {
-    d.update(temp, pCanvas.width, pCanvas.height);
-    d.draw(pCtx, temp);
-  });
-  requestAnimationFrame(runParticleLoop);
-}
-tempRange.addEventListener('input', () => updateLensTitle(parseInt(tempRange.value, 10)));
-runParticleLoop();
 
 /* ========================================================
    TAB 3: GAME KERANJANG KALOR
