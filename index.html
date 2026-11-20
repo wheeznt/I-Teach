@@ -647,12 +647,15 @@ canvas#particleCanvas {
 .match-arena-box {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(250px, 310px) minmax(250px, 310px);
+  grid-template-columns: minmax(240px, 320px) minmax(240px, 320px);
   justify-content: space-between;
-  gap: 40px;
+  gap: 36px;
   max-width: 820px;
   margin: 14px auto;
   padding: 16px 8px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
 }
 svg#matchSvgOverlay {
   position: absolute;
@@ -690,7 +693,10 @@ svg#matchSvgOverlay {
   cursor: pointer;
   transition: all 0.15s;
   user-select: none;
+  -webkit-user-select: none;
   min-height: 58px;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .match-col#colLeftEvents .match-card {
   padding-right: 24px;
@@ -703,20 +709,33 @@ svg#matchSvgOverlay {
   transform: translateY(-2px);
 }
 .match-card.selected {
-  border-color: #f97316;
-  background: #fff7ed;
-  box-shadow: 0 4px 0 #f97316, 0 0 0 3px rgba(249, 115, 22, 0.25);
+  border-color: #f97316 !important;
+  background: #fff7ed !important;
+  box-shadow: 0 4px 0 #ea580c, 0 0 0 3px rgba(249, 115, 22, 0.4) !important;
+  animation: pulseSelected 1.2s infinite alternate ease-in-out;
+}
+@keyframes pulseSelected {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.02); }
+}
+.match-card.drop-hover {
+  border-color: #0284c7 !important;
+  background: #e0f2fe !important;
+  transform: scale(1.03) !important;
+  box-shadow: 0 4px 0 #0284c7, 0 0 0 3px rgba(2, 132, 199, 0.35) !important;
 }
 .match-card.matched {
-  border-color: #10b981;
-  background: #f0fdf4;
-  color: #166534;
-  box-shadow: 0 3px 0 #86efac;
+  border-color: #10b981 !important;
+  background: #f0fdf4 !important;
+  color: #166534 !important;
+  box-shadow: 0 3px 0 #86efac !important;
   cursor: default;
+  animation: none !important;
+  transform: none !important;
 }
 .pin-dot {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: white;
   border: 4px solid #94a3b8;
@@ -726,18 +745,19 @@ svg#matchSvgOverlay {
   z-index: 15;
   transition: all 0.2s;
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  touch-action: none;
 }
 .pin-dot.left-pin {
-  right: -11px;
+  right: -12px;
   border-color: #f97316;
 }
 .pin-dot.right-pin {
-  left: -11px;
+  left: -12px;
   border-color: #0284c7;
 }
 .match-card.selected .pin-dot {
   background: #f97316;
-  transform: translateY(-50%) scale(1.3);
+  transform: translateY(-50%) scale(1.35);
   box-shadow: 0 0 10px rgba(249, 115, 22, 0.8);
 }
 .match-card.matched .pin-dot {
@@ -746,8 +766,8 @@ svg#matchSvgOverlay {
 }
 .match-card.shake {
   animation: shakeLine 0.4s ease;
-  border-color: #ef4444;
-  background: #fef2f2;
+  border-color: #ef4444 !important;
+  background: #fef2f2 !important;
 }
 @keyframes shakeLine {
   0%, 100% { transform: translateX(0); }
@@ -755,11 +775,22 @@ svg#matchSvgOverlay {
   75% { transform: translateX(8px); }
 }
 
+/* Touch chip & game card mobile optimization */
+.tool-drag-chip {
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.game-card-item {
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 @media(max-width: 768px) {
   .match-arena-box {
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 16px;
     max-width: 100%;
+    padding: 12px 6px;
   }
   .match-col {
     gap: 12px;
@@ -772,11 +803,35 @@ svg#matchSvgOverlay {
 }
 @media(max-width: 520px) {
   .match-arena-box {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr !important; /* TETAP 2 KOLOM BERDAMPINGAN DI HP */
+    gap: 10px;
+    padding: 8px 2px;
+    margin: 8px auto;
   }
-  .pin-dot.left-pin { right: 8px; }
-  .pin-dot.right-pin { left: 8px; }
+  .match-col {
+    gap: 8px;
+  }
+  .match-card {
+    padding: 8px 8px;
+    font-size: 11px;
+    line-height: 1.25;
+    min-height: 48px;
+    border-radius: 12px;
+    border-width: 2.5px;
+  }
+  .match-col#colLeftEvents .match-card {
+    padding-right: 14px;
+  }
+  .match-col#colRightTargets .match-card {
+    padding-left: 14px;
+  }
+  .pin-dot {
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+  }
+  .pin-dot.left-pin { right: -8px; }
+  .pin-dot.right-pin { left: -8px; }
 }
 
 /* HOMESCREEN / HALAMAN DEPAN */
@@ -1211,7 +1266,8 @@ svg#matchSvgOverlay {
       <!-- Game Top Info -->
       <div class="game-top-bar" style="background:#fef9c3;border-color:#fde047;">
         <div style="font-size:14.5px;color:#854d0e;line-height:1.4;">
-          ✏️ <strong>Tantangan Tarik Garis:</strong> Hubungkan peristiwa di sebelah <strong>Kiri</strong> dengan nama wujud yang pas di sebelah <strong>Kanan</strong>! <em>(Tarik garis atau klik 2 kotak)</em>
+          ✏️ <strong>Tantangan Tarik Garis:</strong> Hubungkan peristiwa di <strong>Kiri</strong> dengan nama wujud di <strong>Kanan</strong>!<br>
+          <span style="font-size:12.5px;color:#a16207;font-weight:600;">📱 <em>Di HP/Tablet: Bisa <strong>tarik garis</strong> langsung atau cukup <strong>ketuk kotak kiri lalu ketuk kotak kanan</strong>!</em></span>
         </div>
         <div class="score-pill" id="matchCounter">
           ⭐ Terhubung: 0 / 6
@@ -2194,20 +2250,82 @@ const dragHeat = document.getElementById('dragHeat');
 const dragCold = document.getElementById('dragCold');
 const viewportScreen = document.getElementById('viewportScreen');
 
+let activeTouchGhost = null;
+function createTouchGhost(sourceEl, touch) {
+  removeTouchGhost();
+  const ghost = sourceEl.cloneNode(true);
+  ghost.style.position = 'fixed';
+  ghost.style.pointerEvents = 'none';
+  ghost.style.zIndex = '9999';
+  ghost.style.opacity = '0.88';
+  ghost.style.transform = 'translate(-50%, -50%) scale(1.08)';
+  ghost.style.boxShadow = '0 10px 25px rgba(0,0,0,0.25)';
+  ghost.style.left = touch.clientX + 'px';
+  ghost.style.top = touch.clientY + 'px';
+  document.body.appendChild(ghost);
+  activeTouchGhost = ghost;
+}
+function updateTouchGhost(touch) {
+  if (activeTouchGhost) {
+    activeTouchGhost.style.left = touch.clientX + 'px';
+    activeTouchGhost.style.top = touch.clientY + 'px';
+  }
+}
+function removeTouchGhost() {
+  if (activeTouchGhost) {
+    activeTouchGhost.remove();
+    activeTouchGhost = null;
+  }
+}
+
 [dragHeat, dragCold].forEach(chip => {
+  const toolType = chip.id === 'dragHeat' ? 'heat' : 'cold';
+
+  // Desktop Mouse Drag
   chip.addEventListener('dragstart', (e) => {
     chip.classList.add('dragging');
-    e.dataTransfer.setData('text/plain', chip.id === 'dragHeat' ? 'heat' : 'cold');
+    e.dataTransfer.setData('text/plain', toolType);
   });
   chip.addEventListener('dragend', () => chip.classList.remove('dragging'));
 
-  // Tablet touch
+  // Mobile Click / Tap Fallback (Langsung aktif jika ditap di HP)
+  chip.addEventListener('click', () => {
+    applyTool(toolType);
+  });
+
+  // Mobile Touch Drag
+  let touchStartPos = { x: 0, y: 0 };
+  let touchMoved = false;
+
+  chip.addEventListener('touchstart', (e) => {
+    const t = e.touches[0];
+    touchStartPos = { x: t.clientX, y: t.clientY };
+    touchMoved = false;
+  }, { passive: true });
+
+  chip.addEventListener('touchmove', (e) => {
+    const t = e.touches[0];
+    const dist = Math.hypot(t.clientX - touchStartPos.x, t.clientY - touchStartPos.y);
+    if (dist > 10) {
+      if (!touchMoved) {
+        touchMoved = true;
+        createTouchGhost(chip, t);
+      }
+      if (e.cancelable) e.preventDefault();
+      updateTouchGhost(t);
+    }
+  }, { passive: false });
+
   chip.addEventListener('touchend', (e) => {
+    removeTouchGhost();
     const touch = e.changedTouches[0];
     const rect = viewportScreen.getBoundingClientRect();
-    if (touch.clientX >= rect.left && touch.clientX <= rect.right &&
-        touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
-      applyTool(chip.id === 'dragHeat' ? 'heat' : 'cold');
+    const inViewport = (
+      touch.clientX >= rect.left && touch.clientX <= rect.right &&
+      touch.clientY >= rect.top && touch.clientY <= rect.bottom
+    );
+    if (inViewport || !touchMoved) {
+      applyTool(toolType);
     }
   });
 });
@@ -2377,8 +2495,49 @@ function initBasketGame() {
     });
     cardEl.addEventListener('dragend', () => cardEl.classList.remove('dragging'));
 
-    // Tablet touch drop
+    // Tablet / Mobile touch drop with ghost & prevent scroll
+    let cardTouchStart = { x: 0, y: 0 };
+    let cardMoved = false;
+
+    cardEl.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      cardTouchStart = { x: t.clientX, y: t.clientY };
+      cardMoved = false;
+    }, { passive: true });
+
+    cardEl.addEventListener('touchmove', (e) => {
+      const t = e.touches[0];
+      const dist = Math.hypot(t.clientX - cardTouchStart.x, t.clientY - cardTouchStart.y);
+      if (dist > 12) {
+        if (!cardMoved) {
+          cardMoved = true;
+          createTouchGhost(cardEl, t);
+        }
+        if (e.cancelable) e.preventDefault();
+        updateTouchGhost(t);
+
+        const rH = dropBasketHot.getBoundingClientRect();
+        const rC = dropBasketCold.getBoundingClientRect();
+        if (t.clientX >= rH.left && t.clientX <= rH.right && t.clientY >= rH.top && t.clientY <= rH.bottom) {
+          dropBasketHot.classList.add('over');
+          dropBasketCold.classList.remove('over');
+        } else if (t.clientX >= rC.left && t.clientX <= rC.right && t.clientY >= rC.top && t.clientY <= rC.bottom) {
+          dropBasketCold.classList.add('over');
+          dropBasketHot.classList.remove('over');
+        } else {
+          dropBasketHot.classList.remove('over');
+          dropBasketCold.classList.remove('over');
+        }
+      }
+    }, { passive: false });
+
     cardEl.addEventListener('touchend', (e) => {
+      removeTouchGhost();
+      dropBasketHot.classList.remove('over');
+      dropBasketCold.classList.remove('over');
+
+      if (!cardMoved) return; // Quick tap handled by buttons
+
       const touch = e.changedTouches[0];
       const rH = dropBasketHot.getBoundingClientRect();
       const rC = dropBasketCold.getBoundingClientRect();
@@ -2585,16 +2744,99 @@ function initMatchingGame() {
 }
 
 function attachMatchEvents() {
-  colLeftEvents.querySelectorAll('.match-card').forEach(card => {
+  const leftCards = colLeftEvents.querySelectorAll('.match-card');
+  const rightCards = colRightTargets.querySelectorAll('.match-card');
+
+  // Bersihkan highlight hover di kartu kanan
+  function clearRightHover() {
+    rightCards.forEach(c => c.classList.remove('drop-hover'));
+  }
+
+  // Pilih kartu kiri
+  function selectLeftCard(card) {
+    if (card.classList.contains('matched')) return;
+    leftCards.forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    selectedFromCard = card;
+    if (typeof snd !== 'undefined' && snd.click) snd.click();
+  }
+
+  // Eksekusi koneksi antara kartu kiri dan kanan
+  function tryConnect(leftCard, rightCard) {
+    if (!leftCard || !rightCard) return;
+    if (leftCard.classList.contains('matched') || rightCard.classList.contains('matched')) return;
+
+    const leftId = leftCard.dataset.matchId;
+    const rightId = rightCard.dataset.matchId;
+
+    if (leftId === rightId) {
+      if (typeof snd !== 'undefined' && snd.success) snd.success();
+      const pairInfo = matchPairData.find(x => x.id === leftId);
+      leftCard.classList.remove('selected');
+      leftCard.classList.add('matched');
+      rightCard.classList.add('matched');
+
+      const chk1 = document.createElement('span');
+      chk1.style.cssText = 'color:#10b981;font-weight:900;margin-left:auto;padding-left:4px;';
+      chk1.textContent = '✓';
+      leftCard.appendChild(chk1);
+
+      const chk2 = document.createElement('span');
+      chk2.style.cssText = 'color:#10b981;font-weight:900;margin-left:auto;padding-left:4px;';
+      chk2.textContent = '✓';
+      rightCard.appendChild(chk2);
+
+      connectedMatches.push({
+        id: leftId,
+        fromEl: leftCard,
+        toEl: rightCard,
+        color: pairInfo ? pairInfo.color : '#10b981'
+      });
+
+      redrawConnectedLines();
+      if (matchCounter) matchCounter.textContent = `⭐ Terhubung: ${connectedMatches.length} / 6`;
+
+      if (connectedMatches.length >= 6) {
+        if (typeof launchConfetti === 'function') launchConfetti();
+        if (typeof showWinnerModal === 'function') {
+          showWinnerModal(
+            'Luar Biasa Hebat! 🌟',
+            '100 / 100 ⭐⭐⭐',
+            'Hebat sekali! Semua 6 pasangan perubahan wujud zat berhasil kamu hubungkan dengan tepat!'
+          );
+        }
+      }
+    } else {
+      if (typeof snd !== 'undefined' && snd.wrong) snd.wrong();
+      rightCard.classList.add('shake');
+      setTimeout(() => rightCard.classList.remove('shake'), 450);
+    }
+
+    // Reset drag state
+    activeDragLine.style.display = 'none';
+    isDraggingLine = false;
+    selectedFromCard = null;
+    leftCards.forEach(c => c.classList.remove('selected'));
+    clearRightHover();
+  }
+
+  // Cari kartu kanan di bawah koordinat (X, Y)
+  function getRightCardAtPoint(x, y) {
+    const el = document.elementFromPoint(x, y);
+    if (!el) return null;
+    return el.closest('.match-card[data-side="right"]:not(.matched)');
+  }
+
+  let touchStartPos = { x: 0, y: 0, time: 0 };
+  let touchHasMovedFar = false;
+
+  leftCards.forEach(card => {
     const pin = card.querySelector('.pin-dot');
 
-    const handleStart = (clientX, clientY) => {
+    const startDragAction = (clientX, clientY) => {
       if (card.classList.contains('matched')) return;
-      selectedFromCard = card;
+      selectLeftCard(card);
       isDraggingLine = true;
-
-      colLeftEvents.querySelectorAll('.match-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
 
       const p1 = getPinCenter(pin);
       const arenaRect = matchArena.getBoundingClientRect();
@@ -2605,111 +2847,117 @@ function attachMatchEvents() {
       activeDragLine.style.display = 'block';
     };
 
-    pin.addEventListener('mousedown', (e) => {
-      e.stopPropagation();
-      handleStart(e.clientX, e.clientY);
-    });
+    // MOUSE EVENTS
     card.addEventListener('mousedown', (e) => {
-      handleStart(e.clientX, e.clientY);
+      startDragAction(e.clientX, e.clientY);
     });
 
-    pin.addEventListener('touchstart', (e) => {
+    // TOUCH EVENTS (MOBILE FRIENDLY & NO SCROLL)
+    const onTouchStart = (e) => {
+      if (card.classList.contains('matched')) return;
+      // Jangan biarkan layar scroll saat menyentuh kartu atau pin!
+      if (e.cancelable) e.preventDefault();
       const t = e.touches[0];
-      handleStart(t.clientX, t.clientY);
-    }, { passive: true });
-    card.addEventListener('touchstart', (e) => {
-      const t = e.touches[0];
-      handleStart(t.clientX, t.clientY);
-    }, { passive: true });
+      touchStartPos = { x: t.clientX, y: t.clientY, time: Date.now() };
+      touchHasMovedFar = false;
+      startDragAction(t.clientX, t.clientY);
+    };
+
+    card.addEventListener('touchstart', onTouchStart, { passive: false });
+    if (pin) pin.addEventListener('touchstart', onTouchStart, { passive: false });
+
+    // Click / Tap fallback untuk seleksi kartu kiri
+    card.addEventListener('click', (e) => {
+      e.stopPropagation();
+      selectLeftCard(card);
+    });
   });
 
-  const handleMove = (clientX, clientY) => {
+  // DRAG MOVE (MOUSE & TOUCH)
+  const updateDragLinePos = (clientX, clientY) => {
     if (!isDraggingLine || !selectedFromCard) return;
     const arenaRect = matchArena.getBoundingClientRect();
     const currX = clientX - arenaRect.left;
     const currY = clientY - arenaRect.top;
     activeDragLine.setAttribute('x2', currX);
     activeDragLine.setAttribute('y2', currY);
+
+    // Visual hover feedback pada kartu kanan
+    const hoveredRight = getRightCardAtPoint(clientX, clientY);
+    rightCards.forEach(rc => {
+      if (rc === hoveredRight) rc.classList.add('drop-hover');
+      else rc.classList.remove('drop-hover');
+    });
   };
 
-  window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+  window.addEventListener('mousemove', (e) => {
+    if (isDraggingLine) updateDragLinePos(e.clientX, e.clientY);
+  });
+
   window.addEventListener('touchmove', (e) => {
     if (!isDraggingLine) return;
+    // MENCEGAH SCROLL TOTAL SAAT MENARIK GARIS!
+    if (e.cancelable) e.preventDefault();
     const t = e.touches[0];
-    handleMove(t.clientX, t.clientY);
-  }, { passive: true });
+    const dist = Math.hypot(t.clientX - touchStartPos.x, t.clientY - touchStartPos.y);
+    if (dist > 10) touchHasMovedFar = true;
+    updateDragLinePos(t.clientX, t.clientY);
+  }, { passive: false });
 
-  colRightTargets.querySelectorAll('.match-card').forEach(rightCard => {
-    const checkConnect = () => {
-      if (!selectedFromCard) return;
-      if (rightCard.classList.contains('matched')) return;
-
-      const leftId = selectedFromCard.dataset.matchId;
-      const rightId = rightCard.dataset.matchId;
-
-      if (leftId === rightId) {
-        snd.success();
-        const pairInfo = matchPairData.find(x => x.id === leftId);
-        selectedFromCard.classList.remove('selected');
-        selectedFromCard.classList.add('matched');
-        rightCard.classList.add('matched');
-
-        const chk1 = document.createElement('span');
-        chk1.style.cssText = 'color:#10b981;font-weight:900;margin-left:auto;padding-left:6px;';
-        chk1.textContent = '✓';
-        selectedFromCard.appendChild(chk1);
-
-        const chk2 = document.createElement('span');
-        chk2.style.cssText = 'color:#10b981;font-weight:900;margin-left:auto;padding-left:6px;';
-        chk2.textContent = '✓';
-        rightCard.appendChild(chk2);
-
-        connectedMatches.push({
-          id: leftId,
-          fromEl: selectedFromCard,
-          toEl: rightCard,
-          color: pairInfo ? pairInfo.color : '#10b981'
-        });
-
-        redrawConnectedLines();
-        matchCounter.textContent = `⭐ Terhubung: ${connectedMatches.length} / 6`;
-
-        if (connectedMatches.length >= 6) {
-          launchConfetti();
-          showWinnerModal(
-            'Luar Biasa Hebat! 🌟',
-            '100 / 100 ⭐⭐⭐',
-            'Hebat sekali! Semua 6 pasangan perubahan wujud zat berhasil kamu hubungkan dengan tepat!'
-          );
-        }
-      } else {
-        snd.wrong();
-        rightCard.classList.add('shake');
-        setTimeout(() => rightCard.classList.remove('shake'), 450);
-      }
-
+  // EVENT SELESAI / DROP
+  // 1. Mouse Up di window
+  window.addEventListener('mouseup', (e) => {
+    if (!isDraggingLine) return;
+    const rightCard = getRightCardAtPoint(e.clientX, e.clientY);
+    if (rightCard && selectedFromCard) {
+      tryConnect(selectedFromCard, rightCard);
+    } else {
       activeDragLine.style.display = 'none';
       isDraggingLine = false;
-      selectedFromCard = null;
-      colLeftEvents.querySelectorAll('.match-card').forEach(c => c.classList.remove('selected'));
+      clearRightHover();
+    }
+  });
+
+  // 2. Touch End di window (MOBILE DRAG SELESAI)
+  window.addEventListener('touchend', (e) => {
+    if (!isDraggingLine) return;
+    const t = e.changedTouches[0];
+    const dist = Math.hypot(t.clientX - touchStartPos.x, t.clientY - touchStartPos.y);
+
+    // Jika jari bergerak cukup jauh (DRAG KE KARTU KANAN)
+    if (touchHasMovedFar || dist > 18) {
+      const rightCard = getRightCardAtPoint(t.clientX, t.clientY);
+      if (rightCard && selectedFromCard) {
+        tryConnect(selectedFromCard, rightCard);
+        return;
+      }
+    }
+
+    // Jika hanya TAP singkat di kartu kiri:
+    // Sembunyikan garis tarik, tapi TETAP BIARKAN kartu kiri SELECTED
+    // agar anak SD bisa langsung MENGETUK kartu kanan berikutnya!
+    activeDragLine.style.display = 'none';
+    isDraggingLine = false;
+    clearRightHover();
+  }, { passive: false });
+
+  // EVENT UNTUK KARTU KANAN: CLICK / TAP-TO-CONNECT
+  rightCards.forEach(rightCard => {
+    const handleRightTap = (e) => {
+      if (rightCard.classList.contains('matched')) return;
+      if (selectedFromCard) {
+        if (e.cancelable) e.preventDefault();
+        tryConnect(selectedFromCard, rightCard);
+      }
     };
 
-    rightCard.addEventListener('mouseup', checkConnect);
-    rightCard.addEventListener('click', checkConnect);
-    rightCard.addEventListener('touchend', () => checkConnect());
-  });
-
-  window.addEventListener('mouseup', () => {
-    if (isDraggingLine) {
-      activeDragLine.style.display = 'none';
-      isDraggingLine = false;
-    }
-  });
-  window.addEventListener('touchend', () => {
-    if (isDraggingLine) {
-      activeDragLine.style.display = 'none';
-      isDraggingLine = false;
-    }
+    rightCard.addEventListener('click', handleRightTap);
+    rightCard.addEventListener('touchend', (e) => {
+      if (selectedFromCard && !isDraggingLine) {
+        if (e.cancelable) e.preventDefault();
+        handleRightTap(e);
+      }
+    });
   });
 }
 
